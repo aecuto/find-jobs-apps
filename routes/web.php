@@ -12,10 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome')->with('role','guest');
 });
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::view('/member', 'member.index')->name('member.index');
+
+Route::resource('memberProfiles', 'MemberProfileController');
