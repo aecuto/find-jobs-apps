@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>InfyOm Laravel Generator | Registration Page</title>
+    <title>Registration Page</title>
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -34,11 +34,11 @@
 <body class="hold-transition register-page">
 <div class="register-box">
     <div class="register-logo">
-        <a href="{{ url('/home') }}"><b>InfyOm </b>Generator</a>
+        <a href="{{ url('/home') }}"><b>Jobs </b>Scode</a>
     </div>
 
     <div class="register-box-body">
-        <p class="login-box-msg">Register a new membership</p>
+        <p class="login-box-msg">Register a new member</p>
 
         <form method="post" action="{{ url('/register') }}">
 
@@ -87,6 +87,20 @@
                     </span>
                 @endif
             </div>
+
+            <div class="form-group has-feedback{{ $errors->has('role') ? ' has-error' : '' }}">
+              <select name="role"  class="form-control">
+                <option value="" disabled selected>Select your roles</option>
+                <option value="member">Member</option>
+                <option value="businessman">Businessman</option>
+              </select>
+
+              @if ($errors->has('role'))
+                  <span class="help-block">
+                      <strong>{{ $errors->first('role') }}</strong>
+                  </span>
+              @endif
+          </div>
 
             <div class="row">
                 <div class="col-xs-8">
