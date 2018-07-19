@@ -11,7 +11,6 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
-        {{ Html::style('css/home.css') }}
 
     </head>
     <body>
@@ -31,9 +30,9 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Member Page
-                </div>
+                    <div class="alert alert-primary" role="alert">
+                        This is a primary alert—check it out!
+                    </div>
             </div>
         </div>
     </body>
