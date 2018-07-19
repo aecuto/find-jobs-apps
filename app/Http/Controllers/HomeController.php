@@ -24,18 +24,18 @@ class HomeController extends Controller
     public function index(Request $request)
     {
       if($request->user()->authorizeRoles(['admin'])){
-        return view('home')->with('role', 'admin');
+        return view('home');
       }
 
       if($request->user()->hasRole(['businessman'])){
-        return redirect()->route('member.index');
+        return redirect()->route('businessman.home');
       }
 
       if($request->user()->hasRole(['member'])){
-        return redirect()->route('member.index');
+        return redirect()->route('member.home');
       }
 
-      return view('welcome')->with('role', 'guest');
+      return view('welcome');
       
     }
 }

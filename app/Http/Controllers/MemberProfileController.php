@@ -31,11 +31,15 @@ class MemberProfileController extends AppBaseController
     public function index(Request $request)
     {
 
-        $this->memberProfileRepository->pushCriteria(new RequestCriteria($request));
-        $memberProfiles = $this->memberProfileRepository->all();
+      if(!$request->user()->hasRole(['member'])){
+        return view('welcome');
+      }
 
-        return view('member_profiles.index')
-            ->with('memberProfiles', $memberProfiles);
+      $this->memberProfileRepository->pushCriteria(new RequestCriteria($request));
+      $memberProfiles = $this->memberProfileRepository->all();
+
+      return view('member_profiles.index')
+          ->with('memberProfiles', $memberProfiles);
     }
 
     /**

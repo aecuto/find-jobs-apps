@@ -20,6 +20,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::view('/member', 'member.index')->name('member.index');
+Route::view('/member', 'member_home')->name('member.home');
+Route::view('/bussinessman', 'businessman_home')->name('businessman.home');
+
 
 Route::resource('memberProfiles', 'MemberProfileController');
