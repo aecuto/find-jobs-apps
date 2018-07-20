@@ -1,19 +1,14 @@
 @extends('layouts.member_app')
 
 @section('content')
-    <section class="content-header">
-        <h1>
-            Member Profile
-        </h1>
-    </section>
-    <div class="content">
-        <div class="box box-primary">
-            <div class="box-body">
-                <div class="row" style="padding-left: 20px">
-                    @include('member_profiles.show_fields')
-                    <a href="{!! route('member.home') !!}" class="btn btn-default">Back</a>
-                </div>
-            </div>
-        </div>
+
+  <div class="card bg-pimary">
+    <h5 class="card-header">Resume</h5>
+    <div class="card-body">
+      @include('member_profiles.show_fields')
+      <hr>
+      <a href="{!! route('member.home') !!}" class="btn btn-primary">Back</a>
     </div>
+  </div>
+
 @endsection

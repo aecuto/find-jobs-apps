@@ -9,7 +9,7 @@
     <div class="card-body">
       <div class="row">
         <div class="col-6">
-        <h5 class="card-title">รหัสสมาชิก: {{ Auth::user()->id }} {{ Auth::user()->member_profile->fullname }}</h5>
+        <h5 class="card-title">รหัสสมาชิก: {{ Auth::user()->id }}  {{ Auth::user()->member_profile->fullname }}</h5>
             <h5 class="card-title">Special</h5>
             <h5 class="card-title">Special</h5>
 

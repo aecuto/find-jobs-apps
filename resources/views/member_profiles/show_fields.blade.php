@@ -1,108 +1,61 @@
-<!-- Id Field -->
-<div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
-    <p>{!! $memberProfile->id !!}</p>
-</div>
-<br>
-<!-- Fullname Field -->
-<div class="form-group">
-    {!! Form::label('fullname', 'Fullname:') !!}
-    <p>{!! $memberProfile->fullname !!}</p>
+<div class="row">
+
+    <div class="col-3">
+      <h5>ประเภทงานที่สนใจ : {!! $memberProfile->interested_job !!}</h5>
+    </div>
+    <div class="col-3">
+        <h5>ตำแหน่งงานที่สนใจ: {!! $memberProfile->type_interested_job !!}</h5>
+      </div>
+    <div class="col-3">
+        <h5>ระดับเงินเดือนที่ต้องการ:	{!! $memberProfile->money_need !!}</h5>
+    </div>
+    <div class="col-3">
+        <h5>เวลา:	{!! $memberProfile->work_time !!}</h5>
+    </div>
+</div> 
+
+<hr>
+
+<div class="row">
+
+  <div class="col-12">
+    <div class="row">
+      <div class="col-6 text-left">
+        <h5>รหัสใบสมัคร: {!! $memberProfile->id !!}</h5>
+      </div>
+      <div class="col-6 text-right">
+          <h5>ข้อมูลส่วนตัว</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <h5>ชื่อ-สกุล: {!! $memberProfile->fullname !!}</h5>
+    <h5>เพศ: {!! $memberProfile->gender !!}</h5>
+    <h5>สถานะการสมรส: {!! $memberProfile->status !!}</h5>
+  </div>
+  <div class="col-4">
+      <h5>วัน-เดือน-ปี เกิด: {!! $memberProfile->birthdate !!}</h5>
+      <h5>สัญชาติ: {!! $memberProfile->nationality !!}</h5>
+      <h5>ศาสนา: {!! $memberProfile->religion !!}</h5>
+    </div>
+  <div class="col-4">
+      <h5>ส่วนสูง:	{!! $memberProfile->height !!}</h5>
+      <h5>น้ำหนัก: {!! $memberProfile->weight !!}</h5>
+      <h5>สถานะภาพทางทหาร: {!! $memberProfile->military_status !!}</h5>
+  </div>
 </div>
 
-<!-- Gender Field -->
-<div class="form-group">
-    {!! Form::label('gender', 'Gender:') !!}
-    <p>{!! $memberProfile->gender !!}</p>
+้<hr>
+<div class="row">
+    <div class="col-12 text-right">
+      <h5>ข้อมูลการติดต่อ</h5>
+    </div>
+  
+    <div class="col-6">
+      <h5>เบอร์โทรศัพท์: {!! $memberProfile->fullname !!}</h5>
+    </div>
+    <div class="col-6">
+      <h5>ที่อยู่: {!! $memberProfile->address !!}</h5>
+    </div>
 </div>
-
-<!-- Status Field -->
-<div class="form-group">
-    {!! Form::label('status', 'Status:') !!}
-    <p>{!! $memberProfile->status !!}</p>
-</div>
-
-<!-- Nationality Field -->
-<div class="form-group">
-    {!! Form::label('nationality', 'Nationality:') !!}
-    <p>{!! $memberProfile->nationality !!}</p>
-</div>
-
-<!-- Religion Field -->
-<div class="form-group">
-    {!! Form::label('religion', 'Religion:') !!}
-    <p>{!! $memberProfile->religion !!}</p>
-</div>
-
-<!-- Birthdate Field -->
-<div class="form-group">
-    {!! Form::label('birthdate', 'Birthdate:') !!}
-    <p>{!! $memberProfile->birthdate !!}</p>
-</div>
-
-<!-- Height Field -->
-<div class="form-group">
-    {!! Form::label('height', 'Height:') !!}
-    <p>{!! $memberProfile->height !!}</p>
-</div>
-
-<!-- Weight Field -->
-<div class="form-group">
-    {!! Form::label('weight', 'Weight:') !!}
-    <p>{!! $memberProfile->weight !!}</p>
-</div>
-
-<!-- Military Status Field -->
-<div class="form-group">
-    {!! Form::label('military_status', 'Military Status:') !!}
-    <p>{!! $memberProfile->military_status !!}</p>
-</div>
-
-<!-- Address Field -->
-<div class="form-group">
-    {!! Form::label('address', 'Address:') !!}
-    <p>{!! $memberProfile->address !!}</p>
-</div>
-
-<!-- Phone Field -->
-<div class="form-group">
-    {!! Form::label('phone', 'Phone:') !!}
-    <p>{!! $memberProfile->phone !!}</p>
-</div>
-
-<!-- Interested Job Field -->
-<div class="form-group">
-    {!! Form::label('interested_job', 'Interested Job:') !!}
-    <p>{!! $memberProfile->interested_job !!}</p>
-</div>
-
-<!-- Type Interested Job Field -->
-<div class="form-group">
-    {!! Form::label('type_interested_job', 'Type Interested Job:') !!}
-    <p>{!! $memberProfile->type_interested_job !!}</p>
-</div>
-
-<!-- Money Need Field -->
-<div class="form-group">
-    {!! Form::label('money_need', 'Money Need:') !!}
-    <p>{!! $memberProfile->money_need !!}</p>
-</div>
-
-<!-- Work Time Field -->
-<div class="form-group">
-    {!! Form::label('work_time', 'Work Time:') !!}
-    <p>{!! $memberProfile->work_time !!}</p>
-</div>
-
-<!-- Created At Field -->
-<div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $memberProfile->created_at !!}</p>
-</div>
-
-<!-- Updated At Field -->
-<div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $memberProfile->updated_at !!}</p>
-</div>
-

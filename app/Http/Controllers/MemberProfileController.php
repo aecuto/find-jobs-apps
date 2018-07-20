@@ -106,7 +106,6 @@ class MemberProfileController extends AppBaseController
 
             return redirect(route('member.home'));
         }
-
         return view('member_profiles.edit')->with('memberProfile', $memberProfile);
     }
 
@@ -127,7 +126,6 @@ class MemberProfileController extends AppBaseController
 
             return redirect(route('member.home'));
         }
-
         $memberProfile = $this->memberProfileRepository->update($request->all(), $id);
 
         Flash::success('Member Profile updated successfully.');

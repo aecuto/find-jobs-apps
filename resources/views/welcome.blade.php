@@ -18,7 +18,7 @@
                 <div class="top-right links">
                     @auth
                         @if(Auth::user()->authorizeRoles(['admin']))
-                          <a href="{{ url('/home') }}">Home</a>
+                          <a href="{{ route('admin.home') }}">Admin Management</a>
                         @endif
 
                         @if(Auth::user()->authorizeRoles(['member']))
