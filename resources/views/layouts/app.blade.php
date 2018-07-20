@@ -104,31 +104,6 @@
         </footer>
 
     </div>
-@elseif (Auth::user()->authorizeRoles(['member']))
-  <div class="flex-center position-ref full-height">
-      @if (Route::has('login'))
-          <div class="top-right links">
-              @auth
-                  @if(Auth::user()->authorizeRoles(['admin']))
-                    <a href="{{ url('/home') }}">Home</a>
-                  @endif
-
-                  <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >Logout</a>
-                  <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
-              @else
-                  <a href="{{ route('login') }}">Login</a>
-                  <a href="{{ route('register') }}">Register</a>
-              @endauth
-          </div>
-      @endif
-
-      <div class="content">
-        @yield('content')
-      </div>
-      
-  </div>
 @else
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
