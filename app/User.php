@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Models\MemberProfile;
+
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -30,6 +32,11 @@ class User extends Authenticatable
     public function roles()
     {
       return $this->belongsToMany(Role::class);
+    }
+
+    public function member_profile()
+    {
+      return $this->hasOne(MemberProfile::class, 'user_id');
     }
 
     /**

@@ -1,56 +1,40 @@
 @extends('layouts.member_app')
 
 @section('content')
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Pricing</h1>
-    <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p>
+
+<div class="card">
+    <div class="card-header">
+      Member Infomation
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-6">
+        <h5 class="card-title">รหัสสมาชิก: {{ Auth::user()->id }}</h5>
+            <h5 class="card-title">Special</h5>
+            <h5 class="card-title">Special</h5>
+
+        </div>
+        <div class="col-6">
+          <h5 class="card-title">เป็นสมาชิกเมื่อ:  {{ Auth::user()->created_at }}</h5>
+          <h5 class="card-title">อัพเดทใบสมัครงานล่าสุดเมื่อ:  {{ Auth::user()->updated_at }}</h5>
+          <h5 class="card-title">Special</h5>
+        </div>
+      </div>
+    </div>
 </div>
 
-<div class="card-deck mb-3 text-center">
-    <div class="card mb-4 box-shadow">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Free</h4>
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>10 users included</li>
-          <li>2 GB of storage</li>
-          <li>Email support</li>
-          <li>Help center access</li>
-        </ul>
-        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
-      </div>
-    </div>
-    <div class="card mb-4 box-shadow">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Pro</h4>
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>20 users included</li>
-          <li>10 GB of storage</li>
-          <li>Priority email support</li>
-          <li>Help center access</li>
-        </ul>
-        <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
-      </div>
-    </div>
-    <div class="card mb-4 box-shadow">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Enterprise</h4>
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>30 users included</li>
-          <li>15 GB of storage</li>
-          <li>Phone and email support</li>
-          <li>Help center access</li>
-        </ul>
-        <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
-      </div>
+<br>
+<hr>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">เมนูการใช้งานต่างๆ</h5>
+    <div class="btn-group lg" role="group" aria-label="Basic example">
+        <a class="btn btn-secondary" href="{!! route('memberProfiles.show', [Auth::user()->member_profile->id]) !!}" role="button">ดูใบสมัครงานของคุณ</a>
+        <a class="btn btn-secondary" href="{!! route('memberProfiles.edit', [Auth::user()->member_profile->id]) !!}" role="button">แก้ไขใบสมัครงาน</a>
+        <button type="button" class="btn btn-secondary">สมัครงาน ออนไลน์</button>
+        <a class="btn btn-secondary" href="#" role="button">ลบใบสมัครงาน</a>
     </div>
   </div>
+</div>
 @endsection

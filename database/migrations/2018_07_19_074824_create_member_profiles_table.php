@@ -15,23 +15,26 @@ class CreateMemberProfilesTable extends Migration
     {
         Schema::create('member_profiles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('fullname');
-            $table->string('gender');
-            $table->string('status');
-            $table->string('nationality');
-            $table->string('religion');
-            $table->date('birthdate');
-            $table->integer('height');
-            $table->integer('weight');
-            $table->string('military_status');
-            $table->text('address');
-            $table->string('phone');
-            $table->string('interested_job');
-            $table->string('type_interested_job');
-            $table->string('money_need');
-            $table->string('work_time');
+            $table->string('fullname')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('status')->nullable();
+            $table->string('nationality')->nullable();
+            $table->string('religion')->nullable();
+            $table->date('birthdate')->nullable();
+            $table->integer('height')->nullable();
+            $table->integer('weight')->nullable();
+            $table->string('military_status')->nullable();
+            $table->text('address')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('interested_job')->nullable();
+            $table->string('type_interested_job')->nullable();
+            $table->string('money_need')->nullable();
+            $table->string('work_time')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

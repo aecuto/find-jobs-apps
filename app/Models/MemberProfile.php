@@ -28,6 +28,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class MemberProfile extends Model
 {
+  public function user()
+  {
+    return $this->belongsTo(User::class);
+  }
+
     use SoftDeletes;
 
     public $table = 'member_profiles';

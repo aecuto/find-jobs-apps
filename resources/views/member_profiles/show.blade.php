@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('member_profiles.show_fields')
-                    <a href="{!! route('memberProfiles.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('member.home') !!}" class="btn btn-default">Back</a>
                 </div>
             </div>
         </div>

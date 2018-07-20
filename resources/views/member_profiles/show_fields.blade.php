@@ -3,7 +3,7 @@
     {!! Form::label('id', 'Id:') !!}
     <p>{!! $memberProfile->id !!}</p>
 </div>
-
+<br>
 <!-- Fullname Field -->
 <div class="form-group">
     {!! Form::label('fullname', 'Fullname:') !!}
