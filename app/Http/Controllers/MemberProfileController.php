@@ -67,7 +67,7 @@ class MemberProfileController extends AppBaseController
 
         Flash::success('Member Profile saved successfully.');
 
-        return redirect(route('memberProfiles.index'));
+        return redirect(route('member.home'));
     }
 
     /**
@@ -84,7 +84,7 @@ class MemberProfileController extends AppBaseController
         if (empty($memberProfile)) {
             Flash::error('Member Profile not found');
 
-            return redirect(route('memberProfiles.index'));
+            return redirect(route('member.home'));
         }
 
         return view('member_profiles.show')->with('memberProfile', $memberProfile);
@@ -104,7 +104,7 @@ class MemberProfileController extends AppBaseController
         if (empty($memberProfile)) {
             Flash::error('Member Profile not found');
 
-            return redirect(route('memberProfiles.index'));
+            return redirect(route('member.home'));
         }
 
         return view('member_profiles.edit')->with('memberProfile', $memberProfile);
@@ -125,14 +125,14 @@ class MemberProfileController extends AppBaseController
         if (empty($memberProfile)) {
             Flash::error('Member Profile not found');
 
-            return redirect(route('memberProfiles.index'));
+            return redirect(route('member.home'));
         }
 
         $memberProfile = $this->memberProfileRepository->update($request->all(), $id);
 
         Flash::success('Member Profile updated successfully.');
 
-        return redirect(route('memberProfiles.index'));
+        return redirect(route('member.home'));
     }
 
     /**
@@ -149,13 +149,13 @@ class MemberProfileController extends AppBaseController
         if (empty($memberProfile)) {
             Flash::error('Member Profile not found');
 
-            return redirect(route('memberProfiles.index'));
+            return redirect(route('member.home'));
         }
 
         $this->memberProfileRepository->delete($id);
 
         Flash::success('Member Profile deleted successfully.');
 
-        return redirect(route('memberProfiles.index'));
+        return redirect(route('member.home'));
     }
 }

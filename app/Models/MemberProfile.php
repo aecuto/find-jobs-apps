@@ -88,17 +88,6 @@ class MemberProfile extends Model
      * @var array
      */
     public static $rules = [
-        'fullname' => 'required',
-        'gender' => 'required',
-        'status' => 'required',
-        'nationality' => 'required',
-        'religion' => 'required',
-        'birthdate' => 'required',
-        'address' => 'required',
-        'phone' => 'required',
-        'interested_job' => 'required',
-        'money_need' => 'required',
-        'work_time' => 'required'
     ];
 
     

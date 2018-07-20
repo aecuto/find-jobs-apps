@@ -1,6 +1,9 @@
 @extends('layouts.member_app')
 
 @section('content')
+
+<form>
+
     <section class="content-header">
         <h1>
             Member Profile
@@ -10,13 +13,11 @@
        @include('adminlte-templates::common.errors')
        <div class="box box-primary">
            <div class="box-body">
-               <div class="row">
                    {!! Form::model($memberProfile, ['route' => ['memberProfiles.update', $memberProfile->id], 'method' => 'patch']) !!}
 
                         @include('member_profiles.fields')
 
                    {!! Form::close() !!}
-               </div>
            </div>
        </div>
    </div>
