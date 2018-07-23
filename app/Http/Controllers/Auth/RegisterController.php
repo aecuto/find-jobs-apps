@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Role;
 use App\Models\MemberProfile;
+use App\Models\company;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -74,9 +75,16 @@ class RegisterController extends Controller
       $user->save();
       $user->roles()->attach(Role::where('name', $data['role'])->first());
       
-      $user_profile = new MemberProfile;
-      $user_profile->user_id = $user->id;
-      $user_profile->save();
+      if($data['role']=='member'){
+        $user_profile = new MemberProfile;
+        $user_profile->user_id = $user->id;
+        $user_profile->save();
+      }elseif($data['role']=='manager'){
+        $company = new company;
+        $company->user_id = $user->id;
+        $company->save();
+      }
+
 
       return $user;
     }

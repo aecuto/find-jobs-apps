@@ -77,7 +77,7 @@ class company extends Model
      * @var array
      */
     public static $rules = [
-        'companyname' => 'reqired',
+        'companyname' => 'required',
         'details' => 'required',
         'start_year' => 'required',
         'worker_count' => 'required',

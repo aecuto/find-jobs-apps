@@ -43,7 +43,6 @@ class JobPosition extends Model
         'salary',
         'experience',
         'map',
-        'user_id'
     ];
 
     /**
@@ -60,7 +59,6 @@ class JobPosition extends Model
         'salary' => 'string',
         'experience' => 'string',
         'map' => 'string',
-        'user_id' => 'integer'
     ];
 
     /**

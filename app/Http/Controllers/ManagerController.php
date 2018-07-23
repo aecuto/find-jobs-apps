@@ -33,8 +33,8 @@ class ManagerController extends Controller
         return view('welcome');
       }
 
-      $user_id = Auth::user()->id;
-      $jobs = JobPosition::where('user_id', $user_id)->get();
+      $company_id = Auth::user()->id;
+      $jobs = JobPosition::where('company_id', $company_id)->get();
 
       return view('manager_home')->with('jobPositions', $jobs);
       

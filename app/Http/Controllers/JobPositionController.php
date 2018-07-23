@@ -57,9 +57,8 @@ class JobPositionController extends AppBaseController
     public function store(CreateJobPositionRequest $request)
     {
         $input = $request->all();
-        $user_id = Auth::user()->id;
 
-        $jobPosition = $this->jobPositionRepository->create($input + [ 'user_id' => $user_id ]);
+        $jobPosition = $this->jobPositionRepository->create($input);
 
         Flash::success('Job Position saved successfully.');
 
