@@ -21,6 +21,10 @@
                           <a href="{{ route('admin.home') }}">Admin Management</a>
                         @endif
 
+                        @if(Auth::user()->authorizeRoles(['manager']))
+                          <a href="{{ route('manager.home') }}">Job Management</a>
+                        @endif
+
                         @if(Auth::user()->authorizeRoles(['member']))
                           <a href="{{ route('member.home') }}">Member Profile</a>
                         @endif

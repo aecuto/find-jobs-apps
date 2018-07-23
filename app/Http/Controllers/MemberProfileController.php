@@ -19,6 +19,7 @@ class MemberProfileController extends AppBaseController
 
     public function __construct(MemberProfileRepository $memberProfileRepo)
     {
+      $this->middleware('auth');
       $this->memberProfileRepository = $memberProfileRepo;
     }
 
@@ -49,6 +50,10 @@ class MemberProfileController extends AppBaseController
      */
     public function create()
     {
+      if(!$request->user()->hasRole(['member'])){
+        return view('welcome');
+      }
+
         return view('member_profiles.create');
     }
 
@@ -79,6 +84,10 @@ class MemberProfileController extends AppBaseController
      */
     public function show($id)
     {
+      if(!$request->user()->hasRole(['member'])){
+        return view('welcome');
+      }
+
         $memberProfile = $this->memberProfileRepository->findWithoutFail($id);
 
         if (empty($memberProfile)) {
@@ -99,6 +108,10 @@ class MemberProfileController extends AppBaseController
      */
     public function edit($id)
     {
+      if(!$request->user()->hasRole(['member'])){
+        return view('welcome');
+      }
+      
         $memberProfile = $this->memberProfileRepository->findWithoutFail($id);
 
         if (empty($memberProfile)) {

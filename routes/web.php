@@ -19,9 +19,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin.home');
-
-Route::view('/member', 'member_home')->name('member.home');
-Route::view('/bussinessman', 'businessman_home')->name('businessman.home');
-
+Route::get('/member', 'MemberController@index')->name('member.home');
+Route::get('/manager', 'ManagerController@index')->name('manager.home');
 
 Route::resource('memberProfiles', 'MemberProfileController');
+
+Route::resource('jobPositions', 'JobPositionController');
