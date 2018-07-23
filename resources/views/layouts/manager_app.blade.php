@@ -15,7 +15,7 @@
     <h5 class="my-0 mr-md-auto font-weight-normal">Jobs TH</h5>
     <nav class="my-2 my-md-0 mr-md-3">
       <a class="p-2 text-dark" href="/">Home</a>
-      <a class="p-2 text-dark" href="/member">Member Profile</a>
+      <a class="p-2 text-dark" href="{!! route('jobPositions.create') !!}">เพิ่มตำแหน่งงานว่าง</a>
     </nav>
     @if (Route::has('login'))
       @auth
@@ -69,15 +69,6 @@
       </div>
     </footer>
   </div>
-
-
-  <script>
-    Holder.addTheme('thumb', {
-      bg: '#55595c',
-      fg: '#eceeef',
-      text: 'Thumbnail'
-    });
-  </script>
 
 </body>
 </html>

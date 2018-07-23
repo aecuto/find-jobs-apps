@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.manager_app')
 
 @section('content')
     <section class="content-header">
@@ -8,17 +8,11 @@
     </section>
     <div class="content">
         @include('adminlte-templates::common.errors')
-        <div class="box box-primary">
 
-            <div class="box-body">
-                <div class="row">
-                    {!! Form::open(['route' => 'jobPositions.store']) !!}
+        {!! Form::open(['route' => 'jobPositions.store']) !!}
 
-                        @include('job_positions.fields')
+            @include('job_positions.fields')
 
-                    {!! Form::close() !!}
-                </div>
-            </div>
-        </div>
+        {!! Form::close() !!}
     </div>
 @endsection

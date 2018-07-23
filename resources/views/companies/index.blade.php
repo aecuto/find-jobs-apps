@@ -1,11 +1,10 @@
-@extends('layouts.manager_app')
-
+@extends('layouts.app')
 
 @section('content')
     <section class="content-header">
-        <h1 class="pull-left">Job Positions</h1>
+        <h1 class="pull-left">Companies</h1>
         <h1 class="pull-right">
-           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('jobPositions.create') !!}">Add New</a>
+           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('companies.create') !!}">Add New</a>
         </h1>
     </section>
     <div class="content">
@@ -16,7 +15,7 @@
         <div class="clearfix"></div>
         <div class="box box-primary">
             <div class="box-body">
-                    @include('job_positions.table')
+                    @include('companies.table')
             </div>
         </div>
         <div class="text-center">

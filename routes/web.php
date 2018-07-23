@@ -22,6 +22,10 @@ Route::get('/admin', 'AdminController@index')->name('admin.home');
 Route::get('/member', 'MemberController@index')->name('member.home');
 Route::get('/manager', 'ManagerController@index')->name('manager.home');
 
-Route::resource('memberProfiles', 'MemberProfileController');
+//SEARCH JOB
+Route::get('/search_job', 'SearchController@search_job')->name('search.job');
 
+Route::resource('memberProfiles', 'MemberProfileController');
 Route::resource('jobPositions', 'JobPositionController');
+
+Route::resource('companies', 'companyController');

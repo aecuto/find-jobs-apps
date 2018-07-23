@@ -1,10 +1,9 @@
-@extends('layouts.manager_app')
-
+@extends('layouts.app')
 
 @section('content')
     <section class="content-header">
         <h1>
-            Job Position
+            Company
         </h1>
    </section>
    <div class="content">
@@ -12,9 +11,9 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($jobPosition, ['route' => ['jobPositions.update', $jobPosition->id], 'method' => 'patch']) !!}
+                   {!! Form::model($company, ['route' => ['companies.update', $company->id], 'method' => 'patch']) !!}
 
-                        @include('job_positions.fields')
+                        @include('companies.fields')
 
                    {!! Form::close() !!}
                </div>

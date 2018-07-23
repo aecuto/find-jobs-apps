@@ -16,6 +16,7 @@
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
+                    <a href="{{ route('search.job') }}" >Search Job</a>
                     @auth
                         @if(Auth::user()->authorizeRoles(['admin']))
                           <a href="{{ route('admin.home') }}">Admin Management</a>

@@ -48,7 +48,7 @@ class MemberProfileController extends AppBaseController
      *
      * @return Response
      */
-    public function create()
+    public function create(Request $request)
     {
       if(!$request->user()->hasRole(['member'])){
         return view('welcome');
@@ -82,7 +82,7 @@ class MemberProfileController extends AppBaseController
      *
      * @return Response
      */
-    public function show($id)
+    public function show($id,Request $request)
     {
       if(!$request->user()->hasRole(['member'])){
         return view('welcome');
@@ -106,7 +106,7 @@ class MemberProfileController extends AppBaseController
      *
      * @return Response
      */
-    public function edit($id)
+    public function edit($id,Request $request)
     {
       if(!$request->user()->hasRole(['member'])){
         return view('welcome');

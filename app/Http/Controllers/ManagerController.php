@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
+
+use App\Models\JobPosition;
+
+
 class ManagerController extends Controller
 {
     /**
@@ -28,7 +33,10 @@ class ManagerController extends Controller
         return view('welcome');
       }
 
-      return view('manager_home');
+      $user_id = Auth::user()->id;
+      $jobs = JobPosition::where('user_id', $user_id)->get();
+
+      return view('manager_home')->with('jobPositions', $jobs);
       
     }
 }

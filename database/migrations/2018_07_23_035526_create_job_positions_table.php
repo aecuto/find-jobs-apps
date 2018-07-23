@@ -15,14 +15,14 @@ class CreateJobPositionsTable extends Migration
     {
         Schema::create('job_positions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('jobname');
-            $table->string('companyname');
+            $table->string('jobname')->nullable();
+            $table->string('companyname')->nullable();
             $table->string('job');
-            $table->string('certificate');
-            $table->string('country');
-            $table->integer('salary');
-            $table->string('experience');
-            $table->string('map');
+            $table->string('certificate')->nullable();
+            $table->string('country')->nullable();
+            $table->string('salary')->nullable();
+            $table->string('experience')->nullable();
+            $table->string('map')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

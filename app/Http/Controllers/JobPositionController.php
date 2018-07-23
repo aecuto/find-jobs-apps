@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Auth;
 
 class JobPositionController extends AppBaseController
 {
@@ -56,12 +57,13 @@ class JobPositionController extends AppBaseController
     public function store(CreateJobPositionRequest $request)
     {
         $input = $request->all();
+        $user_id = Auth::user()->id;
 
-        $jobPosition = $this->jobPositionRepository->create($input);
+        $jobPosition = $this->jobPositionRepository->create($input + [ 'user_id' => $user_id ]);
 
         Flash::success('Job Position saved successfully.');
 
-        return redirect(route('jobPositions.index'));
+        return redirect(route('manager.home'));
     }
 
     /**
@@ -78,7 +80,7 @@ class JobPositionController extends AppBaseController
         if (empty($jobPosition)) {
             Flash::error('Job Position not found');
 
-            return redirect(route('jobPositions.index'));
+            return redirect(route('manager.home'));
         }
 
         return view('job_positions.show')->with('jobPosition', $jobPosition);
@@ -98,7 +100,7 @@ class JobPositionController extends AppBaseController
         if (empty($jobPosition)) {
             Flash::error('Job Position not found');
 
-            return redirect(route('jobPositions.index'));
+            return redirect(route('manager.home'));
         }
 
         return view('job_positions.edit')->with('jobPosition', $jobPosition);
@@ -119,14 +121,14 @@ class JobPositionController extends AppBaseController
         if (empty($jobPosition)) {
             Flash::error('Job Position not found');
 
-            return redirect(route('jobPositions.index'));
+            return redirect(route('manager.home'));
         }
 
         $jobPosition = $this->jobPositionRepository->update($request->all(), $id);
 
         Flash::success('Job Position updated successfully.');
 
-        return redirect(route('jobPositions.index'));
+        return redirect(route('manager.home'));
     }
 
     /**
@@ -143,13 +145,13 @@ class JobPositionController extends AppBaseController
         if (empty($jobPosition)) {
             Flash::error('Job Position not found');
 
-            return redirect(route('jobPositions.index'));
+            return redirect(route('manager.home'));
         }
 
         $this->jobPositionRepository->delete($id);
 
         Flash::success('Job Position deleted successfully.');
 
-        return redirect(route('jobPositions.index'));
+        return redirect(route('manager.home'));
     }
 }

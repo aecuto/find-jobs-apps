@@ -1,8 +1,10 @@
 @extends('layouts.member_app')
 
 @section('content')
+@include('flash::message')
 
 <div class="card">
+
     <div class="card-header">
       Member Infomation
     </div>
@@ -32,7 +34,8 @@
     <div class="btn-group lg" role="group" aria-label="Basic example">
         <a class="btn btn-secondary" href="{!! route('memberProfiles.show', [Auth::user()->member_profile->id]) !!}" role="button">ดูใบสมัครงานของคุณ</a>
         <a class="btn btn-secondary" href="{!! route('memberProfiles.edit', [Auth::user()->member_profile->id]) !!}" role="button">แก้ไขใบสมัครงาน</a>
-        <button type="button" class="btn btn-secondary">สมัครงาน ออนไลน์</button>
+        <a class="btn btn-secondary" href="{!! route('memberProfiles.edit', [Auth::user()->member_profile->id]) !!}" role="button">แก้ไขใบสมัครงาน</a>
+        <a class="btn btn-secondary" href="{!! route('search.job') !!}" role="button">สมัครงานออนไลน์</a>
         <a class="btn btn-secondary" href="#" role="button">ลบใบสมัครงาน</a>
     </div>
   </div>

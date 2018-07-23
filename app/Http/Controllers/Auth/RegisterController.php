@@ -73,6 +73,7 @@ class RegisterController extends Controller
       $user->password = bcrypt($data['password']);
       $user->save();
       $user->roles()->attach(Role::where('name', $data['role'])->first());
+      
       $user_profile = new MemberProfile;
       $user_profile->user_id = $user->id;
       $user_profile->save();
