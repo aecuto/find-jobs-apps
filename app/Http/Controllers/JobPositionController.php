@@ -10,7 +10,9 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+
 use Auth;
+use App\Models\company;
 
 class JobPositionController extends AppBaseController
 {
@@ -58,7 +60,9 @@ class JobPositionController extends AppBaseController
     {
         $input = $request->all();
 
-        $jobPosition = $this->jobPositionRepository->create($input);
+        $company_id = company::where('user_id', Auth::user()->id)->first()->id;
+
+        $jobPosition = $this->jobPositionRepository->create($input + [ 'company_id' => $company_id ]);
 
         Flash::success('Job Position saved successfully.');
 

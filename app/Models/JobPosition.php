@@ -43,6 +43,7 @@ class JobPosition extends Model
         'salary',
         'experience',
         'map',
+        'company_id'
     ];
 
     /**

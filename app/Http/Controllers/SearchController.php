@@ -24,7 +24,15 @@ class SearchController extends Controller
      */
     public function search_job(Request $request)
     {
+
       $jobs = JobPosition::where('job', $request->job)->get();
-      return view('search.search_job')->with('jobResult', $jobs);
+
+      if(!$jobs->isEmpty()){
+        return view('search.search_job')->with('jobResult', $jobs);
+      }
+
+      $job_all = JobPosition::all();
+      return view('search.search_job')->with('jobResult', $job_all);
+
     }
 }

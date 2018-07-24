@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\User;
 use App\Role;
 use App\Models\MemberProfile;
+use App\Models\company;
 
 class UserTableSeeder extends Seeder
 {
@@ -34,6 +35,9 @@ class UserTableSeeder extends Seeder
       $manager->password = bcrypt('password');
       $manager->save();
       $manager->roles()->attach($role_manager);
+      $company = new company;
+      $company->user_id = $manager->id;
+      $company->save();
 
       $admin = new User();
       $admin->name = 'admin name';
