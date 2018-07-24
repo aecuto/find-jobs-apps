@@ -36,6 +36,7 @@ class UserTableSeeder extends Seeder
       $manager->save();
       $manager->roles()->attach($role_manager);
       $company = new company;
+      $company->companyname = 'scode';
       $company->user_id = $manager->id;
       $company->save();
 

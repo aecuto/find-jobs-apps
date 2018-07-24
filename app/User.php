@@ -4,6 +4,7 @@ namespace App;
 
 use App\Models\MemberProfile;
 use App\Models\JobPosition;
+use App\Models\company;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -40,9 +41,9 @@ class User extends Authenticatable
       return $this->hasOne(MemberProfile::class);
     }
 
-    public function job_positions()
+    public function company()
     {
-      return $this->hasMany(JobPosition::class);
+      return $this->hasOne(company::class);
     }
 
     /**

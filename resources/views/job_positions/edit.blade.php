@@ -12,9 +12,7 @@
            <div class="box-body">
                <div class="row">
                    {!! Form::model($jobPosition, ['route' => ['jobPositions.update', $jobPosition->id], 'method' => 'patch']) !!}
-
                         @include('job_positions.fields')
-
                    {!! Form::close() !!}
                </div>
            </div>

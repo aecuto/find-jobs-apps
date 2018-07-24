@@ -26,6 +26,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class company extends Model
 {
+  public function user()
+  {
+    return $this->belongsTo(User::class);
+  }
+
+  public function job_position()
+  {
+    return $this->hasMany(JobPosition::class);
+  }
+
     use SoftDeletes;
 
     public $table = 'companies';
@@ -47,7 +57,8 @@ class company extends Model
         'email',
         'website',
         'fullname_contact',
-        'position_context'
+        'position_contact',
+        'map_position'
     ];
 
     /**
@@ -68,7 +79,8 @@ class company extends Model
         'email' => 'string',
         'website' => 'string',
         'fullname_contact' => 'string',
-        'position_context' => 'string'
+        'position_contact' => 'string',
+        'map_position' => 'string'
     ];
 
     /**
@@ -85,7 +97,7 @@ class company extends Model
         'country' => 'required',
         'phone' => 'required',
         'fullname_contact' => 'required',
-        'position_context' => 'required'
+        'position_contact' => 'required'
     ];
 
     

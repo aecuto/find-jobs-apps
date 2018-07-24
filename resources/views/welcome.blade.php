@@ -32,8 +32,8 @@
               {{ csrf_field() }}
           </form>
         @else
-            <a href="{{ route('login') }}">Login</a>
-            <a href="{{ route('register') }}">Register</a>
+            <a class="btn btn-outline-primary" href="{{ route('login') }}">Login</a>
+            <a class="btn btn-outline-secondary" href="{{ route('register') }}">Register</a>
         @endauth
     @endif
   </nav>

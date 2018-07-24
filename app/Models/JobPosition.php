@@ -21,9 +21,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class JobPosition extends Model
 {
-  public function user()
+  public function company()
   {
-    return $this->belongsTo(User::class);
+    return $this->belongsTo(company::class);
   }
   
     use SoftDeletes;
@@ -36,13 +36,11 @@ class JobPosition extends Model
 
     public $fillable = [
         'jobname',
-        'companyname',
         'job',
         'certificate',
         'country',
         'salary',
         'experience',
-        'map',
         'company_id'
     ];
 
@@ -53,13 +51,11 @@ class JobPosition extends Model
      */
     protected $casts = [
         'jobname' => 'string',
-        'companyname' => 'string',
         'job' => 'string',
         'certificate' => 'string',
         'country' => 'string',
         'salary' => 'string',
         'experience' => 'string',
-        'map' => 'string',
     ];
 
     /**
@@ -68,7 +64,9 @@ class JobPosition extends Model
      * @var array
      */
     public static $rules = [
-        'job' => 'required'
+        'jobname' => 'required',
+        'job' => 'required',
+        'country' => 'required',
     ];
     
 }

@@ -9,6 +9,7 @@
     <h5 class="my-0 mr-md-auto font-weight-normal">Jobs TH</h5>
     <nav class="my-2 my-md-0 mr-md-3">
       <a class="p-2 text-dark" href="/">Home</a>
+      <a class="p-2 text-dark" href="{!! route('companies.index') !!}">ข้อมูลบริษัท</a>
       <a class="p-2 text-dark" href="{!! route('jobPositions.create') !!}">เพิ่มตำแหน่งงานว่าง</a>
     </nav>
     @if (Route::has('login'))
@@ -23,9 +24,9 @@
 @endsection
 
 @section('content')
-@include('flash::message')
-
 <div class="container">
+
+  @include('flash::message')
 
   @yield('manager_content')
 

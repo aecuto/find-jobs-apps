@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Auth;
+
+use App\Models\company;
 
 class companyController extends AppBaseController
 {
@@ -29,11 +32,10 @@ class companyController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->companyRepository->pushCriteria(new RequestCriteria($request));
-        $companies = $this->companyRepository->all();
+        $company = company::where('user_id', Auth::user()->id)->first();
 
         return view('companies.index')
-            ->with('companies', $companies);
+            ->with('company', $company);
     }
 
     /**

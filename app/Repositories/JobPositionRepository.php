@@ -21,13 +21,11 @@ class JobPositionRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'jobname',
-        'companyname',
         'job',
         'certificate',
         'country',
         'salary',
         'experience',
-        'map'
     ];
 
     /**

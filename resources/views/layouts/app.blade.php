@@ -14,7 +14,7 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
-    
+
     @yield('title')
 
   </head>

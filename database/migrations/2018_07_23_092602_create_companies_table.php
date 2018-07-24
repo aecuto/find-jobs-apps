@@ -27,7 +27,8 @@ class CreatecompaniesTable extends Migration
             $table->string('email')->nullable();
             $table->string('website')->nullable();
             $table->string('fullname_contact')->nullable();
-            $table->string('position_context')->nullable();
+            $table->string('position_contact')->nullable();
+            $table->string('map_position')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

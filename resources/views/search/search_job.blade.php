@@ -74,7 +74,7 @@
             @foreach($jobResult as $job)
                 <tr>
                     <td>{!! $job->jobname !!}</td>
-                    <td>{!! $job->companyname !!}</td>
+                    <td>{!! $job->company->companyname !!}</td>
                     <td>{!! $job->job !!}</td>
                     <td>{!! $job->certificate !!}</td>
                     <td>{!! $job->country !!}</td>

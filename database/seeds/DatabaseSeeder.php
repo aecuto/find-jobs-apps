@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
     	foreach (range(1,30) as $index) {
 	        DB::table('job_positions')->insert([
 	            'jobname' => $faker->jobTitle,
-              'companyname' => $faker->company,
               'job' => $job[$index%3],
 	            'company_id' => 1,
               

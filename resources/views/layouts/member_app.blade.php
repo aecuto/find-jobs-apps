@@ -25,6 +25,8 @@
 @section('content')
   <div class="container">
 
+    @include('flash::message')
+
     @yield('member_content')
 
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
@@ -64,15 +66,7 @@
         </div>
       </div>
     </footer>
+    
   </div>
-
-
-  <script>
-    Holder.addTheme('thumb', {
-      bg: '#55595c',
-      fg: '#eceeef',
-      text: 'Thumbnail'
-    });
-  </script>
 
 @endsection

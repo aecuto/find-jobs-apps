@@ -4,12 +4,6 @@
     {!! Form::text('jobname', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Companyname Field -->
-<div class="form-group">
-    {!! Form::label('companyname', 'Companyname:') !!}
-    {!! Form::text('companyname', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Job Field -->
 <div class="form-group">
     {!! Form::label('job', 'Job:') !!}
@@ -189,12 +183,6 @@
         <option value="14">14 ปี</option>
         <option value="15">15 ปี</option>
     </select>
-</div>
-
-<!-- Map Field -->
-<div class="form-group">
-    {!! Form::label('map', 'Map:') !!}
-    {!! Form::text('map', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

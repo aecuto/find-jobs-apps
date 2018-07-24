@@ -5,7 +5,7 @@
   <table 
   data-toggle="table"
   data-pagination="true"
-  data-page-size="20"
+  data-page-size="10"
   >
         <thead>
             <tr>
@@ -17,14 +17,14 @@
             <th>Salary</th>
             <th>Experience</th>
             <th>Map</th>
-            <th colspan="3">Action</th>
+            <th>Action</th>
             </tr>
         </thead>
         <tbody>
         @foreach($jobPositions as $jobPosition)
             <tr>
                 <td>{!! $jobPosition->jobname !!}</td>
-                <td>{!! $jobPosition->companyname !!}</td>
+                <td>{!! $jobPosition->company->companyname !!}</td>
                 <td>{!! $jobPosition->job !!}</td>
                 <td>{!! $jobPosition->certificate !!}</td>
                 <td>{!! $jobPosition->country !!}</td>
@@ -34,8 +34,8 @@
                 <td>
                     {!! Form::open(['route' => ['jobPositions.destroy', $jobPosition->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{!! route('jobPositions.show', [$jobPosition->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                        <a href="{!! route('jobPositions.edit', [$jobPosition->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                        <a href="{!! route('jobPositions.show', [$jobPosition->id]) !!}" class='btn btn-default btn-xs'>Show</a>
+                        <a href="{!! route('jobPositions.edit', [$jobPosition->id]) !!}" class='btn btn-default btn-xs'>Edit</a>
                         {!! Form::button('Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}

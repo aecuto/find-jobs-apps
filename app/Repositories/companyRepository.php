@@ -32,7 +32,8 @@ class companyRepository extends BaseRepository
         'email',
         'website',
         'fullname_contact',
-        'position_context'
+        'position_contact',
+        'map_position'
     ];
 
     /**
