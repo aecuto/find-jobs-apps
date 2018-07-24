@@ -12,6 +12,10 @@
       {!! Form::text('companyname', null, ['class' => 'form-control']) !!}
   </div>
 
+</div>
+
+<div class="row">
+  
   <!-- Job Field -->
   <div class="form-group col">
       {!! Form::label('job', 'Job:') !!}
@@ -65,7 +69,6 @@
           <option value="ต่ำกว่ามัธยมศึกษา">ต่ำกว่ามัธยมศึกษา</option>
       </select>
   </div>
-
 </div>
 
 <div class="row">
@@ -173,31 +176,33 @@
         </select>
   </div>
 
-  <!-- Experience Field -->
-  <div class="form-group col">
-      {!! Form::label('experience', 'Experience:') !!}
-      <select class="form-control" name="experience">
-          <option value="" selected="selected">ไม่ระบุ</option>
-          <option value="1">1 ปี</option>
-          <option value="2">2 ปี</option>
-          <option value="3">3 ปี</option>
-          <option value="4">4 ปี</option>
-          <option value="5">5 ปี</option>
-          <option value="6">6 ปี</option>
-          <option value="7">7 ปี</option>
-          <option value="8">8 ปี</option>
-          <option value="9">9 ปี</option>
-          <option value="10">10 ปี</option>
-          <option value="11">11 ปี</option>
-          <option value="12">12 ปี</option>
-          <option value="13">13 ปี</option>
-          <option value="14">14 ปี</option>
-          <option value="15">15 ปี</option>
-      </select>
-  </div>
+</div>
 
-  <div class="form-group col">
-    {!! Form::submit('Serach', array('class' => 'btn btn-primary btn-block', 'style' => 'margin-top: 30px;')) !!}
-  </div>
-
+<div class="row">
+    <!-- Experience Field -->
+    <div class="form-group col">
+        {!! Form::label('experience', 'Experience:') !!}
+        <select class="form-control" name="experience">
+            <option value="" selected="selected">ไม่ระบุ</option>
+            <option value="1">1 ปี</option>
+            <option value="2">2 ปี</option>
+            <option value="3">3 ปี</option>
+            <option value="4">4 ปี</option>
+            <option value="5">5 ปี</option>
+            <option value="6">6 ปี</option>
+            <option value="7">7 ปี</option>
+            <option value="8">8 ปี</option>
+            <option value="9">9 ปี</option>
+            <option value="10">10 ปี</option>
+            <option value="11">11 ปี</option>
+            <option value="12">12 ปี</option>
+            <option value="13">13 ปี</option>
+            <option value="14">14 ปี</option>
+            <option value="15">15 ปี</option>
+        </select>
+    </div>
+  
+    <div class="form-group col">
+      {!! Form::submit('Serach', array('class' => 'btn btn-primary btn-block', 'style' => 'margin-top: 30px;')) !!}
+    </div>
 </div>

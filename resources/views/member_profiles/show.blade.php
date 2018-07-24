@@ -1,6 +1,6 @@
 @extends('layouts.member_app')
 
-@section('content')
+@section('member_content')
 
   <div class="card bg-pimary">
     <h5 class="card-header">Resume</h5>

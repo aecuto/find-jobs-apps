@@ -1,51 +1,50 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Home</title>
+@section('title')
+<title>Home</title>
+{{ Html::style('css/home.css') }}
+@endsection
 
-        {{ Html::style('css/home.css') }}
+@section('navbar')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    <a href="{{ route('search.job') }}" >Search Job</a>
-                    @auth
-                        @if(Auth::user()->authorizeRoles(['admin']))
-                          <a href="{{ route('admin.home') }}">Admin Management</a>
-                        @endif
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Jobs TH</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="p-2 text-dark" href="/">Home</a>
+    @if (Route::has('login'))
+        <a class="p-2 text-dark" href="{{ route('search.job') }}" >Search Job</a>
 
-                        @if(Auth::user()->authorizeRoles(['manager']))
-                          <a href="{{ route('manager.home') }}">Job Management</a>
-                        @endif
-
-                        @if(Auth::user()->authorizeRoles(['member']))
-                          <a href="{{ route('member.home') }}">Member Profile</a>
-                        @endif
-
-                        <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >Logout</a>
-                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                          {{ csrf_field() }}
-                      </form>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
+        @auth
+            @if(Auth::user()->authorizeRoles(['admin']))
+              <a class="p-2 text-dark" href="{{ route('admin.home') }}">Admin Management</a>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Home Page
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+            @if(Auth::user()->authorizeRoles(['manager']))
+              <a class="p-2 text-dark" href="{{ route('manager.home') }}">Job Management</a>
+            @endif
+
+            @if(Auth::user()->authorizeRoles(['member']))
+              <a class="p-2 text-dark" href="{{ route('member.home') }}">Member Profile</a>
+            @endif
+
+            <a class="btn btn-outline-primary" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >Logout</a>
+            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+              {{ csrf_field() }}
+          </form>
+        @else
+            <a href="{{ route('login') }}">Login</a>
+            <a href="{{ route('register') }}">Register</a>
+        @endauth
+    @endif
+  </nav>
+
+  </div>
+@endsection
+
+@section('content')
+<div class="content">
+    <div class="text-center">
+      <h1 class="display">Home Page</h1>
+    </div>
+</div>
+@endsection

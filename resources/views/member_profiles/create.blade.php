@@ -1,6 +1,6 @@
 @extends('layouts.member_app')
 
-@section('content')
+@section('member_content')
     <section class="content-header">
         <h1>
             Member Profile
