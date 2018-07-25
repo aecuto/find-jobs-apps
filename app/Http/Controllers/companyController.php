@@ -104,7 +104,7 @@ class companyController extends AppBaseController
         }
 
         $year = array();
-        $cuureny_year = date("Y")+543-100;
+        $cuureny_year = date("Y")+543;
 
         $year[] = 'ปีที่ก่อตั้ง';
         for($i=0; $i<=100; $i++){

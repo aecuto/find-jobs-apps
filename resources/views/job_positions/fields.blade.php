@@ -1,11 +1,12 @@
+<div class="row">
 <!-- Jobname Field -->
-<div class="form-group">
+<div class="form-group col">
     {!! Form::label('jobname', 'Jobname:') !!}
     {!! Form::text('jobname', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Job Field -->
-<div class="form-group">
+<div class="form-group col">
     {!! Form::label('job', 'Job:') !!}
     {!! Form::select('job', [
       'การตลาด/การขาย' => 'การตลาด/การขาย',
@@ -43,9 +44,13 @@
       'อื่นๆ' => 'อื่นๆ',
       ], null, ['class' => 'form-control']) !!}
 </div>
+</div>
 
+
+<div class="row">
+  
 <!-- Certificate Field -->
-<div class="form-group">
+<div class="form-group col">
     {!! Form::label('certificate', 'Certificate:') !!}
     {!! Form::select('certificate', [
         "ไม่ระบุ" => "ไม่ระบุ",
@@ -60,7 +65,7 @@
 </div>
 
 <!-- Country Field -->
-<div class="form-group">
+<div class="form-group col">
     {!! Form::label('country', 'Country:') !!}
     {!! Form::select('country', [
               "ไม่ระบุ" => "ไม่ระบุ",
@@ -143,8 +148,11 @@
     ], null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Salary Field -->
-<div class="form-group">
+</div>
+
+<div class="row">
+  <!-- Salary Field -->
+<div class="form-group col">
     {!! Form::label('salary', 'Salary:') !!}
     {!! Form::select('salary', [
        "ไม่ระบุ" => "ไม่ระบุ",
@@ -163,7 +171,7 @@
 </div>
 
 <!-- Experience Field -->
-<div class="form-group">
+<div class="form-group col">
     {!! Form::label('experience', 'Experience:') !!}
     {!! Form::select('experience', [
       "ไม่ระบุ" => "ไม่ระบุ",
@@ -184,9 +192,16 @@
         "15 ปี" => "15 ปี",
     ], null, ['class' => 'form-control']) !!}
 </div>
+</div>
 
-<!-- Submit Field -->
-<div class="form-group">
+
+
+<div class="row">
+  <!-- Submit Field -->
+<div class="form-group col text-right">
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
     <a href="{!! route('jobPositions.index') !!}" class="btn btn-default">Cancel</a>
 </div>
+
+</div>
+

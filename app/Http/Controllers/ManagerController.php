@@ -34,7 +34,7 @@ class ManagerController extends Controller
       }
 
       $company_id = company::where('user_id', Auth::user()->id)->first()->id;
-      $jobs = JobPosition::where('company_id', $company_id)->get();
+      $jobs = JobPosition::where('company_id', $company_id)->orderBy('created_at', 'DESC')->get();
 
       return view('manager_home')->with('jobPositions', $jobs);
       

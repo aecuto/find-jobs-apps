@@ -54,40 +54,48 @@
         <hr>
 
         <table 
-        data-toggle="table"
-        data-pagination="true"
-        data-page-size="20"
-        >
-            <thead>
-                <tr>
-                <th>Jobname</th>
-                <th>Companyname</th>
-                <th>Job</th>
-                <th>Certificate</th>
-                <th>Country</th>
-                <th>Salary</th>
-                <th>Experience</th>
-                <th>Map</th>
-                </tr>
-            </thead>
-            <tbody>
-            @foreach($jobResult as $job)
-                <tr>
-                    <td>{!! $job->jobname !!}</td>
-                    <td>{!! $job->company->companyname !!}</td>
-                    <td>{!! $job->job !!}</td>
-                    <td>{!! $job->certificate !!}</td>
-                    <td>{!! $job->country !!}</td>
-                    <td>{!! $job->salary !!}</td>
-                    <td>{!! $job->experience !!}</td>
-                    <td>{!! $job->map !!}</td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
+          data-toggle="table"
+          data-pagination="true"
+          data-page-size="10"
+          data-card-view="true"
+          data-smart-display="false"
+          >
+        <thead>
+            <tr>
+            <th>ชื่องาน</th>
+            <th>ชื่อบริษัท</th>
+            <th>จังหวัด เงินเดือน</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach($jobResult as $job)
+        <tr>
+          <td><h5><i class="fas fa-briefcase"></i> {!! $job->jobname?: '-' !!}</h5></td>
+          <td><h5><i class="far fa-building"></i> {!! $job->company->companyname?: '-' !!}</h5></td>
+          <td><h7>จังหวัด: {!! $job->country?: '-' !!} เงินเดือน: {!! $job->salary?: '-' !!}</h7></td>
+        </tr>
+        @endforeach
+        </tbody>
+    </table>
+
+
     </div>
   </div>
 
   
 </div>
 @endsection
+
+<style>
+span.title {
+    display: none !important;
+}
+
+.bootstrap-table .table:not(.table-condensed), .bootstrap-table .table:not(.table-condensed)>tbody>tr>td, .bootstrap-table .table:not(.table-condensed)>tbody>tr>th, .bootstrap-table .table:not(.table-condensed)>tfoot>tr>td, .bootstrap-table .table:not(.table-condensed)>tfoot>tr>th, .bootstrap-table .table:not(.table-condensed)>thead>tr>td{
+  padding: 20px !important;
+}
+
+.fixed-table-body {
+  height: auto !important;
+}
+</style>

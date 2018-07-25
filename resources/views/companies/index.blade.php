@@ -3,7 +3,7 @@
 @section('manager_content')
     <div class="row">
       <div class="col-6">
-        <h1 class="text-left">Companies</h1>
+        <h1 class="text-left">ข้อมูลบริษัท</h1>
       </div>
       <div class="col-6">
         <h1 class="text-right">

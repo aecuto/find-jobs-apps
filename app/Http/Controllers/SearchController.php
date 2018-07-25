@@ -26,9 +26,9 @@ class SearchController extends Controller
     {
 
       if($request->job != ''){
-        $jobs = JobPosition::where('job', $request->job)->get();
+        $jobs = JobPosition::where('job', $request->job)->orderBy('created_at', 'DESC')->get();
       }else{
-        $jobs = JobPosition::all();
+        $jobs = JobPosition::orderBy('created_at', 'DESC')->get();
       }
 
       return view('search.search_job')->with('jobResult', $jobs);

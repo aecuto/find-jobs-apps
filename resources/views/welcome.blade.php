@@ -2,7 +2,6 @@
 
 @section('title')
 <title>Home</title>
-{{ Html::style('css/home.css') }}
 @endsection
 
 @section('navbar')
