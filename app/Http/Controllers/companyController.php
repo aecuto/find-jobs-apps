@@ -103,7 +103,18 @@ class companyController extends AppBaseController
             return redirect(route('companies.index'));
         }
 
-        return view('companies.edit')->with('company', $company);
+        $year = array();
+        $cuureny_year = date("Y")+543-100;
+
+        $year[] = 'ปีที่ก่อตั้ง';
+        for($i=0; $i<=100; $i++){
+          $year[$cuureny_year-$i] = $cuureny_year-$i;
+        }
+        $year['มากกว่า 100 ปี'] = 'มากกว่า 100 ปี';
+
+        return view('companies.edit')
+        ->with('company', $company)
+        ->with('year', $year);
     }
 
     /**
