@@ -19,12 +19,29 @@ class DatabaseSeeder extends Seeder
       $faker = Faker\Factory::create();
       $job = array("คอมพิวเตอร์", "บัญชี/การเงิน", "ส่งเอกสาร/ขับรถ/ส่งของ");
     	foreach (range(1,30) as $index) {
-	        DB::table('job_positions')->insert([
-	            'jobname' => $faker->jobTitle,
-              'job' => $job[$index%3],
-	            'company_id' => 1,
-              
-	    ]);
-    }
+            DB::table('job_positions')->insert([
+                'jobname' => $faker->jobTitle,
+                'job' => $job[$index%3],
+                'company_id' => 1,
+        ]);
+      }
+
+      foreach (range(1,30) as $index) {
+          DB::table('users')->insert([
+              'name' => $faker->name,
+              'email' => $faker->email,
+              'password' => bcrypt('password'),
+        ]);
+      }
+      
+      foreach (range(1,30) as $index) {
+          DB::table('member_profiles')->insert([
+              'fullname' => $faker->name,
+              'interested_job' => $job[$index%3],
+              'user_id' => $index+3,
+        ]);
+      }
+
+    
   }
 }
