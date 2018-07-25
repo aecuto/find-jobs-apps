@@ -1,20 +1,4 @@
 <div class="row">
-
-    <!-- Jobname Field -->
-    <div class="form-group col">
-        {!! Form::label('jobname', 'Jobname:') !!}
-        {!! Form::text('jobname', null, ['class' => 'form-control']) !!}
-    </div>
-  
-    <!-- Companyname Field -->
-    <div class="form-group col">
-        {!! Form::label('companyname', 'Companyname:') !!}
-        {!! Form::text('companyname', null, ['class' => 'form-control']) !!}
-    </div>
-  
-  </div>
-  
-  <div class="row">
     
     <!-- Job Field -->
     <div class="form-group col">

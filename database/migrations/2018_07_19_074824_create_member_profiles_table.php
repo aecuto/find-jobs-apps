@@ -28,8 +28,10 @@ class CreateMemberProfilesTable extends Migration
             $table->text('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('interested_job')->nullable();
-            $table->string('type_interested_job')->nullable();
-            $table->string('money_need')->nullable();
+            $table->string('keyword_interested_job')->nullable();
+            $table->string('certificate')->nullable();
+            $table->string('experience')->nullable();
+            $table->string('salary')->nullable();
             $table->string('work_time')->nullable();
             $table->timestamps();
             $table->softDeletes();

@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string address
  * @property string phone
  * @property string interested_job
- * @property string type_interested_job
+ * @property string keyword_interested_job
  * @property string money_need
  * @property string work_time
  */
@@ -54,8 +54,11 @@ class MemberProfile extends Model
         'address',
         'phone',
         'interested_job',
-        'type_interested_job',
-        'money_need',
+        'keyword_interested_job',
+        'salary',
+        'country',
+        'certificate',
+        'experience',
         'work_time'
     ];
 
@@ -77,8 +80,11 @@ class MemberProfile extends Model
         'address' => 'string',
         'phone' => 'string',
         'interested_job' => 'string',
-        'type_interested_job' => 'string',
-        'money_need' => 'string',
+        'keyword_interested_job' => 'string',
+        'salary' => 'string',
+        'country' => 'string',
+        'certificate' => 'string',
+        'experience' => 'string',
         'work_time' => 'string'
     ];
 
@@ -88,6 +94,9 @@ class MemberProfile extends Model
      * @var array
      */
     public static $rules = [
+      'fullname' => 'required',
+      'interested_job' => 'required',
+      'phone' => 'required',
     ];
 
     
