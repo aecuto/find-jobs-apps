@@ -2,6 +2,10 @@
 
 namespace App;
 
+use App\Models\MemberProfile;
+use App\Models\JobPosition;
+use App\Models\company;
+
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -26,4 +30,46 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function roles()
+    {
+      return $this->belongsToMany(Role::class);
+    }
+
+    public function member_profile()
+    {
+      return $this->hasOne(MemberProfile::class);
+    }
+
+    public function company()
+    {
+      return $this->hasOne(company::class);
+    }
+
+    /**
+    * @param string|array $roles
+    */
+    public function authorizeRoles($roles)
+    {
+      if (is_array($roles)) {
+          return $this->hasAnyRole($roles);
+      }
+      return $this->hasRole($roles);
+    }
+    /**
+    * Check multiple roles
+    * @param array $roles
+    */
+    public function hasAnyRole($roles)
+    {
+      return null !== $this->roles()->whereIn('name', $roles)->first();
+    }
+    /**
+    * Check one role
+    * @param string $role
+    */
+    public function hasRole($role)
+    {
+      return null !== $this->roles()->where('name', $role)->first();
+    }
 }

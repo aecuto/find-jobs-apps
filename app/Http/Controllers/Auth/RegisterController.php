@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Role;
+use App\Models\MemberProfile;
+use App\Models\company;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin';
 
     /**
      * Create a new controller instance.
@@ -52,6 +55,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'role' => 'required',
         ]);
     }
 
@@ -63,10 +67,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+
+      $user = new User();
+      $user->name = $data['name'];
+      $user->email = $data['email'];
+      $user->password = bcrypt($data['password']);
+      $user->save();
+      $user->roles()->attach(Role::where('name', $data['role'])->first());
+      
+      if($data['role']=='member'){
+        $user_profile = new MemberProfile;
+        $user_profile->user_id = $user->id;
+        $user_profile->save();
+      }elseif($data['role']=='manager'){
+        $company = new company;
+        $company->user_id = $user->id;
+        $company->save();
+      }
+
+
+      return $user;
     }
 }
