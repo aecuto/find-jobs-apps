@@ -13,8 +13,9 @@
       @auth
 
           @if(Auth::user()->authorizeRoles(['manager']))
-            <a class="p-2 text-dark" href="/manager">ตำแหน่งงานของฉัน</a>
+            <a class="p-2 text-dark" href="/manager">ตำแหน่งงานที่เพิ่มแล้ว</a>
             <a class="p-2 text-dark" href="{!! route('jobPositions.create') !!}">เพิ่มตำแหน่งงานว่าง</a>
+            <a class="p-2 text-dark" href="{!! route('companies.show_resume') !!}">ใบสมัครงานที่เก็บไว้</a>
             <a class="p-2 text-dark" href="{!! route('companies.index') !!}">ข้อมูลบริษัท</a>
           @endif
 

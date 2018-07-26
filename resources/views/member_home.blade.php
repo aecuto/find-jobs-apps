@@ -37,6 +37,7 @@
         <a class="btn btn-secondary" href="{!! route('search.job') !!}" role="button">สมัครงานออนไลน์</a>
         <a class="btn btn-secondary" href="{!! route('memberProfiles.registered') !!}" role="button">งานที่สมัครแล้ว</a>
         <a class="btn btn-secondary" href="{!! route('memberProfiles.stared') !!}" role="button">งานที่เก็บไว้</a>
+        <a class="btn btn-secondary" href="{!! route('memberProfiles.my_resume') !!}" role="button">บริษัทที่เก็บใบสมัครงานของเรา</a>
         <a class="btn btn-secondary" href="#" role="button">ลบใบสมัครงาน</a>
     </div>
   </div>

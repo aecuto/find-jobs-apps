@@ -40,6 +40,17 @@ class UserTableSeeder extends Seeder
       $company->user_id = $manager->id;
       $company->save();
 
+      $manager = new User();
+      $manager->name = 'manager name';
+      $manager->email = 'manager2@scode.com';
+      $manager->password = bcrypt('password');
+      $manager->save();
+      $manager->roles()->attach($role_manager);
+      $company = new company;
+      $company->companyname = 'scode2';
+      $company->user_id = $manager->id;
+      $company->save();
+
       $admin = new User();
       $admin->name = 'admin name';
       $admin->email = 'admin@scode.com';

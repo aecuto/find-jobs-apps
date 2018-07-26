@@ -12,6 +12,9 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
 use Auth;
+use DB;
+
+use App\Models\MemberProfile;
 
 class MemberProfileController extends AppBaseController
 {
@@ -86,9 +89,6 @@ class MemberProfileController extends AppBaseController
      */
     public function show($id,Request $request)
     {
-      if(!$request->user()->hasRole(['member'])){
-        return view('welcome');
-      }
 
         $memberProfile = $this->memberProfileRepository->findWithoutFail($id);
 
@@ -179,5 +179,14 @@ class MemberProfileController extends AppBaseController
     public function registered(){
       $user = Auth::user()->member_register->all();
       return view('member_profiles.show_registered')->with('registers', $user);
+    }
+
+    public function my_resume(){
+      $member_profile_id = Auth::user()->member_profile->id;
+      $sql = "select * from companies where user_id IN (SELECT user_id FROM `manager_member_profile` WHERE member_profile_id= ".$member_profile_id.");";
+
+      $companies = DB::select($sql);
+
+      return view('member_profiles.my_resume')->with('companies', $companies);
     }
 }

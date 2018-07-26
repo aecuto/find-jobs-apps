@@ -167,7 +167,7 @@ class JobPositionController extends AppBaseController
 
       $jobPosition = JobPosition::find($id);
 
-      return view('job_positions.show')->with('jobPosition', $jobPosition);;
+      return view('job_positions.show')->with('jobPosition', $jobPosition);
     }
 
     public function star($id)
@@ -178,7 +178,7 @@ class JobPositionController extends AppBaseController
       
       $jobPosition = JobPosition::find($id);
       
-      return view('job_positions.show')->with('jobPosition', $jobPosition);;
+      return view('job_positions.show')->with('jobPosition', $jobPosition);
     }
 
 }

@@ -33,6 +33,11 @@ class MemberProfile extends Model
     return $this->belongsTo(User::class);
   }
 
+  public function resume_have()
+  {
+    return $this->belongsToMany(MemberProfile::class, 'manager_member_profile');
+  }
+
     use SoftDeletes;
 
     public $table = 'member_profiles';

@@ -20,7 +20,10 @@ Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin.home');
 Route::get('/member', 'MemberController@index')->name('member.home');
+
 Route::get('/manager', 'ManagerController@index')->name('manager.home');
+//SAVE RESUME
+Route::post('/save_resume/{id}', 'ManagerController@save_resume')->name('manager.save_resume');
 
 //SEARCH JOB
 Route::get('/search_job', 'SearchController@search_job')->name('search.job');
@@ -29,6 +32,7 @@ Route::get('/search_worker', 'SearchController@search_worker')->name('search.wor
 Route::resource('memberProfiles', 'MemberProfileController');
 Route::get('/job_stared', 'MemberProfileController@stared')->name('memberProfiles.stared');
 Route::get('/job_registered', 'MemberProfileController@registered')->name('memberProfiles.registered');
+Route::get('/my_resume', 'MemberProfileController@my_resume')->name('memberProfiles.my_resume');
 
 
 Route::resource('jobPositions', 'JobPositionController');
@@ -37,3 +41,4 @@ Route::post('/register/{id}', 'JobPositionController@register')->name('jobPositi
 Route::post('/star/{id}', 'JobPositionController@star')->name('jobPositions.star');
 
 Route::resource('companies', 'companyController');
+Route::get('/show_resume', 'companyController@show_resume')->name('companies.show_resume');

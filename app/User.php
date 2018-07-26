@@ -51,6 +51,11 @@ class User extends Authenticatable
       return $this->hasOne(MemberProfile::class);
     }
 
+    public function have_resume()
+    {
+      return $this->belongsToMany(MemberProfile::class, 'manager_member_profile');
+    }
+
     public function company()
     {
       return $this->hasOne(company::class);
