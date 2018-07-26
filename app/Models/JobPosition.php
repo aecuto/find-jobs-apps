@@ -36,6 +36,7 @@ class JobPosition extends Model
     return $this->belongsToMany(User::class, 'member_star');
   }
 
+
     
     use SoftDeletes;
 
@@ -79,5 +80,6 @@ class JobPosition extends Model
         'job' => 'required',
         'country' => 'required',
     ];
-    
+
+
 }

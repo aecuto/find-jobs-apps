@@ -63,13 +63,13 @@
         @foreach($workers as $worker)
         <tr>
           <td><h5>
-            <a href="{!! route('jobPositions.show', [$worker->id]) !!}" >
-              <i class="fas fa-briefcase"></i> {!! $worker->fullname?: '-' !!}
+            <a href="{!! route('memberProfiles.show', [$worker->id]) !!}" >
+              <i class="fas fa-address-book"></i> {!! $worker->fullname?: '-' !!}
             </a>
 
           </h5></td>
-          <td><h5><i class="far fa-building"></i> {!! $worker->money_need?: '-' !!}</h5></td>
-          <td><h7>จังหวัด: {!! $worker->gender?: '-' !!} เงินเดือน: {!! $worker->birthdate?: '-' !!}</h7></td>
+          <td><h5><i class="fas fa-hand-holding-usd"></i> {!! $worker->salary?: '-' !!}</h5></td>
+          <td><h7><i class="fas fa-transgender"></i> {!! $worker->gender?: '-' !!}  <i class="fas fa-gift"></i> {!! $worker->birthdate?: '-' !!}</h7></td>
         </tr>
         @endforeach
         </tbody>

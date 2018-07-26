@@ -35,6 +35,8 @@
         <a class="btn btn-secondary" href="{!! route('memberProfiles.show', [Auth::user()->member_profile->id]) !!}" role="button">ดูใบสมัครงานของคุณ</a>
         <a class="btn btn-secondary" href="{!! route('memberProfiles.edit', [Auth::user()->member_profile->id]) !!}" role="button">แก้ไขใบสมัครงาน</a>
         <a class="btn btn-secondary" href="{!! route('search.job') !!}" role="button">สมัครงานออนไลน์</a>
+        <a class="btn btn-secondary" href="{!! route('memberProfiles.registered') !!}" role="button">งานที่สมัครแล้ว</a>
+        <a class="btn btn-secondary" href="{!! route('memberProfiles.stared') !!}" role="button">งานที่เก็บไว้</a>
         <a class="btn btn-secondary" href="#" role="button">ลบใบสมัครงาน</a>
     </div>
   </div>

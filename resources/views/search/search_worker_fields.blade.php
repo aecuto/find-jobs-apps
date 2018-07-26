@@ -204,7 +204,7 @@
     }
   }
   
-  $("select#job option[value='" + getParameterByName('job') + "']").attr('selected', true);
+  $("select#interested_job option[value='" + getParameterByName('interested_job') + "']").attr('selected', true);
   
   </script>
   

@@ -165,7 +165,9 @@ class JobPositionController extends AppBaseController
       $user = Auth::user();
       $user->member_register()->attach(JobPosition::where('id', $id)->first());
 
-      dd('register');
+      $jobPosition = JobPosition::find($id);
+
+      return view('job_positions.show')->with('jobPosition', $jobPosition);;
     }
 
     public function star($id)
@@ -174,7 +176,9 @@ class JobPositionController extends AppBaseController
       $user = Auth::user();
       $user->member_star()->attach(JobPosition::where('id', $id)->first());
       
-      dd("star");
+      $jobPosition = JobPosition::find($id);
+      
+      return view('job_positions.show')->with('jobPosition', $jobPosition);;
     }
 
 }

@@ -27,6 +27,9 @@ Route::get('/search_job', 'SearchController@search_job')->name('search.job');
 Route::get('/search_worker', 'SearchController@search_worker')->name('search.worker');
 
 Route::resource('memberProfiles', 'MemberProfileController');
+Route::get('/job_stared', 'MemberProfileController@stared')->name('memberProfiles.stared');
+Route::get('/job_registered', 'MemberProfileController@registered')->name('memberProfiles.registered');
+
 
 Route::resource('jobPositions', 'JobPositionController');
 //ACTION JOBs

@@ -11,6 +11,8 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
+use Auth;
+
 class MemberProfileController extends AppBaseController
 {
 
@@ -168,5 +170,14 @@ class MemberProfileController extends AppBaseController
         Flash::success('Member Profile deleted successfully.');
 
         return redirect(route('member.home'));
+    }
+
+    public function stared(){
+      $user = Auth::user()->member_star->all();
+      return view('member_profiles.show_stared')->with('stars', $user);
+    }
+    public function registered(){
+      $user = Auth::user()->member_register->all();
+      return view('member_profiles.show_registered')->with('registers', $user);
     }
 }
