@@ -27,6 +27,10 @@ Route::get('/search_job', 'SearchController@search_job')->name('search.job');
 Route::get('/search_worker', 'SearchController@search_worker')->name('search.worker');
 
 Route::resource('memberProfiles', 'MemberProfileController');
+
 Route::resource('jobPositions', 'JobPositionController');
+//ACTION JOBs
+Route::post('/register/{id}', 'JobPositionController@register')->name('jobPositions.register');
+Route::post('/star/{id}', 'JobPositionController@star')->name('jobPositions.star');
 
 Route::resource('companies', 'companyController');

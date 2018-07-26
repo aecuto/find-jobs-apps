@@ -38,7 +38,8 @@
     @endif
   </nav>
 
-  </div>
+</div>
+
 @endsection
 
 @section('content')

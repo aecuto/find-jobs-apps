@@ -10,6 +10,23 @@
     </div>
 </div>
 
+@auth
+  @if(Auth::user()->authorizeRoles(['member']))
+    {!! Form::open(['route' => ['jobPositions.register', $jobPosition->id], 'method' => 'post']) !!}
+        {!! Form::button('สมัครงาน', [
+          'type' => 'submit', 
+          'class' => 'btn btn-success btn-xs', 
+          'onclick' => "return confirm('Are you sure?')"]) !!}
+    {!! Form::close() !!}
+    {!! Form::open(['route' => ['jobPositions.star', $jobPosition->id], 'method' => 'post']) !!}
+        {!! Form::button('เก็บงาน', [
+          'type' => 'submit', 
+          'class' => 'btn btn-info btn-xs', 
+          'onclick' => "return confirm('Are you sure?')"]) !!}
+    {!! Form::close() !!}
+  @endif
+@endauth
+
 <hr> 
 
 <div class="card">

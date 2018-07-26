@@ -13,6 +13,7 @@ use Response;
 
 use Auth;
 use App\Models\company;
+use App\Models\JobPosition;
 
 class JobPositionController extends AppBaseController
 {
@@ -157,4 +158,23 @@ class JobPositionController extends AppBaseController
 
         return redirect(route('manager.home'));
     }
+
+    public function register($id)
+    {
+
+      $user = Auth::user();
+      $user->member_register()->attach(JobPosition::where('id', $id)->first());
+
+      dd('register');
+    }
+
+    public function star($id)
+    {
+
+      $user = Auth::user();
+      $user->member_star()->attach(JobPosition::where('id', $id)->first());
+      
+      dd("star");
+    }
+
 }
