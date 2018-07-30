@@ -57,6 +57,7 @@
             <th>ชื่องาน</th>
             <th>ชื่อบริษัท</th>
             <th>จังหวัด เงินเดือน</th>
+            <th>เวลสประกาศ</th>
             </tr>
         </thead>
         <tbody>
@@ -69,7 +70,10 @@
 
           </h5></td>
           <td><h5><i class="far fa-building"></i> {!! $job->company->companyname?: '-' !!}</h5></td>
-          <td><h7>จังหวัด: {!! $job->country?: '-' !!} เงินเดือน: {!! $job->salary?: '-' !!}</h7></td>
+          <td><h6>จังหวัด: {!! $job->country?: '-' !!} เงินเดือน: {!! $job->salary?: '-' !!}</h6></td>
+          <td>
+            <h6><i class="fas fa-clock"></i> {!! date('d-m-Y', strtotime($job->start_date))?: '-' !!} - {!! date('d-m-Y', strtotime($job->end_date))?: '-' !!}</h6> 
+          </td>  
         </tr>
         @endforeach
         </tbody>

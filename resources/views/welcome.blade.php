@@ -13,6 +13,7 @@
     @if (Route::has('login'))
         <a class="p-2 text-dark" href="{{ route('search.job') }}" >Search Jobs</a>
         <a class="p-2 text-dark" href="{{ route('search.worker') }}" >Search Workers</a>
+        <a class="p-2 text-dark" href="/forum">Forum</a>
 
         @auth
             @if(Auth::user()->authorizeRoles(['admin']))

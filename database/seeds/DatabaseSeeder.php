@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
             DB::table('job_positions')->insert([
                 'jobname' => $faker->jobTitle,
                 'job' => $job[$index%3],
+                'start_date' => date("Y-m-d"),
+                'end_date' => date('Y-m-d', strtotime(date("Y-m-d"). ' + 7 days')),
                 'company_id' => 1,
         ]);
       }

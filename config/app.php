@@ -150,7 +150,9 @@ return [
         Laracasts\Flash\FlashServiceProvider::class,
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
         \InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
-        \InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class, 
+        \InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class,
+        Riari\Forum\ForumServiceProvider::class,
+        Riari\Forum\Frontend\ForumFrontendServiceProvider::class,
 
         /*
          * Package Service Providers...

@@ -194,7 +194,19 @@
 </div>
 </div>
 
+<div class="row">
 
+    <div class="form-group col">
+        {!! Form::label('start_date', 'Start Announement:') !!}
+        {!! Form::date('start_date', null, ['class' => 'form-control']) !!}
+    </div>
+
+    <div class="form-group col">
+        {!! Form::label('end_date', 'End Announement:') !!}
+        {!! Form::date('end_date', null, ['class' => 'form-control']) !!}
+    </div>
+
+</div>  
 
 <div class="row">
   <!-- Submit Field -->

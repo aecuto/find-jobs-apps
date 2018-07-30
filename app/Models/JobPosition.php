@@ -53,6 +53,8 @@ class JobPosition extends Model
         'country',
         'salary',
         'experience',
+        'start_date',
+        'end_date',
         'company_id'
     ];
 
@@ -67,6 +69,8 @@ class JobPosition extends Model
         'certificate' => 'string',
         'country' => 'string',
         'salary' => 'string',
+        'start_date' => 'date',
+        'end_date' => 'date',
         'experience' => 'string',
     ];
 
@@ -79,6 +83,8 @@ class JobPosition extends Model
         'jobname' => 'required',
         'job' => 'required',
         'country' => 'required',
+        'start_date' => 'required',
+        'end_date' => 'required',
     ];
 
 
