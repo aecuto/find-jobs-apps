@@ -1,6 +1,6 @@
-@extends('layouts.member_app')
+@extends('layouts.admin_app')
 
-@section('member_content')
+@section('admin_content')
     <section class="content-header">
         <h1 class="pull-left">Member Profiles</h1>
         <h1 class="pull-right">

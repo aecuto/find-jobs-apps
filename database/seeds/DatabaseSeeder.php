@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
       foreach (range(1,30) as $index) {
         DB::table('role_user')->insert([
             'role_id' => 1,
-            'user_id' => $index+3,
+            'user_id' => $index+4,
         ]);
       }
 

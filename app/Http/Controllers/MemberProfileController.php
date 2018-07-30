@@ -15,6 +15,7 @@ use Auth;
 use DB;
 
 use App\Models\MemberProfile;
+use App\User;
 
 class MemberProfileController extends AppBaseController
 {
@@ -37,7 +38,7 @@ class MemberProfileController extends AppBaseController
     public function index(Request $request)
     {
 
-      if(!$request->user()->hasRole(['member'])){
+      if(!$request->user()->authorizeRoles(['member','admin'])){
         return view('welcome');
       }
 
@@ -55,7 +56,7 @@ class MemberProfileController extends AppBaseController
      */
     public function create(Request $request)
     {
-      if(!$request->user()->hasRole(['member'])){
+      if(!$request->user()->authorizeRoles(['member','admin'])){
         return view('welcome');
       }
 
@@ -116,7 +117,7 @@ class MemberProfileController extends AppBaseController
      */
     public function edit($id,Request $request)
     {
-      if(!$request->user()->hasRole(['member'])){
+      if(!$request->user()->authorizeRoles(['member','admin'])){
         return view('welcome');
       }
       
@@ -178,11 +179,15 @@ class MemberProfileController extends AppBaseController
             return redirect(route('member.home'));
         }
 
-        $this->memberProfileRepository->delete($id);
+        $user_id = MemberProfile::where('id', $id)->first()->user_id;
+
+        User::where('id',$user_id)->delete();
+
+        //$this->memberProfileRepository->delete($id);
 
         Flash::success('Member Profile deleted successfully.');
 
-        return redirect(route('member.home'));
+        return back();
     }
 
     public function stared(){
