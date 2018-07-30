@@ -90,15 +90,21 @@ class MemberProfileController extends AppBaseController
     public function show($id,Request $request)
     {
 
-        $memberProfile = $this->memberProfileRepository->findWithoutFail($id);
+      $memberProfile = $this->memberProfileRepository->findWithoutFail($id);
 
-        if (empty($memberProfile)) {
-            Flash::error('Member Profile not found');
+      if (empty($memberProfile)) {
+          Flash::error('Member Profile not found');
 
-            return redirect(route('member.home'));
-        }
+          return redirect(route('member.home'));
+      }
 
+      $user_id = Auth::user()->id;
+      $member = MemberProfile::where("user_id", $user_id)->where("id", $id)->first();
+      if($member){
         return view('member_profiles.show')->with('memberProfile', $memberProfile);
+      }
+
+      return redirect('/');
     }
 
     /**
@@ -121,7 +127,14 @@ class MemberProfileController extends AppBaseController
 
             return redirect(route('member.home'));
         }
+
+      $user_id = Auth::user()->id;
+      $member = MemberProfile::where("user_id", $user_id)->where("id", $id)->first();
+      if($member){
         return view('member_profiles.edit')->with('memberProfile', $memberProfile);
+      }
+
+      return redirect('/');
     }
 
     /**

@@ -77,8 +77,9 @@ class JobPositionController extends AppBaseController
      *
      * @return Response
      */
-    public function show($id)
+    public function show($id,Request $request)
     {
+
         $jobPosition = $this->jobPositionRepository->findWithoutFail($id);
 
         if (empty($jobPosition)) {
