@@ -26,6 +26,18 @@ class JobPosition extends Model
     return $this->belongsTo(company::class);
   }
   
+  public function users_register()
+  {
+    return $this->belongsToMany(User::class, 'member_register');
+  }
+
+  public function users_star()
+  {
+    return $this->belongsToMany(User::class, 'member_star');
+  }
+
+
+    
     use SoftDeletes;
 
     public $table = 'job_positions';
@@ -68,5 +80,6 @@ class JobPosition extends Model
         'job' => 'required',
         'country' => 'required',
     ];
-    
+
+
 }

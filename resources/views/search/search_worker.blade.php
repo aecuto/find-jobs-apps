@@ -27,18 +27,18 @@
 
   <div class="row">
     <div class="col-4">
-      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-          <a class="nav-link active" href="/search_job" >SEARCH JOBS</a>
-          <a class="nav-link" href="/search_worker">SEARCH WORKERS</a>
-      </div>
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link" href="/search_job" >SEARCH JOBS</a>
+            <a class="nav-link active" href="/search_worker">SEARCH WORKERS</a>
+        </div>
     </div>
     <div class="col-8">
 
         <div class="card">
             <div class="card-body">
-            <h5 class="card-title">SEARCH JOBS</h5>
-              {!! Form::open(array('url' => route('search.job'), 'method' => 'get')) !!}
-                @include('search.search_fields')
+            <h5 class="card-title">SEARCH WORKERS</h5>
+              {!! Form::open(array('url' => route('search.worker'), 'method' => 'get')) !!}
+                @include('search.search_worker_fields')
               {{ Form::close() }}
             </div>
           </div>
@@ -60,16 +60,16 @@
             </tr>
         </thead>
         <tbody>
-        @foreach($jobResult as $job)
+        @foreach($workers as $worker)
         <tr>
           <td><h5>
-            <a href="{!! route('jobPositions.show', [$job->id]) !!}" >
-              <i class="fas fa-briefcase"></i> {!! $job->jobname?: '-' !!}
+            <a href="{!! route('memberProfiles.show', [$worker->id]) !!}" >
+              <i class="fas fa-address-book"></i> {!! $worker->fullname?: '-' !!}
             </a>
 
           </h5></td>
-          <td><h5><i class="far fa-building"></i> {!! $job->company->companyname?: '-' !!}</h5></td>
-          <td><h7>จังหวัด: {!! $job->country?: '-' !!} เงินเดือน: {!! $job->salary?: '-' !!}</h7></td>
+          <td><h5><i class="fas fa-hand-holding-usd"></i> {!! $worker->salary?: '-' !!}</h5></td>
+          <td><h7><i class="fas fa-transgender"></i> {!! $worker->gender?: '-' !!}  <i class="fas fa-gift"></i> {!! $worker->birthdate?: '-' !!}</h7></td>
         </tr>
         @endforeach
         </tbody>

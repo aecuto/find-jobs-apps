@@ -86,6 +86,11 @@ class companyController extends AppBaseController
         return view('companies.show')->with('company', $company);
     }
 
+    public function show_resume(){
+      $user = Auth::user()->have_resume->all();
+      return view('companies.show_resume')->with('resumes', $user);
+    }
+
     /**
      * Show the form for editing the specified company.
      *

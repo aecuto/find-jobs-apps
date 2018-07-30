@@ -13,6 +13,7 @@ use Response;
 
 use Auth;
 use App\Models\company;
+use App\Models\JobPosition;
 
 class JobPositionController extends AppBaseController
 {
@@ -76,8 +77,9 @@ class JobPositionController extends AppBaseController
      *
      * @return Response
      */
-    public function show($id)
+    public function show($id,Request $request)
     {
+
         $jobPosition = $this->jobPositionRepository->findWithoutFail($id);
 
         if (empty($jobPosition)) {
@@ -157,4 +159,27 @@ class JobPositionController extends AppBaseController
 
         return redirect(route('manager.home'));
     }
+
+    public function register($id)
+    {
+
+      $user = Auth::user();
+      $user->member_register()->attach(JobPosition::where('id', $id)->first());
+
+      $jobPosition = JobPosition::find($id);
+
+      return view('job_positions.show')->with('jobPosition', $jobPosition);
+    }
+
+    public function star($id)
+    {
+
+      $user = Auth::user();
+      $user->member_star()->attach(JobPosition::where('id', $id)->first());
+      
+      $jobPosition = JobPosition::find($id);
+      
+      return view('job_positions.show')->with('jobPosition', $jobPosition);
+    }
+
 }

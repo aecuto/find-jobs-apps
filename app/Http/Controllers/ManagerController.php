@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Auth;
 
 use App\Models\JobPosition;
+use App\Models\MemberProfile;
 use App\Models\company;
 
 class ManagerController extends Controller
@@ -39,4 +40,15 @@ class ManagerController extends Controller
       return view('manager_home')->with('jobPositions', $jobs);
       
     }
+
+    public function save_resume($id){
+      $user = Auth::user();
+      $user->have_resume()->attach(MemberProfile::where('id', $id)->first());
+      
+      $memberProfile = MemberProfile::find($id);
+      
+      return view('member_profiles.show')->with('memberProfile', $memberProfile);
+    }
+
+
 }

@@ -11,6 +11,11 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
+use Auth;
+use DB;
+
+use App\Models\MemberProfile;
+
 class MemberProfileController extends AppBaseController
 {
 
@@ -84,19 +89,22 @@ class MemberProfileController extends AppBaseController
      */
     public function show($id,Request $request)
     {
-      if(!$request->user()->hasRole(['member'])){
-        return view('welcome');
+
+      $memberProfile = $this->memberProfileRepository->findWithoutFail($id);
+
+      if (empty($memberProfile)) {
+          Flash::error('Member Profile not found');
+
+          return redirect(route('member.home'));
       }
 
-        $memberProfile = $this->memberProfileRepository->findWithoutFail($id);
-
-        if (empty($memberProfile)) {
-            Flash::error('Member Profile not found');
-
-            return redirect(route('member.home'));
-        }
-
+      $user_id = Auth::user()->id;
+      $member = MemberProfile::where("user_id", $user_id)->where("id", $id)->first();
+      if($member){
         return view('member_profiles.show')->with('memberProfile', $memberProfile);
+      }
+
+      return redirect('/');
     }
 
     /**
@@ -119,7 +127,14 @@ class MemberProfileController extends AppBaseController
 
             return redirect(route('member.home'));
         }
+
+      $user_id = Auth::user()->id;
+      $member = MemberProfile::where("user_id", $user_id)->where("id", $id)->first();
+      if($member){
         return view('member_profiles.edit')->with('memberProfile', $memberProfile);
+      }
+
+      return redirect('/');
     }
 
     /**
@@ -168,5 +183,23 @@ class MemberProfileController extends AppBaseController
         Flash::success('Member Profile deleted successfully.');
 
         return redirect(route('member.home'));
+    }
+
+    public function stared(){
+      $user = Auth::user()->member_star->all();
+      return view('member_profiles.show_stared')->with('stars', $user);
+    }
+    public function registered(){
+      $user = Auth::user()->member_register->all();
+      return view('member_profiles.show_registered')->with('registers', $user);
+    }
+
+    public function my_resume(){
+      $member_profile_id = Auth::user()->member_profile->id;
+      $sql = "select * from companies where user_id IN (SELECT user_id FROM `manager_member_profile` WHERE member_profile_id= ".$member_profile_id.");";
+
+      $companies = DB::select($sql);
+
+      return view('member_profiles.my_resume')->with('companies', $companies);
     }
 }

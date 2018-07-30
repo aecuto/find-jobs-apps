@@ -36,9 +36,24 @@ class User extends Authenticatable
       return $this->belongsToMany(Role::class);
     }
 
+    public function member_register()
+    {
+      return $this->belongsToMany(JobPosition::class, 'member_register');
+    }
+
+    public function member_star()
+    {
+      return $this->belongsToMany(JobPosition::class, 'member_star');
+    }
+
     public function member_profile()
     {
       return $this->hasOne(MemberProfile::class);
+    }
+
+    public function have_resume()
+    {
+      return $this->belongsToMany(MemberProfile::class, 'manager_member_profile');
     }
 
     public function company()

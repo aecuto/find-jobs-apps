@@ -1,89 +1,105 @@
+<div class="row">
 <!-- Fullname Field -->
-<div class="form-group ">
+<div class="form-group col">
     {!! Form::label('fullname', 'Fullname:') !!}
     {!! Form::text('fullname', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Gender Field -->
-<div class="form-group ">
+<div class="form-group col" style="margin-top: 30px;">
     {!! Form::label('gender', 'Gender:') !!}
     <label class="radio-inline">
-        {!! Form::radio('gender', "Male", null) !!} Male
+        {!! Form::radio('gender', "ชาย", null) !!} ชาย
     </label>
 
     <label class="radio-inline">
-        {!! Form::radio('gender', "Female", null) !!} Female
+        {!! Form::radio('gender', "หญืง", null) !!} หญืง
     </label>
 
 </div>
 
 <!-- Status Field -->
-<div class="form-group ">
+<div class="form-group col" style="margin-top: 30px;">
     {!! Form::label('status', 'Status:') !!}
     <label class="radio-inline">
-        {!! Form::radio('status', "single", null) !!} single
+        {!! Form::radio('status', "โสด", null) !!} โสด
     </label>
 
     <label class="radio-inline">
-        {!! Form::radio('status', "marry", null) !!} marry
+        {!! Form::radio('status', "แต่งงาน", null) !!} แต่งงาน
     </label>
 
     <label class="radio-inline">
-        {!! Form::radio('status', "divorce", null) !!} divorce
+        {!! Form::radio('status', "หย่าร้าง", null) !!} หย่าร้าง
     </label>
 
 </div>
+</div>
 
-<!-- Nationality Field -->
-<div class="form-group ">
+
+<div class="row">
+  <!-- Nationality Field -->
+<div class="form-group col">
     {!! Form::label('nationality', 'Nationality:') !!}
     {!! Form::text('nationality', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Religion Field -->
-<div class="form-group ">
+<div class="form-group col">
     {!! Form::label('religion', 'Religion:') !!}
     {!! Form::text('religion', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Birthdate Field -->
-<div class="form-group ">
+<div class="form-group col">
     {!! Form::label('birthdate', 'Birthdate:') !!}
     {!! Form::date('birthdate', null, ['class' => 'form-control']) !!}
 </div>
+</div>
 
-<!-- Height Field -->
-<div class="form-group ">
+
+
+<div class="row">
+  <!-- Height Field -->
+<div class="form-group col">
     {!! Form::label('height', 'Height:') !!}
     {!! Form::number('height', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Weight Field -->
-<div class="form-group ">
+<div class="form-group col">
     {!! Form::label('weight', 'Weight:') !!}
     {!! Form::number('weight', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Military Status Field -->
-<div class="form-group ">
+<div class="form-group col">
     {!! Form::label('military_status', 'Military Status:') !!}
-    {!! Form::select('military_status', ['yes' => 'yes', 'no' => 'no'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('military_status', [
+      
+				"ผ่านการเกณฑ์ทหาร" => "ผ่านการเกณฑ์ทหาร",
+        "รอการเกณฑ์ทหาร" => "รอการเกณฑ์ทหาร",
+        "อยู่ระหว่างการผ่อนผัน" => "อยู่ระหว่างการผ่อนผัน", 
+        "ได้รับการยกเว้น" => "ได้รับการยกเว้น", 
+        "ผ่านการเกณฑ์ทหาร" => "ผ่านการเกณฑ์ทหาร", 
+        "เคยรับราชการทหาร" => "เคยรับราชการทหาร",
+
+      ], null, ['class' => 'form-control']) !!}
+</div>
 </div>
 
-<!-- Address Field -->
-<div class="form-group ">
-    {!! Form::label('address', 'Address:') !!}
-    {!! Form::textarea('address', null, ['class' => 'form-control']) !!}
-</div>
+
+
+<div class="row">
 
 <!-- Phone Field -->
-<div class="form-group ">
+<div class="form-group col">
     {!! Form::label('phone', 'Phone:') !!}
     {!! Form::text('phone', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Interested Job Field -->
-<div class="form-group ">
+<div class="form-group col">
     {!! Form::label('interested_job', 'Interested Job:') !!}
     {!! Form::select('interested_job', [
       'การตลาด/การขาย' => 'การตลาด/การขาย',
@@ -122,27 +138,44 @@
       ], null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Type Interested Job Field -->
-<div class="form-group ">
-    {!! Form::label('type_interested_job', 'Type Interested Job:') !!}
-    {!! Form::select('type_interested_job', [
-      'it-technical' => 'it-technical',
-      'support' => 'support',
-      'admin' => 'admin',
-      'programmer' => 'programmer',
-      'system analyst' => 'system analyst',
-      'webmaster' => 'webmaster',
-      'web design' => 'web design',
-      'graphic' => 'graphic',
-      'หัวหน้า/ผู้ช่วย/ผู้จัดการ' => 'หัวหน้า/ผู้ช่วย/ผู้จัดการ',
-      'อื่นๆ' => 'อื่นๆ',
-    ], null, ['class' => 'form-control']) !!}
+  <!-- Type Interested Job Field -->
+  <div class="form-group col">
+      {!! Form::label('keyword_interested_job', 'Keyword Interested Job:') !!}
+      {!! Form::text('keyword_interested_job', null, ['class' => 'form-control']) !!}
+  </div>
+
 </div>
 
+
+<div class="row">
+  <!-- Experience Field -->
+  <div class="form-group col">
+      {!! Form::label('experience', 'Experience:') !!}
+      {!! Form::select('experience', [
+        "ไม่ระบุ" => "ไม่ระบุ",
+          "1 ปี" => "1 ปี",
+          "2 ปี" => "2 ปี",
+          "3 ปี" => "3 ปี",
+          "4 ปี" => "4 ปี",
+          "5 ปี" => "5 ปี",
+          "6 ปี" => "6 ปี",
+          "7 ปี" => "7 ปี",
+          "8 ปี" => "8 ปี",
+          "9 ปี" => "9 ปี",
+          "10 ปี" => "10 ปี",
+          "11 ปี" => "11 ปี",
+          "12 ปี" => "12 ปี",
+          "13 ปี" => "13 ปี",
+          "14 ปี" => "14 ปี",
+          "15 ปี" => "15 ปี",
+      ], null, ['class' => 'form-control']) !!}
+  </div>
+
+
 <!-- Money Need Field -->
-<div class="form-group ">
-    {!! Form::label('money_need', 'Money Need:') !!}
-    {!! Form::select('money_need', [
+<div class="form-group col">
+    {!! Form::label('salary', 'Money Need:') !!}
+    {!! Form::select('salary', [
       'ไม่ระบุ' => 'ไม่ระบุ',
       'น้อยกว่า 5,000' => 'น้อยกว่า 5,000',
       '5,001 - 6,000' => '5,001 - 6,000',
@@ -158,21 +191,49 @@
       ], null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Work Time Field -->
-<div class="form-group ">
-    {!! Form::label('work_time', 'Work Time:') !!}
-    <label class="radio-inline">
-        {!! Form::radio('work_time', "Full Time", null) !!} Full Time
-        {!! Form::radio('work_time', "Part Time", null) !!} Part Time
-    </label>
+<!-- Certificate Field -->
+<div class="form-group col">
+    {!! Form::label('certificate', 'Certificate:') !!}
+    {!! Form::select('certificate', [
+        "ไม่ระบุ" => "ไม่ระบุ",
+        "ปริญญาเอก" => "ปริญญาเอก",
+        "ปริญญาโท" => "ปริญญาโท",
+        "ปริญญาตรี" => "ปริญญาตรี",
+        "ปวส." => "ปวส.",
+        "ปวช./มัธยมศึกษา" => "ปวช./มัธยมศึกษา",
+        "ต่ำกว่ามัธยมศึกษา" => "ต่ำกว่ามัธยมศึกษา",
+    ], null, ['class' => 'form-control']) !!}
+    
+</div>
 
 </div>
 
+<div class="row">
+<!-- Work Time Field -->
+<div class="form-group col" >
+    {!! Form::label('work_time', 'Work Time:') !!}
+    <label class="radio-inline">
+        {!! Form::radio('work_time', "งานประจำ", null) !!} งานประจำ 
+        {!! Form::radio('work_time', "งานชั่วคราว", null) !!} งานชั่วคราว 
+        {!! Form::radio('work_time', "งานนอกเวลา", null) !!} งานนอกเวลา 
+    </label>
+</div>
+
+  <!-- Address Field -->
+  <div class="form-group col">
+      {!! Form::label('address', 'Address:') !!}
+      {!! Form::textarea('address', null, ['class' => 'form-control', 'rows' => '3']) !!}
+  </div>
+
+
 <!-- Submit Field -->
-<div class="form-group ">
+<div class="form-group col" style="margin-top: 20px;">
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
     <a href="{!! route('member.home') !!}" class="btn btn-default">Cancel</a>
 </div>
+
+</div>
+
 
 
 

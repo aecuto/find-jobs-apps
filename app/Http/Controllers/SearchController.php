@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\MemberProfile;
 use App\Models\JobPosition;
 
 class SearchController extends Controller
@@ -32,6 +33,19 @@ class SearchController extends Controller
       }
 
       return view('search.search_job')->with('jobResult', $jobs);
+
+    }
+
+    public function search_worker(Request $request)
+    {
+
+      if($request->interested_job != ''){
+        $workers = MemberProfile::where('interested_job', $request->interested_job)->orderBy('created_at', 'DESC')->get();
+      }else{
+        $workers = MemberProfile::orderBy('created_at', 'DESC')->get();
+      }
+
+      return view('search.search_worker')->with('workers', $workers);
 
     }
 }
