@@ -39,7 +39,12 @@
 
   @include('flash::message')
 
-  @yield('manager_content')
+  <div class="row">
+      @include('layouts.menu')
+      <div class="col-8">
+            @yield('manager_content')
+      </div>
+  </div>
 
   <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">

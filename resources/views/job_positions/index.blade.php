@@ -1,5 +1,8 @@
 @extends('layouts.manager_app')
 
+@section('active_menu')
+JOB'S COMPANY
+@endsection
 
 @section('manager_content')
     <section class="content-header">

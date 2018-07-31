@@ -1,5 +1,9 @@
 @extends('layouts.manager_app')
 
+@section('active_menu')
+SELECT JOB
+@endsection
+
 @section('manager_content')
 <div class="card">
     <div class="card-body">

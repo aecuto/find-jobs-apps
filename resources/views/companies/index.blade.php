@@ -1,5 +1,9 @@
 @extends('layouts.manager_app')
 
+@section('active_menu')
+COMPANY DETAILS
+@endsection
+
 @section('manager_content')
     <div class="row">
       <div class="col-6">
@@ -13,7 +17,6 @@
     </div>
 
     <hr>
-
 
     <div class="card">
       <div class="card-header">

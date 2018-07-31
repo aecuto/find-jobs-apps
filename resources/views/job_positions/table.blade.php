@@ -1,15 +1,11 @@
 <table class="table table-responsive" id="jobPositions-table">
     <thead>
         <tr>
-            <th>Jobname</th>
+        <th>Jobname</th>
         <th>Companyname</th>
         <th>Job</th>
-        <th>Certificate</th>
-        <th>Country</th>
         <th>Salary</th>
-        <th>Experience</th>
-        <th>Map</th>
-            <th colspan="3">Action</th>
+        <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -18,11 +14,7 @@
             <td>{!! $jobPosition->jobname !!}</td>
             <td>{!! $jobPosition->companyname !!}</td>
             <td>{!! $jobPosition->job !!}</td>
-            <td>{!! $jobPosition->certificate !!}</td>
-            <td>{!! $jobPosition->country !!}</td>
             <td>{!! $jobPosition->salary !!}</td>
-            <td>{!! $jobPosition->experience !!}</td>
-            <td>{!! $jobPosition->map !!}</td>
             <td>
                 {!! Form::open(['route' => ['jobPositions.destroy', $jobPosition->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

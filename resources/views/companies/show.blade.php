@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('active_menu')
+COMPANY DETAILS
+@endsection
+
 @section('content')
     <section class="content-header">
         <h1>

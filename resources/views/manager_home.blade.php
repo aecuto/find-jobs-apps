@@ -1,7 +1,11 @@
 @extends('layouts.manager_app')
 
+@section('active_menu')
+JOB'S COMPANY
+@endsection
+
 @section('manager_content')
-  <h1>My Job</h1>
+  <h1>JOB'S COMPANY</h1>
   <table 
   data-toggle="table"
   data-pagination="true"
@@ -12,11 +16,7 @@
             <th>Jobname</th>
             <th>Companyname</th>
             <th>Job</th>
-            <th>Certificate</th>
-            <th>Country</th>
             <th>Salary</th>
-            <th>Experience</th>
-            <th>Map</th>
             <th></th>
             </tr>
         </thead>
@@ -26,11 +26,7 @@
                 <td>{!! $jobPosition->jobname ?: '-' !!}</td>
                 <td>{!! $jobPosition->company->companyname ?: '-' !!}</td>
                 <td>{!! $jobPosition->job ?: '-' !!}</td>
-                <td>{!! $jobPosition->certificate ?: '-' !!}</td>
-                <td>{!! $jobPosition->country ?: '-' !!}</td>
                 <td>{!! $jobPosition->salary ?: '-' !!}</td>
-                <td>{!! $jobPosition->experience ?: '-' !!}</td>
-                <td>{!! $jobPosition->map ?: '-' !!}</td>
                 <td>
                     {!! Form::open(['route' => ['jobPositions.destroy', $jobPosition->id], 'method' => 'delete', 'style' => 'text-align: right;']) !!}
                     <div class='btn-group'>
