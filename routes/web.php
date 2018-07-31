@@ -42,3 +42,8 @@ Route::post('/star/{id}', 'JobPositionController@star')->name('jobPositions.star
 
 Route::resource('companies', 'companyController');
 Route::get('/show_resume', 'companyController@show_resume')->name('companies.show_resume');
+
+
+Route::resource('announcements', 'announcementsController');
+
+Route::resource('governmentJobs', 'government_jobsController');
