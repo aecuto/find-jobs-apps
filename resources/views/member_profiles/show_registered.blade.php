@@ -1,3 +1,7 @@
+@section('active_menu')
+REGISTERED
+@endsection
+
 @extends('layouts.member_app')
 
 @section('member_content')

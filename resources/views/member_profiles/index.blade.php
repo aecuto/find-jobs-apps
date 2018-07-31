@@ -1,5 +1,8 @@
 @extends('layouts.admin_app')
 
+@section('active_munu')
+@endsection
+
 @section('admin_content')
     <section class="content-header">
         <h1 class="pull-left">Member Profiles</h1>

@@ -1,5 +1,9 @@
 @extends('layouts.member_app')
 
+@section('active_menu')
+STARED
+@endsection
+
 @section('member_content')
 
 @foreach($stars as $star)

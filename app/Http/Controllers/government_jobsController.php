@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
-
+use Auth;
 class government_jobsController extends AppBaseController
 {
     /** @var  government_jobsRepository */
@@ -32,8 +32,18 @@ class government_jobsController extends AppBaseController
         $this->governmentJobsRepository->pushCriteria(new RequestCriteria($request));
         $governmentJobs = $this->governmentJobsRepository->all();
 
+        $role = 'guest';
+        if(Auth::user()->hasRole(['admin'])){
+          $role = 'admin';          
+        }elseif(Auth::user()->hasRole(['manager'])){
+          $role = 'manager';          
+        }elseif(Auth::user()->hasRole(['member'])){
+          $role = 'member';          
+        }
+
         return view('government_jobs.index')
-            ->with('governmentJobs', $governmentJobs);
+            ->with('governmentJobs', $governmentJobs)
+            ->with('role', $role);
     }
 
     /**

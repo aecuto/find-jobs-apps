@@ -38,7 +38,7 @@ class MemberProfileController extends AppBaseController
     public function index(Request $request)
     {
 
-      if(!$request->user()->authorizeRoles(['member','admin'])){
+      if(!$request->user()->authorizeRoles(['admin'])){
         return view('welcome');
       }
 
@@ -56,8 +56,8 @@ class MemberProfileController extends AppBaseController
      */
     public function create(Request $request)
     {
-      if(!$request->user()->authorizeRoles(['member','admin'])){
-        return view('welcome');
+      if(!$request->user()->authorizeRoles(['admin'])){
+        return back();
       }
 
         return view('member_profiles.create');
@@ -105,7 +105,7 @@ class MemberProfileController extends AppBaseController
         return view('member_profiles.show')->with('memberProfile', $memberProfile);
       }
 
-      return redirect('/');
+      return back();
     }
 
     /**
@@ -117,10 +117,6 @@ class MemberProfileController extends AppBaseController
      */
     public function edit($id,Request $request)
     {
-      if(!$request->user()->authorizeRoles(['member','admin'])){
-        return view('welcome');
-      }
-      
         $memberProfile = $this->memberProfileRepository->findWithoutFail($id);
 
         if (empty($memberProfile)) {
@@ -135,7 +131,7 @@ class MemberProfileController extends AppBaseController
         return view('member_profiles.edit')->with('memberProfile', $memberProfile);
       }
 
-      return redirect('/');
+      return back();
     }
 
     /**

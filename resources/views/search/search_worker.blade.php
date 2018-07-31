@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('active_menu')
+SEARCH WORKS
+@endsection
+
 @section('title')
 <title>Serach</title>
 @endsection
@@ -26,12 +30,7 @@
   @include('flash::message')
 
   <div class="row">
-    <div class="col-4">
-        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a class="nav-link" href="/search_job" >SEARCH JOBS</a>
-            <a class="nav-link active" href="/search_worker">SEARCH WORKERS</a>
-        </div>
-    </div>
+    @include('layouts.menu')
     <div class="col-8">
 
         <div class="card">

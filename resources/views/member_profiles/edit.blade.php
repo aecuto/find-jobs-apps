@@ -1,3 +1,7 @@
+@section('active_menu')
+Edit
+@endsection
+
 @extends(Auth::user()->hasRole(['member'])? 'layouts.member_app': 'layouts.admin_app')
 
 @section(Auth::user()->hasRole(['member']) ? 'member_content': 'admin_content')

@@ -1,5 +1,9 @@
 @extends('layouts.member_app')
 
+@section('active_menu')
+RESUME
+@endsection
+
 @section('member_content')
 
   <div class="card bg-pimary">
