@@ -220,6 +220,7 @@ function getParameterByName( name ){
   }
 }
 
+$("input#jobname").attr('value', getParameterByName('jobname'));
 $("select#job option[value='" + getParameterByName('job') + "']").attr('selected', true);
 
 </script>
