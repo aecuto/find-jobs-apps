@@ -84,6 +84,8 @@ SEARCH JOBS
 
   
 </div>
+
+@include('layouts.footer')
 @endsection
 
 <style>

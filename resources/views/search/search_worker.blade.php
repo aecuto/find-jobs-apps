@@ -80,6 +80,8 @@ SEARCH WORKS
 
   
 </div>
+@include('layouts.footer')
+
 @endsection
 
 <style>

@@ -18,7 +18,8 @@ class government_jobsController extends AppBaseController
 
     public function __construct(government_jobsRepository $governmentJobsRepo)
     {
-        $this->governmentJobsRepository = $governmentJobsRepo;
+      $this->middleware('auth');
+      $this->governmentJobsRepository = $governmentJobsRepo;
     }
 
     /**
