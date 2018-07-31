@@ -23,7 +23,7 @@ class AdminController extends Controller
      */
     public function index(Request $request)
     {
-      if($request->user()->authorizeRoles(['admin'])){
+      if($request->user()->hasRole(['admin'])){
         return view('admin_home');
       }
 
