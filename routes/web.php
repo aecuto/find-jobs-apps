@@ -12,11 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+  return view('welcome');
+})->name('welcome');
 
 Route::get('/home', function () {
-  return view('welcome');
+  return view('welcome')->with('message','คุณไม่สามารถทำรายการนี้ได้');
 });
 
 Auth::routes();

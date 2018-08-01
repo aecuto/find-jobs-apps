@@ -35,7 +35,7 @@ class AdminController extends Controller
         return redirect()->route('member.home');
       }
 
-      return view('welcome');
+      return redirect('/');
       
     }
 }

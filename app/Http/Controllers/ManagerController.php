@@ -31,7 +31,7 @@ class ManagerController extends Controller
     {
 
       if(!$request->user()->hasRole(['manager'])){
-        return view('welcome');
+        return view('welcome')->with('message','คุณไม่สามารถทำรายการนี้ได้');
       }
 
       $company_id = company::where('user_id', Auth::user()->id)->first()->id;
