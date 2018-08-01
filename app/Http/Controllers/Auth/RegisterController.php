@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Role;
+use App\Models\package;
 use App\Models\MemberProfile;
 use App\Models\company;
 use App\Http\Controllers\Controller;
@@ -73,6 +74,7 @@ class RegisterController extends Controller
       $user->password = bcrypt($data['password']);
       $user->save();
       $user->roles()->attach(Role::where('name', $data['role'])->first());
+      $user->have_package()->attach(package::where('name', $data['package'])->first());
       
       if($data['role']=='member'){
         $user_profile = new MemberProfile;

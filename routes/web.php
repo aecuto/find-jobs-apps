@@ -56,3 +56,5 @@ Route::get('/show_resume', 'companyController@show_resume')->name('companies.sho
 Route::resource('announcements', 'announcementsController');
 
 Route::resource('governmentJobs', 'government_jobsController');
+
+Route::resource('packages', 'packageController');

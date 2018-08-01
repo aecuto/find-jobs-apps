@@ -51,6 +51,14 @@ class DatabaseSeeder extends Seeder
         ]);
       }
 
+      $package = array("free", "silver", "gold");      
+      foreach (range(0,2) as $index) {
+        DB::table('packages')->insert([
+            'name' => $package[$index],
+            'description' => $package[$index],
+        ]);
+      }
+
     
   }
 }
