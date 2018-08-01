@@ -40,6 +40,4 @@ JOB'S COMPANY
         @endforeach
         </tbody>
   </table>
-
-  @include('layouts.footer')
 @endsection

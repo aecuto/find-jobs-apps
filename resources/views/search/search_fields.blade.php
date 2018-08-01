@@ -221,6 +221,11 @@ function getParameterByName( name ){
 }
 
 $("input#jobname").attr('value', getParameterByName('jobname'));
+$("input#companyname").attr('value', getParameterByName('companyname'));
 $("select#job option[value='" + getParameterByName('job') + "']").attr('selected', true);
+$("select#certificate option[value='" + getParameterByName('certificate') + "']").attr('selected', true);
+$("select#country option[value='" + getParameterByName('country') + "']").attr('selected', true);
+$("select#salary option[value='" + getParameterByName('salary') + "']").attr('selected', true);
+$("select#experience option[value='" + getParameterByName('experience') + "']").attr('selected', true);
 
 </script>

@@ -104,5 +104,16 @@ class MemberProfile extends Model
       'phone' => 'required',
     ];
 
+    public static function search_option($request){
+
+      $res = MemberProfile::where('interested_job', $request->interested_job)
+      ->orWhere('certificate', $request->certificate)
+      ->orWhere('country', $request->country)
+      ->orWhere('salary', $request->salary)
+      ->orWhere('experience', $request->experience);
+
+      return $res;
+    }
+
     
 }

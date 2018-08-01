@@ -87,5 +87,21 @@ class JobPosition extends Model
         'end_date' => 'required',
     ];
 
+    public static function search_option($request){
+      $company_id = company::where('companyname',$request->companyname)->first() ?: null;
+      if($company_id){
+        $company_id = $company_id->id;
+      }
+
+      $res = JobPosition::where('jobname', $request->jobname)
+      ->orWhere('company_id',$company_id)
+      ->orWhere('job',$request->job)
+      ->orWhere('certificate',$request->certificate)
+      ->orWhere('country',$request->country)
+      ->orWhere('salary',$request->salary)
+      ->orWhere('experience',$request->experience);
+
+      return $res;
+    }
 
 }

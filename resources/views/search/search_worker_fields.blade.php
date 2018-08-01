@@ -205,6 +205,10 @@
   }
   
   $("select#interested_job option[value='" + getParameterByName('interested_job') + "']").attr('selected', true);
+  $("select#certificate option[value='" + getParameterByName('certificate') + "']").attr('selected', true);
+  $("select#country option[value='" + getParameterByName('country') + "']").attr('selected', true);
+  $("select#salary option[value='" + getParameterByName('salary') + "']").attr('selected', true);
+  $("select#experience option[value='" + getParameterByName('experience') + "']").attr('selected', true);
   
   </script>
   
