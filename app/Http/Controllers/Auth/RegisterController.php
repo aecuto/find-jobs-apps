@@ -40,7 +40,6 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
     }
 
     /**
@@ -87,5 +86,29 @@ class RegisterController extends Controller
 
 
       return $user;
+    }
+
+    protected function showRegistrationForm(){
+      return view('auth.register');
+    }
+
+    protected function worker_register(){
+      return view('auth.worker_register');
+    }
+
+    protected function manager_register(){
+      return view('auth.manager_register');
+    }
+
+    protected function manager_free(){
+      return view('auth.manager_free');
+    }
+
+    protected function manager_silver(){
+      return view('auth.manager_silver');
+    }
+
+    protected function manager_gold(){
+      return view('auth.manager_gold');
     }
 }

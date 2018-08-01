@@ -145,9 +145,9 @@
             </div>
             <div class="col">
               <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                <a href="/manager"  class="remove-underline">
+                <a href="/manager_register"  class="remove-underline">
                   <div class="features-icons-icon d-flex">
-                      <i class="icon-share m-auto text-primary"></i>
+                      <i class="fas fa-bullhorn m-auto text-primary"></i>
                   </div>
                 </a>
                 <h3>ประกาศงานว่าง</h3>
@@ -156,7 +156,7 @@
             </div>
             <div class="col">
               <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                <a href="/login"  class="remove-underline">
+                <a href="/worker_register"  class="remove-underline">
                   <div class="features-icons-icon d-flex">
                       <i class="icon-note m-auto text-primary"></i>
                   </div>

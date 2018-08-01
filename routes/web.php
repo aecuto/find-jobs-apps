@@ -20,6 +20,12 @@ Route::get('/home', function () {
 });
 
 Auth::routes();
+//Register
+Route::get('/worker_register', 'Auth\RegisterController@worker_register')->name('register.worker');
+Route::get('/manager_register', 'Auth\RegisterController@manager_register')->name('register.manager');
+Route::get('/manager_free', 'Auth\RegisterController@manager_free')->name('register.manager_free');
+Route::get('/manager_silver', 'Auth\RegisterController@manager_silver')->name('register.manager_silver');
+Route::get('/manager_gold', 'Auth\RegisterController@manager_gold')->name('register.manager_gold');
 
 Route::get('/admin', 'AdminController@index')->name('admin.home');
 Route::get('/member', 'MemberController@index')->name('member.home');

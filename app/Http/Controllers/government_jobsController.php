@@ -92,7 +92,18 @@ class government_jobsController extends AppBaseController
             return redirect(route('governmentJobs.index'));
         }
 
-        return view('government_jobs.show')->with('governmentJobs', $governmentJobs);
+        $role = 'guest';
+        if(Auth::user()->hasRole(['admin'])){
+          $role = 'admin';          
+        }elseif(Auth::user()->hasRole(['manager'])){
+          $role = 'manager';          
+        }elseif(Auth::user()->hasRole(['member'])){
+          $role = 'member';          
+        }
+
+        return view('government_jobs.show')
+        ->with('governmentJobs', $governmentJobs)
+        ->with('role',$role);
     }
 
     /**

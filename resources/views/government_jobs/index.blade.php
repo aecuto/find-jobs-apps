@@ -5,10 +5,14 @@ GOVERNMENT JOBS
 @endsection
 
 @section($role.'_content')
-    <section class="content-header">
-        <h1 class="pull-left">Government Jobs</h1>
-        <h1 class="pull-right">
-           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('governmentJobs.create') !!}">Add New</a>
+    <section class="row">
+        <h1 class="col">Government Jobs</h1>
+        <h1 class="col text-right">
+          @auth
+            @if(Auth::user()->hasRole(['admin']))
+              <a class="btn btn-primary" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('governmentJobs.create') !!}">Add New</a>
+            @endif
+          @endauth
         </h1>
     </section>
     <div class="content">
@@ -19,7 +23,7 @@ GOVERNMENT JOBS
         <div class="clearfix"></div>
         <div class="box box-primary">
             <div class="box-body">
-                    @include('government_jobs.table')
+               @include('government_jobs.table')
             </div>
         </div>
         <div class="text-center">

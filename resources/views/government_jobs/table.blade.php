@@ -6,8 +6,8 @@
     <thead>
         <tr>
             <th>Name</th>
-        <th>Details</th>
-            <th colspan="3">Action</th>
+            <th>Details</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -16,17 +16,21 @@
             <td>{!! $governmentJobs->name !!}</td>
             <td>{!! $governmentJobs->details !!}</td>
             <td>
+              <div class="row">
+                <a href="{!! route('governmentJobs.show', [$governmentJobs->id]) !!}" class='btn btn-primary btn-xs' role="button">
+                  Show
+                </a>
+                @auth
+                @if(Auth::user()->hasRole(['admin']))
+                <a href="{!! route('governmentJobs.edit', [$governmentJobs->id]) !!}" class='btn btn-warning btn-xs'>
+                  Delete
+                </a>
                 {!! Form::open(['route' => ['governmentJobs.destroy', $governmentJobs->id], 'method' => 'delete']) !!}
-                <div class='btn-group'>
-                    <a href="{!! route('governmentJobs.show', [$governmentJobs->id]) !!}" class='btn btn-primary btn-xs'>
-                      Show
-                    </a>
-                    <a href="{!! route('governmentJobs.edit', [$governmentJobs->id]) !!}" class='btn btn-warning btn-xs'>
-                      Delete
-                    </a>
                     {!! Form::button('Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                </div>
                 {!! Form::close() !!}
+                @endif
+                @endauth
+              </div>
             </td>
         </tr>
     @endforeach

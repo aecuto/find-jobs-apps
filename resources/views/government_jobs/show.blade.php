@@ -1,6 +1,10 @@
-@extends('layouts.admin_app')
+@extends('layouts.'.$role.'_app')
 
-@section('admin_content')
+@section('active_menu')
+GOVERNMENT JOBS
+@endsection
+
+@section($role.'_content')
     <section class="content-header">
         <h1>
             Government Jobs

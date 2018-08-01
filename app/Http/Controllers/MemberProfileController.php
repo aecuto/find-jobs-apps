@@ -101,7 +101,7 @@ class MemberProfileController extends AppBaseController
 
       $user_id = Auth::user()->id;
       $member = MemberProfile::where("user_id", $user_id)->where("id", $id)->first();
-      if($member){
+      if($member || Auth::user()->hasRole(['manager'])){
         return view('member_profiles.show')->with('memberProfile', $memberProfile);
       }
 

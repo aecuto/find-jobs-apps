@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
+@section('active_menu')
+Worker Register
+@endsection
+
 @section('title')
-<title>Manager</title>
+<title>Register</title>
 @endsection
 
 @section('navbar')
@@ -10,17 +14,21 @@
 
 @section('content')
 <div class="container">
-
   @include('flash::message')
 
   <div class="row">
       @include('layouts.menu')
       <div class="col-8">
-            @yield('manager_content')
+          {!! Form::open(['url' => '/register', 'method' => 'post']) !!}
+
+            {{ Form::hidden('role', 'member') }}
+            @include('auth.fields')
+
+          {!! Form::close() !!}
       </div>
   </div>
 
-  @include('layouts.footer')
 </div>
+@include('layouts.footer')
 
 @endsection
