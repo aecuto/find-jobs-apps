@@ -29,6 +29,9 @@ Route::get('/admin', 'AdminController@index')->name('admin.home');
 Route::get('/member', 'MemberController@index')->name('member.home');
 
 Route::get('/manager', 'ManagerController@index')->name('manager.home');
+Route::get('/show_managers', 'ManagerController@show_managers')->name('manager.show');
+Route::delete('/show_managers/{id}', 'ManagerController@destroy')->name('manager.destroy');
+
 //SAVE RESUME
 Route::post('/save_resume/{id}', 'ManagerController@save_resume')->name('manager.save_resume');
 
