@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-  return view('welcome');
-})->name('welcome');
+
+Route::get('/', 'WelcomeController@index')->name('welcome');
+
 
 Route::get('/home', function () {
-  return view('welcome')->with('message','คุณไม่สามารถทำรายการนี้ได้');
+  return redirect('/');
 });
 
 Auth::routes();

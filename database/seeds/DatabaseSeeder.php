@@ -16,17 +16,10 @@ class DatabaseSeeder extends Seeder
       // User seeder will use the roles above created.
       $this->call(UserTableSeeder::class);
 
+      $this->call(JobPositions::class);
+
       $faker = Faker\Factory::create();
       $job = array("คอมพิวเตอร์", "บัญชี/การเงิน", "ส่งเอกสาร/ขับรถ/ส่งของ");
-    	foreach (range(1,30) as $index) {
-            DB::table('job_positions')->insert([
-                'jobname' => $faker->jobTitle,
-                'job' => $job[$index%3],
-                'start_date' => date("Y-m-d"),
-                'end_date' => date('Y-m-d', strtotime(date("Y-m-d"). ' + 7 days')),
-                'company_id' => 1,
-        ]);
-      }
 
       foreach (range(1,30) as $index) {
           DB::table('users')->insert([

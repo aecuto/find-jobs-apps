@@ -172,28 +172,35 @@
     <!-- Image Showcases -->
     <section class="showcase">
       <div class="container-fluid p-0">
+
         <div class="row no-gutters">
 
-          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('http://www.dpadda.com/wp-content/uploads/2018/03/IMG_4218.jpg');"></div>
-          <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-            <h2>Fully Responsive Design</h2>
-            <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+          <div class="col-lg-6 order-lg-1 showcase-text">
+            <h1>บริษัทล่าสุด</h1>
+            <div class="card">
+              <div class="card-body">
+                @foreach($recent_company as $company)
+                  <p>{{ $company->companyname }}</p>
+                @endforeach
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="row no-gutters">
-          <div class="col-lg-6 text-white showcase-img" style="background-image: url('http://www.dpadda.com/wp-content/uploads/2018/03/IMG_4218.jpg');"></div>
-          <div class="col-lg-6 my-auto showcase-text">
-            <h2>Updated For Bootstrap 4</h2>
-            <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 4 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 4!</p>
+          <div class="col-lg-6 order-lg-1 showcase-text">
+            <h1>งานล่าสุด</h1>
+            <div class="card bg-light">
+                <div class="card-body">
+                  @foreach($recent_job as $job)
+                    <p>{{ $job->jobname}}</p>
+                  @endforeach
+                  <p>
+                    <a href="/search_job" class="btn btn-primary btn-block btn-lg active" role="button" aria-pressed="true">More...</a>
+                  </p>
+                </div>
+            </div>
           </div>
+
         </div>
-        <div class="row no-gutters">
-          <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('http://www.dpadda.com/wp-content/uploads/2018/03/IMG_4218.jpg');"></div>
-          <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-            <h2>Easy to Use &amp; Customize</h2>
-            <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
-          </div>
-        </div>
+    
       </div>
     </section>
 

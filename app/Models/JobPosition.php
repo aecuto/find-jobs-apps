@@ -55,7 +55,7 @@ class JobPosition extends Model
         'experience',
         'start_date',
         'end_date',
-        'company_id'
+        'company_id',
     ];
 
     /**
