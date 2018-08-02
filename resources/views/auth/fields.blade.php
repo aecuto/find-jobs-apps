@@ -42,3 +42,18 @@
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
     <a href="/register" class="btn btn-default">Cancel</a>
 </div>
+
+<script>
+  function getParameterByName( name ){
+    var regexS = "[\\?&]"+name+"=([^&#]*)", 
+    regex = new RegExp( regexS ),
+    results = regex.exec( window.location.search );
+    if( results == null ){
+      return "";
+    } else{
+      return decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+  }
+
+  $("input#package").attr('value', getParameterByName('package'));
+</script>

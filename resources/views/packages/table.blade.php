@@ -1,9 +1,13 @@
-<table class="table table-responsive" id="packages-table">
+<table 
+  data-toggle="table"
+  data-pagination="true"
+  data-page-size="10"
+>
     <thead>
         <tr>
-            <th>Name</th>
-        <th>Description</th>
-            <th colspan="3">Action</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -14,9 +18,11 @@
             <td>
                 {!! Form::open(['route' => ['packages.destroy', $package->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
-                    <a href="{!! route('packages.show', [$package->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                    <a href="{!! route('packages.edit', [$package->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                    <a href="{!! route('packages.show', [$package->id]) !!}" class='btn btn-primary btn-xs'>
+                      Show</a>
+                    <a href="{!! route('packages.edit', [$package->id]) !!}" class='btn btn-warning btn-xs'>
+                      Edit</a>
+                    {!! Form::button('Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                 </div>
                 {!! Form::close() !!}
             </td>

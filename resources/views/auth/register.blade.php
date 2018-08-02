@@ -30,7 +30,7 @@ Type Register
               <h1 class="display-1">
                 <i class="fas fa-user-tie text-info"></i>
               </h1>
-            <a href="/manager_register" role="button" class="btn btn-info">Manager</a>            
+            <a href="/manager_package" role="button" class="btn btn-info">Manager</a>            
           </div>
         </div>
       </div>

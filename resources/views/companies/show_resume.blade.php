@@ -9,12 +9,24 @@ SHOW SELECTED WORKERS
 
 @include('adminlte-templates::common.errors')
 
-@foreach($resumes as $resume)
-<p>
-  Jobname: {{$resume->fullname}}
-</p>
-@endforeach
-
+<table  data-toggle="table"
+        data-pagination="true"
+        data-page-size="10" >
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Interested Job</th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach($resumes as $resume)
+      <tr>
+        <td>{{ $resume->fullname ?: '-' }}</td>
+        <td>{{ $resume->interested_job ?: '-' }}</td>
+      </tr>
+      @endforeach
+  </tbody>
+</table>
 
 @endsection
 

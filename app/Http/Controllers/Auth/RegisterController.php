@@ -74,13 +74,14 @@ class RegisterController extends Controller
       $user->password = bcrypt($data['password']);
       $user->save();
       $user->roles()->attach(Role::where('name', $data['role'])->first());
-      $user->have_package()->attach(package::where('name', $data['package'])->first());
       
       if($data['role']=='member'){
         $user_profile = new MemberProfile;
         $user_profile->user_id = $user->id;
         $user_profile->save();
       }elseif($data['role']=='manager'){
+        $user->have_package()->attach(package::where('name', $data['package'])->first());
+
         $company = new company;
         $company->user_id = $user->id;
         $company->save();
@@ -102,15 +103,10 @@ class RegisterController extends Controller
       return view('auth.manager_register');
     }
 
-    protected function manager_free(){
-      return view('auth.manager_free');
+    protected function manager_package(){
+      $packages = package::all();
+      return view('auth.manager_package')
+      ->with('packages', $packages);
     }
 
-    protected function manager_silver(){
-      return view('auth.manager_silver');
-    }
-
-    protected function manager_gold(){
-      return view('auth.manager_gold');
-    }
 }
