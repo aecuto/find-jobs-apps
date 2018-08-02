@@ -17,8 +17,7 @@ class CreateannouncementsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->integer('status');
             $table->timestamps();
             $table->softDeletes();
         });

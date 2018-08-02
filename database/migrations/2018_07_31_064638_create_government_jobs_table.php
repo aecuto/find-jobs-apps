@@ -17,6 +17,7 @@ class CreategovernmentJobsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('details');
+            $table->integer('status');
             $table->timestamps();
             $table->softDeletes();
         });

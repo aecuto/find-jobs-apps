@@ -25,7 +25,8 @@ class government_jobs extends Model
 
     public $fillable = [
         'name',
-        'details'
+        'details',
+        'status'
     ];
 
     /**
@@ -35,7 +36,8 @@ class government_jobs extends Model
      */
     protected $casts = [
         'name' => 'string',
-        'details' => 'string'
+        'details' => 'string',
+        'status' => 'integer'
     ];
 
     /**

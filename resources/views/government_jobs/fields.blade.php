@@ -10,6 +10,8 @@
     {!! Form::textarea('details', null, ['class' => 'form-control']) !!}
 </div>
 
+{!! Form::hidden('status', 0) !!}
+
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}

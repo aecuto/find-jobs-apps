@@ -23,11 +23,14 @@
                 @auth
                 @if(Auth::user()->hasRole(['admin']))
                 <a href="{!! route('governmentJobs.edit', [$governmentJobs->id]) !!}" class='btn btn-warning btn-xs'>
-                  Delete
+                  Edit
                 </a>
                 {!! Form::open(['route' => ['governmentJobs.destroy', $governmentJobs->id], 'method' => 'delete']) !!}
                     {!! Form::button('Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                 {!! Form::close() !!}
+              <a href="{!! route('governmentJobs.confirm', [$governmentJobs->id]) !!}" class='btn btn-info btn-xs {{ $governmentJobs->status==0 ?: 'disabled' }}'>
+                  {{ $governmentJobs->status==0 ? 'Confirm': 'Confirmed' }}
+                </a>
                 @endif
                 @endauth
               </div>

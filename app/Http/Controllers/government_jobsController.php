@@ -11,6 +11,9 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use Auth;
+
+use App\Models\government_jobs;
+
 class government_jobsController extends AppBaseController
 {
     /** @var  government_jobsRepository */
@@ -30,8 +33,13 @@ class government_jobsController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->governmentJobsRepository->pushCriteria(new RequestCriteria($request));
-        $governmentJobs = $this->governmentJobsRepository->all();
+
+        $governmentJobs = government_jobs::where('status',1)->orderBy('created_at','DESC')->get();
+
+
+        if(Auth::user()->hasRole(['admin'])){
+          $governmentJobs = government_jobs::all();
+        }
 
         $role = 'guest';
         if(Auth::user()->hasRole(['admin'])){
@@ -54,7 +62,17 @@ class government_jobsController extends AppBaseController
      */
     public function create()
     {
-        return view('government_jobs.create');
+        $role = 'guest';
+        if(Auth::user()->hasRole(['admin'])){
+          $role = 'admin';          
+        }elseif(Auth::user()->hasRole(['manager'])){
+          $role = 'manager';          
+        }elseif(Auth::user()->hasRole(['member'])){
+          $role = 'member';          
+        }
+
+        return view('government_jobs.create')
+        ->with('role',$role);
     }
 
     /**
@@ -70,7 +88,7 @@ class government_jobsController extends AppBaseController
 
         $governmentJobs = $this->governmentJobsRepository->create($input);
 
-        Flash::success('Government Jobs saved successfully.');
+        Flash::success('Government Jobs saved successfully. Wating Admin Confirm');
 
         return redirect(route('governmentJobs.index'));
     }
@@ -124,6 +142,15 @@ class government_jobsController extends AppBaseController
         }
 
         return view('government_jobs.edit')->with('governmentJobs', $governmentJobs);
+    }
+
+    public function confirm($id)
+    {
+      $governmentJobs = $this->governmentJobsRepository->findWithoutFail($id);
+      $governmentJobs->status = 1;
+      $governmentJobs->save();
+
+      return redirect(route('governmentJobs.index'));
     }
 
     /**

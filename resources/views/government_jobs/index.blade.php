@@ -8,11 +8,7 @@ GOVERNMENT JOBS
     <section class="row">
         <h1 class="col">Government Jobs</h1>
         <h1 class="col text-right">
-          @auth
-            @if(Auth::user()->hasRole(['admin']))
-              <a class="btn btn-primary" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('governmentJobs.create') !!}">Add New</a>
-            @endif
-          @endauth
+          <a class="btn btn-primary" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('governmentJobs.create') !!}">Add New</a>
         </h1>
     </section>
     <div class="content">

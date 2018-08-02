@@ -205,32 +205,38 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="testimonials text-center bg-light">
-      <div class="container">
-        <h2 class="mb-5">What people are saying...</h2>
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img class="img-fluid rounded-circle mb-3" src="http://www.dpadda.com/wp-content/uploads/2018/03/IMG_4218.jpg" alt="">
-              <h5>Margaret E.</h5>
-              <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
+    <section class="showcase text-center bg-light">
+      <div class="container-fluid p-0">
+          <div class="row no-gutters">
+
+              <div class="col-lg-6 order-lg-1 showcase-text">
+                <h1>งานราชการ รัฐวิสาหกิจ</h1>
+                <div class="card">
+                  <div class="card-body">
+                    @foreach($recent_company as $company)
+                    @endforeach
+                    <p>
+                      <a href="/governmentJobs/create" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">เพิ่ม</a>
+                      <a href="/governmentJobs" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">ดูทั้งหมด</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 order-lg-1 showcase-text">
+                <h1>ข่าวประกาศ</h1>
+                <div class="card bg-light">
+                    <div class="card-body">
+                      @foreach($recent_job as $job)
+                      @endforeach
+                      <p>
+                        <a href="/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">เพิ่ม</a>
+                        <a href="/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">ดูทั้งหมด</a>
+                      </p>
+                    </div>
+                </div>
+              </div>
+    
             </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img class="img-fluid rounded-circle mb-3" src="http://www.dpadda.com/wp-content/uploads/2018/03/IMG_4218.jpg" alt="">
-              <h5>Fred S.</h5>
-              <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img class="img-fluid rounded-circle mb-3" src="http://www.dpadda.com/wp-content/uploads/2018/03/IMG_4218.jpg" alt="">
-              <h5>Sarah	W.</h5>
-              <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to us!"</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
