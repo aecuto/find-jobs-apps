@@ -213,7 +213,8 @@
                 <h1>งานราชการ รัฐวิสาหกิจ</h1>
                 <div class="card">
                   <div class="card-body">
-                    @foreach($recent_company as $company)
+                    @foreach($recent_government_jobs as $gov_job)
+                      <p>{{$gov_job->name}}</p>
                     @endforeach
                     <p>
                       <a href="/governmentJobs/create" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">เพิ่ม</a>
