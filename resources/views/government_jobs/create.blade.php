@@ -1,10 +1,10 @@
-@extends('layouts.'.$role.'_app')
 
 @section('active_menu')
 GOVERNMENT JOBS
 @endsection
 
-@section($role.'_content')
+@extends(Auth::user() ? 'layouts.'.Auth::user()->roles->first()->name.'_app' : 'layouts.guest_app')
+@section(Auth::user() ? Auth::user()->roles->first()->name.'_content' : 'guest_content')
     <section class="content-header">
         <h1>
             Government Jobs

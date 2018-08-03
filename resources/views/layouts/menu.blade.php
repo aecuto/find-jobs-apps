@@ -5,5 +5,6 @@
         <a class="nav-link" href="/search_job" >SEARCH JOBS</a>
         <a class="nav-link" href="/search_worker">SEARCH WORKERS</a>
         <a class="nav-link" href="/governmentJobs">GOVERNMENT JOBS</a>
+        <a class="nav-link" href="/announcements">ANNOUNCEMENTS</a>
     </div>
 </div>

@@ -145,7 +145,7 @@
             </div>
             <div class="col">
               <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                <a href="/manager_register"  class="remove-underline">
+                <a href="/manager_package"  class="remove-underline">
                   <div class="features-icons-icon d-flex">
                       <i class="fas fa-bullhorn m-auto text-primary"></i>
                   </div>
@@ -225,13 +225,14 @@
               </div>
               <div class="col-lg-6 order-lg-1 showcase-text">
                 <h1>ข่าวประกาศ</h1>
-                <div class="card bg-light">
+                <div class="card">
                     <div class="card-body">
-                      @foreach($recent_job as $job)
+                      @foreach($recent_announcements as $recent_announcements)
+                        <p>{{$recent_announcements->title}}</p>
                       @endforeach
                       <p>
-                        <a href="/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">เพิ่ม</a>
-                        <a href="/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">ดูทั้งหมด</a>
+                        <a href="{!! route('announcements.create') !!}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">เพิ่ม</a>
+                        <a href="{!! route('announcements.index') !!}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">ดูทั้งหมด</a>
                       </p>
                     </div>
                 </div>

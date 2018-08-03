@@ -27,8 +27,7 @@ class announcements extends Model
     public $fillable = [
         'title',
         'description',
-        'start_date',
-        'end_date'
+        'status',
     ];
 
     /**
@@ -39,8 +38,7 @@ class announcements extends Model
     protected $casts = [
         'title' => 'string',
         'description' => 'string',
-        'start_date' => 'date',
-        'end_date' => 'date'
+        'status' => 'integer',
     ];
 
     /**
@@ -51,8 +49,6 @@ class announcements extends Model
     public static $rules = [
         'title' => 'required',
         'description' => 'required',
-        'start_date' => 'required',
-        'end_date' => 'required'
     ];
 
     

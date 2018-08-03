@@ -21,7 +21,6 @@ class government_jobsController extends AppBaseController
 
     public function __construct(government_jobsRepository $governmentJobsRepo)
     {
-      $this->middleware('auth');
       $this->governmentJobsRepository = $governmentJobsRepo;
     }
 
@@ -37,22 +36,14 @@ class government_jobsController extends AppBaseController
         $governmentJobs = government_jobs::where('status',1)->orderBy('created_at','DESC')->get();
 
 
-        if(Auth::user()->hasRole(['admin'])){
-          $governmentJobs = government_jobs::all();
-        }
-
-        $role = 'guest';
-        if(Auth::user()->hasRole(['admin'])){
-          $role = 'admin';          
-        }elseif(Auth::user()->hasRole(['manager'])){
-          $role = 'manager';          
-        }elseif(Auth::user()->hasRole(['member'])){
-          $role = 'member';          
+        if(Auth::user()){
+          if(Auth::user()->hasRole(['admin'])){
+            $governmentJobs = government_jobs::all();
+          }
         }
 
         return view('government_jobs.index')
-            ->with('governmentJobs', $governmentJobs)
-            ->with('role', $role);
+            ->with('governmentJobs', $governmentJobs);
     }
 
     /**
@@ -62,17 +53,7 @@ class government_jobsController extends AppBaseController
      */
     public function create()
     {
-        $role = 'guest';
-        if(Auth::user()->hasRole(['admin'])){
-          $role = 'admin';          
-        }elseif(Auth::user()->hasRole(['manager'])){
-          $role = 'manager';          
-        }elseif(Auth::user()->hasRole(['member'])){
-          $role = 'member';          
-        }
-
-        return view('government_jobs.create')
-        ->with('role',$role);
+        return view('government_jobs.create');
     }
 
     /**

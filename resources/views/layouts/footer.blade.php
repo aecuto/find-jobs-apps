@@ -23,10 +23,9 @@
       <div class="col-6 col-md">
         <h5>About</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="#">Team</a></li>
-          <li><a class="text-muted" href="#">Locations</a></li>
-          <li><a class="text-muted" href="#">Privacy</a></li>
-          <li><a class="text-muted" href="#">Terms</a></li>
+          <li><a class="text-muted" href="/manager_package">Package</a></li>
+          <li><a class="text-muted" href="/paymentNotifications/create">Payment Notify</a></li>
+          <li><a class="text-muted" href="/contactuses/create">Contact Us</a></li>
         </ul>
       </div>
     </div>

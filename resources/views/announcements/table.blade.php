@@ -5,10 +5,9 @@
     >
     <thead>
         <tr>
-            <th>Title</th>
-        <th>Description</th>
-        <th>Start Date</th>
-            <th colspan="3">Action</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -16,19 +15,24 @@
         <tr>
             <td>{!! $announcements->title !!}</td>
             <td>{!! $announcements->description !!}</td>
-            <td>{!! $announcements->start_date !!}</td>
             <td>
+              <div class='row'>
+                <a href="{!! route('announcements.show', [$announcements->id]) !!}" class='btn btn-info btn-xs'>
+                    Show
+                </a>
+                @if(Auth::user()->hasRole(['admin']))
                 {!! Form::open(['route' => ['announcements.destroy', $announcements->id], 'method' => 'delete']) !!}
-                <div class='btn-group'>
-                    <a href="{!! route('announcements.show', [$announcements->id]) !!}" class='btn btn-info btn-xs'>
-                      Show
-                    </a>
                     <a href="{!! route('announcements.edit', [$announcements->id]) !!}" class='btn btn-warning btn-xs'>
                       Edit
                     </a>
                     {!! Form::button('Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                </div>
+                
                 {!! Form::close() !!}
+                <a href="{!! route('announcements.confirm', [$announcements->id]) !!}" class='btn btn-info btn-xs {{ $announcements->status==0 ?: 'disabled' }}'>
+                    {{ $announcements->status==0 ? 'Confirm': 'Confirmed' }}
+                </a>
+                @endif
+              </div>
             </td>
         </tr>
     @endforeach

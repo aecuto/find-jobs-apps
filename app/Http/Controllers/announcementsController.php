@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Auth;
+use App\Models\announcements;
 
 class announcementsController extends AppBaseController
 {
@@ -18,7 +20,7 @@ class announcementsController extends AppBaseController
 
     public function __construct(announcementsRepository $announcementsRepo)
     {
-        $this->announcementsRepository = $announcementsRepo;
+      $this->announcementsRepository = $announcementsRepo;
     }
 
     /**
@@ -30,7 +32,14 @@ class announcementsController extends AppBaseController
     public function index(Request $request)
     {
         $this->announcementsRepository->pushCriteria(new RequestCriteria($request));
-        $announcements = $this->announcementsRepository->all();
+
+        $announcements = announcements::where('status',1)->orderBy('created_at', 'DESC')->get();
+
+        if(Auth::user()){
+          if(Auth::user()->hasRole(['admin'])){
+           $announcements = $this->announcementsRepository->all();
+          }
+        }
 
         return view('announcements.index')
             ->with('announcements', $announcements);
@@ -151,5 +160,15 @@ class announcementsController extends AppBaseController
         Flash::success('Announcements deleted successfully.');
 
         return redirect(route('announcements.index'));
+    }
+
+    public function confirm($id){
+      $announcements = $this->announcementsRepository->findWithoutFail($id);
+      $announcements->status = 1;
+      $announcements->save();
+
+      Flash::success('Announcements confirm successfully.');
+      return redirect(route('announcements.index'));
+
     }
 }

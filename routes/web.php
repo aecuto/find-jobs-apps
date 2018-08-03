@@ -55,9 +55,14 @@ Route::get('/show_resume', 'companyController@show_resume')->name('companies.sho
 
 
 Route::resource('announcements', 'announcementsController');
+Route::get('/announcements_confirm/{id}', 'announcementsController@confirm')->name('announcements.confirm');
 
 Route::resource('governmentJobs', 'government_jobsController');
 Route::get('/governmentJobs_confirm/{id}', 'government_jobsController@confirm')->name('governmentJobs.confirm');
 
 
 Route::resource('packages', 'packageController');
+
+Route::resource('paymentNotifications', 'PaymentNotificationController');
+
+Route::resource('contactuses', 'ContactUsController');

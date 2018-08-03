@@ -39,7 +39,7 @@ class MemberProfileController extends AppBaseController
     {
 
       if(!$request->user()->authorizeRoles(['admin'])){
-        return view('welcome');
+        return redirect('/');
       }
 
       $this->memberProfileRepository->pushCriteria(new RequestCriteria($request));
