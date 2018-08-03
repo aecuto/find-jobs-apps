@@ -64,5 +64,7 @@ Route::get('/governmentJobs_confirm/{id}', 'government_jobsController@confirm')-
 Route::resource('packages', 'packageController');
 
 Route::resource('paymentNotifications', 'PaymentNotificationController');
+Route::get('/paymentNotifications_markread/{id}', 'PaymentNotificationController@markread')->name('paymentNotifications.markread');
 
 Route::resource('contactuses', 'ContactUsController');
+Route::get('/contactuses_markread/{id}', 'ContactUsController@markread')->name('contactuses.markread');

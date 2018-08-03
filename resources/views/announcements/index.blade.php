@@ -11,7 +11,8 @@ ANNOUNCEMENTS
         </h1>
     </section>
     <div class="content">
-       @include('announcements.table')
+        @include('flash::message')
+        @include('announcements.table')
     </div>
 @endsection
 

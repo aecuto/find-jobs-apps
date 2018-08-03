@@ -31,6 +31,7 @@ class announcementsController extends AppBaseController
      */
     public function index(Request $request)
     {
+
         $this->announcementsRepository->pushCriteria(new RequestCriteria($request));
 
         $announcements = announcements::where('status',1)->orderBy('created_at', 'DESC')->get();
@@ -41,8 +42,9 @@ class announcementsController extends AppBaseController
           }
         }
 
-        return view('announcements.index')
+            return view('announcements.index')
             ->with('announcements', $announcements);
+
     }
 
     /**

@@ -11,6 +11,8 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
+use Auth;
+
 class ContactUsController extends AppBaseController
 {
     /** @var  ContactUsRepository */
@@ -32,8 +34,16 @@ class ContactUsController extends AppBaseController
         $this->contactUsRepository->pushCriteria(new RequestCriteria($request));
         $contactuses = $this->contactUsRepository->all();
 
-        return view('contactuses.index')
+        if(Auth::user()){
+          if(Auth::user()->hasRole(['admin'])){
+            return view('contactuses.index')
             ->with('contactuses', $contactuses);
+          }
+        }
+
+        Flash::success('Contact was send successfully.');
+
+        return back();
     }
 
     /**
@@ -152,4 +162,14 @@ class ContactUsController extends AppBaseController
 
         return redirect(route('contactuses.index'));
     }
+
+    public function markread($id)
+    {
+      $contactUs = $this->contactUsRepository->findWithoutFail($id);
+      $contactUs->read = true;
+      $contactUs->save();
+
+      return redirect(route('contactuses.index'));
+    }
+
 }

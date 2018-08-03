@@ -22,7 +22,7 @@
   <!-- Email Field -->
   <div class="form-group col">
     {!! Form::label('email', 'Email:') !!}
-    {!! Form::text('email', null, ['class' => 'form-control']) !!}
+    {!! Form::email('email', null, ['class' => 'form-control']) !!}
   </div>
 
   <!-- Phone Field -->

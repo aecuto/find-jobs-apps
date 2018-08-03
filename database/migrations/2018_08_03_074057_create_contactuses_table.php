@@ -20,6 +20,7 @@ class CreateContactusesTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->text('details');
+            $table->boolean('read')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -1,12 +1,16 @@
-<table class="table table-responsive" id="contactuses-table">
+<table 
+    data-toggle="table"
+    data-pagination="true"
+    data-page-size="10"
+    >
     <thead>
         <tr>
             <th>Contact Type</th>
-        <th>Contact Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Details</th>
-            <th colspan="3">Action</th>
+            <th>Contact Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Details</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -20,9 +24,10 @@
             <td>
                 {!! Form::open(['route' => ['contactuses.destroy', $contactUs->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
-                    <a href="{!! route('contactuses.show', [$contactUs->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                    <a href="{!! route('contactuses.edit', [$contactUs->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                    {!! Form::button('Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                    <a href="{!! route('contactuses.markread', [$contactUs->id]) !!}" class='btn btn-info btn-xs {{ $contactUs->read==false ?: 'disabled' }}'>
+                        {{ $contactUs->read==false ? 'Mark as Read': 'Readed' }}
+                      </a>
                 </div>
                 {!! Form::close() !!}
             </td>

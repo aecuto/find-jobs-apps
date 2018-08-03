@@ -22,6 +22,7 @@ class CreatePaymentNotificationsTable extends Migration
             $table->string('bankname');
             $table->float('money');
             $table->text('details');
+            $table->boolean('read')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });

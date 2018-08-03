@@ -11,6 +11,8 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
+use Auth;
+
 class PaymentNotificationController extends AppBaseController
 {
     /** @var  PaymentNotificationRepository */
@@ -32,8 +34,18 @@ class PaymentNotificationController extends AppBaseController
         $this->paymentNotificationRepository->pushCriteria(new RequestCriteria($request));
         $paymentNotifications = $this->paymentNotificationRepository->all();
 
-        return view('payment_notifications.index')
+
+        if(Auth::user()){
+          if(Auth::user()->hasRole(['admin'])){
+            return view('payment_notifications.index')
             ->with('paymentNotifications', $paymentNotifications);
+          }
+        }
+
+        Flash::success('Payment Notification sent successfully.');
+
+        return back();
+
     }
 
     /**
@@ -151,5 +163,14 @@ class PaymentNotificationController extends AppBaseController
         Flash::success('Payment Notification deleted successfully.');
 
         return redirect(route('paymentNotifications.index'));
+    }
+
+    public function markread($id)
+    {
+      $paymentNotification = $this->paymentNotificationRepository->findWithoutFail($id);
+      $paymentNotification->read = true;
+      $paymentNotification->save();
+
+      return redirect(route('paymentNotifications.index'));
     }
 }
