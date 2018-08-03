@@ -13,6 +13,9 @@
         <a class="p-2 text-dark" href="{!! route('companies.show_resume') !!}">ใบสมัครงานที่เก็บไว้</a>
         <a class="p-2 text-dark" href="{!! route('companies.index') !!}">ข้อมูลบริษัท</a>
       @endif
+    @else
+      <a class="btn btn-outline-primary" href="{{ route('login') }}">Login</a>
+      <a class="btn btn-outline-secondary" href="{{ route('register') }}">Register</a>
     @endauth
   </nav>
   @if (Route::has('login'))

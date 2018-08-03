@@ -212,7 +212,6 @@
   <!-- Submit Field -->
 <div class="form-group col text-right">
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('jobPositions.index') !!}" class="btn btn-default">Cancel</a>
 </div>
 
 </div>

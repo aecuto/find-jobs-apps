@@ -42,7 +42,7 @@ class announcementsController extends AppBaseController
           }
         }
 
-            return view('announcements.index')
+        return view('announcements.index')
             ->with('announcements', $announcements);
 
     }

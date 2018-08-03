@@ -229,7 +229,6 @@
 <!-- Submit Field -->
 <div class="form-group col" style="margin-top: 20px;">
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('member.home') !!}" class="btn btn-default">Cancel</a>
 </div>
 
 </div>

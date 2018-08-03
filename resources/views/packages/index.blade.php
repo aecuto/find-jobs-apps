@@ -1,6 +1,9 @@
-@extends('layouts.admin_app')
+@section('active_menu')
+Package
+@endsection
 
-@section('admin_content')
+@extends(Auth::user() ? 'layouts.'.Auth::user()->roles->first()->name.'_app' : 'layouts.guest_app')
+@section(Auth::user() ? Auth::user()->roles->first()->name.'_content' : 'guest_content')
     <section class="content-header">
       <div class="row">
         <div class="col">

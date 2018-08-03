@@ -40,7 +40,6 @@ Member Profile
         <a class="btn btn-secondary" style="margin-bottom: 5px;" href="{!! route('memberProfiles.registered') !!}" role="button">งานที่สมัครแล้ว</a>
         <a class="btn btn-secondary" style="margin-bottom: 5px;" href="{!! route('memberProfiles.stared') !!}" role="button">งานที่เก็บไว้</a>
         <a class="btn btn-secondary" style="margin-bottom: 5px;" href="{!! route('memberProfiles.my_resume') !!}" role="button">บริษัทที่เก็บใบสมัครงานของเรา</a>
-        <a class="btn btn-secondary" style="margin-bottom: 5px;" href="{!! route('memberProfiles.my_resume') !!}" role="button">บริษัทที่เก็บใบสมัครงานของเรา</a>
         {!! Form::open(['route' => ['memberProfiles.destroy', Auth::user()->member_profile->id], 'method' => 'delete']) !!}
           {!! Form::button('ลบใบสมัครงาน', ['type' => 'submit', 'class' => 'btn btn-secondary', 'onclick' => "return confirm('Are you sure?')", "role"=>"link"]) !!}
         {!! Form::close() !!}

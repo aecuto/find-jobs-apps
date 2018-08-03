@@ -1,6 +1,9 @@
-@extends('layouts.manager_app')
+@section('active_menu')
+Job
+@endsection
 
-@section('manager_content')
+@extends(Auth::user() ? 'layouts.'.Auth::user()->roles->first()->name.'_app' : 'layouts.guest_app')
+@section(Auth::user() ? Auth::user()->roles->first()->name.'_content' : 'guest_content')
 
   @include('adminlte-templates::common.errors')
 

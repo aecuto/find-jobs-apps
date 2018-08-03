@@ -20,17 +20,19 @@
                 <a href="{!! route('announcements.show', [$announcements->id]) !!}" class='btn btn-info btn-xs'>
                     Show
                 </a>
-                @if(Auth::user()->hasRole(['admin']))
-                {!! Form::open(['route' => ['announcements.destroy', $announcements->id], 'method' => 'delete']) !!}
-                    <a href="{!! route('announcements.edit', [$announcements->id]) !!}" class='btn btn-warning btn-xs'>
-                      Edit
-                    </a>
-                    {!! Form::button('Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                
-                {!! Form::close() !!}
-                <a href="{!! route('announcements.confirm', [$announcements->id]) !!}" class='btn btn-info btn-xs {{ $announcements->status==0 ?: 'disabled' }}'>
-                    {{ $announcements->status==0 ? 'Confirm': 'Confirmed' }}
-                </a>
+                @auth
+                  @if(Auth::user()->hasRole(['admin']))
+                  {!! Form::open(['route' => ['announcements.destroy', $announcements->id], 'method' => 'delete']) !!}
+                      <a href="{!! route('announcements.edit', [$announcements->id]) !!}" class='btn btn-warning btn-xs'>
+                        Edit
+                      </a>
+                      {!! Form::button('Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                  
+                  {!! Form::close() !!}
+                  <a href="{!! route('announcements.confirm', [$announcements->id]) !!}" class='btn btn-info btn-xs {{ $announcements->status==0 ?: 'disabled' }}'>
+                      {{ $announcements->status==0 ? 'Confirm': 'Confirmed' }}
+                  </a>
+                  @endauth
                 @endif
               </div>
             </td>

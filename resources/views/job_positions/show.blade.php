@@ -1,10 +1,9 @@
-@extends('layouts.manager_app')
-
 @section('active_menu')
-SELECT JOB
+Job
 @endsection
 
-@section('manager_content')
+@extends(Auth::user() ? 'layouts.'.Auth::user()->roles->first()->name.'_app' : 'layouts.guest_app')
+@section(Auth::user() ? Auth::user()->roles->first()->name.'_content' : 'guest_content')
 <div class="card">
     <div class="card-body">
         <h5><i class="fas fa-briefcase"></i> {!! $jobPosition->jobname !!}</h5>
