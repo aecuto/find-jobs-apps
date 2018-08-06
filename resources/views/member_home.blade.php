@@ -14,15 +14,15 @@ Member Profile
     </div>
     <div class="card-body">
       <div class="row">
-        <div class="col-6">
-        <h5 class="card-title">รหัสสมาชิก: {{ Auth::user()->id }}  {{ Auth::user()->member_profile->fullname }}</h5>
-            <h5 class="card-title">Special</h5>
-            <h5 class="card-title">Special</h5>
+        <div class="col-5">
+        <h6 class="card-title">รหัสสมาชิก: {{ Auth::user()->id }}</h6>
+            <h6 class="card-title">ชื่อ-นามสกุล: {{ Auth::user()->member_profile->fullname ?: '-' }}</h6>
+            <h6 class="card-title">งานที่สนใจ: {{ Auth::user()->member_profile->interested_job ?: '-' }}</h6>
         </div>
-        <div class="col-6">
-          <h5 class="card-title">เป็นสมาชิกเมื่อ:  {{ Auth::user()->created_at }}</h5>
-          <h5 class="card-title">อัพเดทใบสมัครงานล่าสุดเมื่อ:  {{ Auth::user()->updated_at }}</h5>
-          <h5 class="card-title">Special</h5>
+        <div class="col-7">
+          <h6 class="card-title">วันเกิด: {{ date_format(date_create(Auth::user()->member_profile->birthdate),"Y-m-d") }}</h6>
+          <h6 class="card-title">เป็นสมาชิกเมื่อ: {{ Auth::user()->created_at }}</h6>
+          <h6 class="card-title">อัพเดทใบสมัครงานล่าสุดเมื่อ:  {{ Auth::user()->updated_at }}</h6>
         </div>
       </div>
     </div>

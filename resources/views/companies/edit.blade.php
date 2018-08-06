@@ -1,5 +1,9 @@
 @extends('layouts.manager_app')
 
+@section('active_menu')
+Edit
+@endsection
+
 @section('manager_content')
 
 @include('adminlte-templates::common.errors')

@@ -68,3 +68,6 @@ Route::get('/paymentNotifications_markread/{id}', 'PaymentNotificationController
 
 Route::resource('contactuses', 'ContactUsController');
 Route::get('/contactuses_markread/{id}', 'ContactUsController@markread')->name('contactuses.markread');
+
+
+Route::resource('images', 'ImageController');
