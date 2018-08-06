@@ -33,6 +33,7 @@ class CreateMemberProfilesTable extends Migration
             $table->string('experience')->nullable();
             $table->string('salary')->nullable();
             $table->string('work_time')->nullable();
+            $table->binary('image')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

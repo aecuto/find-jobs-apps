@@ -64,6 +64,7 @@ class MemberProfile extends Model
         'country',
         'certificate',
         'experience',
+        'image',
         'work_time'
     ];
 
@@ -90,6 +91,7 @@ class MemberProfile extends Model
         'country' => 'string',
         'certificate' => 'string',
         'experience' => 'string',
+        'image' => 'binary',
         'work_time' => 'string'
     ];
 
@@ -102,6 +104,7 @@ class MemberProfile extends Model
       'fullname' => 'required',
       'interested_job' => 'required',
       'phone' => 'required',
+      'image'  => 'max:64',
     ];
 
     public static function search_option($request){

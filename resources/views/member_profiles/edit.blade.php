@@ -8,7 +8,7 @@ Edit
 
   @include('adminlte-templates::common.errors')
 
-  {!! Form::model($memberProfile, ['route' => ['memberProfiles.update', $memberProfile->id], 'method' => 'patch']) !!}
+  {!! Form::model($memberProfile, ['route' => ['memberProfiles.update', $memberProfile->id], 'method' => 'patch','files' => true]) !!}
 
       @include('member_profiles.fields')
 

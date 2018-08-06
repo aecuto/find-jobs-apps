@@ -1,39 +1,36 @@
 <div class="row">
-<!-- Fullname Field -->
-<div class="form-group col">
-    {!! Form::label('fullname', 'Fullname:') !!}
-    {!! Form::text('fullname', null, ['class' => 'form-control']) !!}
-</div>
+  <!-- Fullname Field -->
+  <div class="form-group col">
+      {!! Form::label('fullname', 'Fullname:') !!}
+      {!! Form::text('fullname', null, ['class' => 'form-control']) !!}
+  </div>
 
-<!-- Gender Field -->
-<div class="form-group col" style="margin-top: 30px;">
-    {!! Form::label('gender', 'Gender:') !!}
-    <label class="radio-inline">
+  <!-- Gender Field -->
+  <div class="form-group col">
+      {!! Form::label('gender', 'Gender:') !!}
+      <div class="col">
         {!! Form::radio('gender', "ชาย", null) !!} ชาย
-    </label>
-
-    <label class="radio-inline">
+      </div>
+      <div class="col">
         {!! Form::radio('gender', "หญืง", null) !!} หญืง
-    </label>
+      </div>
+  </div>
 
-</div>
+  <!-- Status Field -->
+  <div class="form-group col">
+      {!! Form::label('status', 'Status:') !!}
 
-<!-- Status Field -->
-<div class="form-group col" style="margin-top: 30px;">
-    {!! Form::label('status', 'Status:') !!}
-    <label class="radio-inline">
-        {!! Form::radio('status', "โสด", null) !!} โสด
-    </label>
+      <div class="col">
+      {!! Form::radio('status', "โสด", null) !!} โสด
+      </div>
+      <div class="col">
+      {!! Form::radio('status', "แต่งงาน", null) !!} แต่งงาน
+      </div>
+      <div class="col">
+      {!! Form::radio('status', "หย่าร้าง", null) !!} หย่าร้าง
+      </div>
 
-    <label class="radio-inline">
-        {!! Form::radio('status', "แต่งงาน", null) !!} แต่งงาน
-    </label>
-
-    <label class="radio-inline">
-        {!! Form::radio('status', "หย่าร้าง", null) !!} หย่าร้าง
-    </label>
-
-</div>
+  </div>
 </div>
 
 
@@ -210,26 +207,32 @@
 
 <div class="row">
 <!-- Work Time Field -->
-<div class="form-group col" >
+<div class="form-group col-3" >
     {!! Form::label('work_time', 'Work Time:') !!}
-    <label class="radio-inline">
+
+    <div class="col">
         {!! Form::radio('work_time', "งานประจำ", null) !!} งานประจำ 
+    </div>
+    <div class="col">
         {!! Form::radio('work_time', "งานชั่วคราว", null) !!} งานชั่วคราว 
+    </div>
+    <div class="col">
         {!! Form::radio('work_time', "งานนอกเวลา", null) !!} งานนอกเวลา 
-    </label>
+    </div>
+
 </div>
 
   <!-- Address Field -->
-  <div class="form-group col">
+  <div class="form-group col-5">
       {!! Form::label('address', 'Address:') !!}
       {!! Form::textarea('address', null, ['class' => 'form-control', 'rows' => '3']) !!}
   </div>
 
-
-<!-- Submit Field -->
-<div class="form-group col" style="margin-top: 20px;">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-</div>
+  <div class="form-group col-4">
+      {!! Form::label('image', 'Image:') !!}
+      {!! Form::file('image', null, ['class' => 'form-control']) !!}
+      {!! Form::submit('Save', ['class' => 'btn btn-primary btn-block','style' => 'margin-top: 5px;']) !!}
+  </div>
 
 </div>
 

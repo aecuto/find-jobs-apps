@@ -76,6 +76,7 @@ class MemberProfileController extends AppBaseController
 
         $memberProfile = $this->memberProfileRepository->create($input);
 
+
         Flash::success('Member Profile saved successfully.');
 
         return redirect(route('member.home'));
@@ -152,6 +153,11 @@ class MemberProfileController extends AppBaseController
             return redirect(route('member.home'));
         }
         $memberProfile = $this->memberProfileRepository->update($request->all(), $id);
+
+        $image_binary = base64_encode(file_get_contents($request->file('image')->path()));
+
+        $memberProfile->image = $image_binary;
+        $memberProfile->save();
 
         Flash::success('Member Profile updated successfully.');
 

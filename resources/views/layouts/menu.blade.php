@@ -8,7 +8,4 @@
         <a class="nav-link" href="/announcements">ANNOUNCEMENTS</a>
     </div>
 </div>
-<li class="{{ Request::is('images*') ? 'active' : '' }}">
-    <a href="{!! route('images.index') !!}"><i class="fa fa-edit"></i><span>Images</span></a>
-</li>
 
