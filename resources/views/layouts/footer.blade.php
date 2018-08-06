@@ -11,6 +11,7 @@
           <li><a class="text-muted" href="/search_job">Search Jobs</a></li>
           <li><a class="text-muted" href="/search_worker">Search Workers</a></li>
           <li><a class="text-muted" href="/governmentJobs">Government Jobs</a></li>
+          <li><a class="text-muted" href="/announcements">Announcements</a></li>
         </ul>
       </div>
       <div class="col-6 col-md">

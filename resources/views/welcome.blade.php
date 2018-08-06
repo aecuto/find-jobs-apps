@@ -177,26 +177,55 @@
 
           <div class="col-lg-6 order-lg-1 showcase-text">
             <h1>บริษัทล่าสุด</h1>
+
             <div class="card">
-              <div class="card-body">
-                @foreach($recent_company as $company)
-                  <p>{{ $company->companyname }}</p>
-                @endforeach
-              </div>
+                <ul class="list-group list-group-flush">
+                  @foreach($recent_company as $company)
+                    <li class="list-group-item">
+                      <div class="row">
+                        <div class="col-6"><a href="#">{{ $company->companyname }}</a></div>
+                        <div class="col-6 text-right">
+                            <span class="badge badge-success"><i class="fas fa-map-marker-alt"></i> {{ $company->country ?: '-' }}</span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                            {{ $company->details }}
+                        </div>
+                      </div>
+                    </li>
+                  @endforeach
+                </ul>
             </div>
+
           </div>
           <div class="col-lg-6 order-lg-1 showcase-text">
             <h1>งานล่าสุด</h1>
-            <div class="card bg-light">
-                <div class="card-body">
-                  @foreach($recent_job as $job)
-                    <p>{{ $job->jobname}}</p>
+
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                    @foreach($recent_job as $job)
+                    <li class="list-group-item">
+                      <div class="row">
+                        <div class="col-8 text-truncate">
+                          <a href="{!! route('jobPositions.show', [$job->id]) !!}" class="remove-underline">
+                            <i class="fas fa-briefcase"></i> {!! $job->jobname?: '-' !!}
+                          </a>
+                        </div>
+                        <div class="col-4 text-right">
+                            <span class="badge badge-primary">
+                              {!! $job->created_at !!}
+                            </span>
+                        </div>
+                      </div>
+                    </li>
                   @endforeach
-                  <p>
-                    <a href="/search_job" class="btn btn-primary btn-block btn-lg active" role="button" aria-pressed="true">More...</a>
-                  </p>
-                </div>
+                  <li class="list-group-item">
+                      <a href="/search_job" class="btn btn-primary btn-block btn-lg active" role="button" aria-pressed="true">More...</a>
+                  </li>
+                </ul>
             </div>
+
           </div>
 
         </div>
@@ -211,33 +240,52 @@
 
               <div class="col-lg-6 order-lg-1 showcase-text">
                 <h1>งานราชการ รัฐวิสาหกิจ</h1>
+
                 <div class="card">
-                  <div class="card-body">
-                    @foreach($recent_government_jobs as $gov_job)
-                      <p>{{$gov_job->name}}</p>
-                    @endforeach
-                    <p>
-                      <a href="/governmentJobs/create" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">เพิ่ม</a>
-                      <a href="/governmentJobs" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">ดูทั้งหมด</a>
-                    </p>
-                  </div>
+                    <ul class="list-group list-group-flush">
+                        @foreach($recent_government_jobs as $gov_job)
+                        <li class="list-group-item">
+                          <div class="row">
+                            <div class="col text-truncate">
+                              <a href="{!! route('governmentJobs.show', [$gov_job->id]) !!}" class="remove-underline">
+                                  <i class="fas fa-bookmark"></i> {!! $gov_job->name?: '-' !!}
+                              </a>
+                            </div>
+                          </div>
+                        </li>
+                      @endforeach
+                      <li class="list-group-item">
+                          <a href="/governmentJobs/create" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">เพิ่ม</a>
+                          <a href="/governmentJobs" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">ดูทั้งหมด</a>
+                      </li>
+                    </ul>
                 </div>
+
               </div>
               <div class="col-lg-6 order-lg-1 showcase-text">
                 <h1>ข่าวประกาศ</h1>
+
                 <div class="card">
-                    <div class="card-body">
-                      @foreach($recent_announcements as $recent_announcements)
-                        <p>{{$recent_announcements->title}}</p>
+                    <ul class="list-group list-group-flush">
+                        @foreach($recent_announcements as $recent_announcements)
+                        <li class="list-group-item">
+                          <div class="row">
+                            <div class="col text-truncate">
+                              <a href="{!! route('announcements.show', [$recent_announcements->id]) !!}" class="remove-underline">
+                                  <i class="far fa-bookmark"></i> {!! $recent_announcements->title?: '-' !!}
+                              </a>
+                            </div>
+                          </div>
+                        </li>
                       @endforeach
-                      <p>
+                      <li class="list-group-item">
                         <a href="{!! route('announcements.create') !!}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">เพิ่ม</a>
                         <a href="{!! route('announcements.index') !!}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">ดูทั้งหมด</a>
-                      </p>
-                    </div>
+                      </li>
+                    </ul>
                 </div>
+
               </div>
-    
             </div>
       </div>
     </section>
