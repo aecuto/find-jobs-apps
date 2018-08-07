@@ -11,8 +11,10 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use Auth;
+use DB;
 
 use App\Models\company;
+use App\Models\JobPosition;
 
 class companyController extends AppBaseController
 {
@@ -89,6 +91,16 @@ class companyController extends AppBaseController
     public function show_resume(){
       $user = Auth::user()->have_resume->all();
       return view('companies.show_resume')->with('resumes', $user);
+    }
+
+    public function show_registered(){
+      $company_id = Auth::user()->company->id;
+
+      $sql = "(select id from users where id IN (SELECT user_id FROM `member_register` WHERE job_position_id IN (SELECT id FROM `job_positions` WHERE company_id=".$company_id.")))";
+
+      $workers_registered = DB::select("select * from member_profiles where user_id IN ".$sql.";");
+
+      return view('companies.show_registered')->with('workers_registered', $workers_registered);
     }
 
     /**

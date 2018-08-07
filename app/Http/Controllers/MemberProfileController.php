@@ -154,7 +154,11 @@ class MemberProfileController extends AppBaseController
         }
         $memberProfile = $this->memberProfileRepository->update($request->all(), $id);
 
-        $image_binary = base64_encode(file_get_contents($request->file('image')->path()));
+        if($request->file('image')){
+          $image_binary = base64_encode(file_get_contents($request->file('image')->path()));
+        }else{
+          $image_binary = null;
+        }
 
         $memberProfile->image = $image_binary;
         $memberProfile->save();

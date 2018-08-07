@@ -8,4 +8,3 @@
         <a class="nav-link" href="/announcements">ANNOUNCEMENTS</a>
     </div>
 </div>
-

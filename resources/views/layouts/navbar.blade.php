@@ -8,6 +8,7 @@
         <a class="p-2 text-dark" href="/member">Member Profile</a>
       @endif
       @if(Auth::user()->authorizeRoles(['manager']))
+        <a class="p-2 text-dark" href="{!! route('companies.show_registered') !!}">นัดหมาย</a>
         <a class="p-2 text-dark" href="/manager">ตำแหน่งงานที่เพิ่มแล้ว</a>
         <a class="p-2 text-dark" href="{!! route('jobPositions.create') !!}">เพิ่มตำแหน่งงานว่าง</a>
         <a class="p-2 text-dark" href="{!! route('companies.show_resume') !!}">ใบสมัครงานที่เก็บไว้</a>

@@ -103,7 +103,7 @@ class MemberProfile extends Model
     public static $rules = [
       'fullname' => 'required',
       'interested_job' => 'required',
-      'phone' => 'required',
+      'phone' => 'required|numeric|min:10',
       'image'  => 'max:64',
     ];
 

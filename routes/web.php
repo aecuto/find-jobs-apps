@@ -52,6 +52,7 @@ Route::post('/star/{id}', 'JobPositionController@star')->name('jobPositions.star
 
 Route::resource('companies', 'companyController');
 Route::get('/show_resume', 'companyController@show_resume')->name('companies.show_resume');
+Route::get('/show_registered', 'companyController@show_registered')->name('companies.show_registered');
 
 
 Route::resource('announcements', 'announcementsController');
@@ -71,3 +72,5 @@ Route::get('/contactuses_markread/{id}', 'ContactUsController@markread')->name('
 
 
 Route::resource('images', 'ImageController');
+
+Route::resource('appointments', 'AppointmentController');
