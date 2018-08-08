@@ -93,21 +93,6 @@ class companyController extends AppBaseController
       return view('companies.show_resume')->with('resumes', $user);
     }
 
-    public function show_registered(){
-
-      $company_id = Auth::user()->company->id;
-
-      $sql = "select * 
-      from job_positions, member_register, member_profiles
-      where job_positions.id=member_register.job_position_id 
-      and member_register.user_id=member_profiles.user_id
-      and job_positions.company_id=".$company_id.";";
-
-      $workers_registered = DB::select($sql);
-
-      return view('companies.show_registered')->with('workers_registered', $workers_registered);
-    }
-
     /**
      * Show the form for editing the specified company.
      *

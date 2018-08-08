@@ -15,6 +15,7 @@ use Auth;
 use DB;
 
 use App\Models\MemberProfile;
+use App\Models\Appointment;
 use App\User;
 
 class MemberProfileController extends AppBaseController
@@ -215,6 +216,12 @@ class MemberProfileController extends AppBaseController
     }
 
     public function my_appointments(){
-      return view('member_profiles.my_appointments');
+      $user_id = Auth::user()->id;
+      $sql = 'select job_positions.jobname, job_positions.job, appointments.id,appointments.date,appointments.time, appointments.confirmed FROM appointments, job_positions 
+      where job_positions.id=appointments.job_position_id
+      and user_id='.$user_id;
+      $appointments = DB::select($sql);
+      
+      return view('member_profiles.my_appointments')->with('appointments',$appointments);
     }
 }

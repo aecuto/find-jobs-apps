@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Auth;
+use DB;
 
 class AppointmentController extends AppBaseController
 {
@@ -152,5 +154,31 @@ class AppointmentController extends AppBaseController
         Flash::success('Appointment deleted successfully.');
 
         return redirect(route('appointments.index'));
+    }
+
+    public function show_registered(){
+
+      $company_id = Auth::user()->company->id;
+
+      $sql = "select * 
+      from job_positions, member_register, member_profiles
+      where job_positions.id=member_register.job_position_id 
+      and member_register.user_id=member_profiles.user_id
+      and job_positions.company_id=".$company_id.";";
+
+      $workers_registered = DB::select($sql);
+
+      return view('appointments.show_registered')->with('workers_registered', $workers_registered);
+    }
+
+
+
+    public function appointment_confirm($id){
+
+      $appointment = $this->appointmentRepository->findWithoutFail($id);
+      $appointment->confirmed = true;
+      $appointment->save();
+
+      return back();
     }
 }

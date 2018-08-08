@@ -7,7 +7,7 @@ APPOINTMENTS
     <section class="content-header row">
         <h1 class="col text-left">Appointments</h1>
         <h1 class="col text-right">
-          <a href="{{ route('companies.show_registered') }}" class="btn btn-primary"> Add </a>
+          <a href="{{ route('appointments.show_registered') }}" class="btn btn-primary"> Add </a>
         </h1>
     </section>
     <div class="content">

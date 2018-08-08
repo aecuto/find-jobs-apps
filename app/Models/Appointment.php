@@ -27,6 +27,7 @@ class Appointment extends Model
         'date',
         'time',
         'des',
+        'confirmed',
         'user_id',
         'job_position_id'
     ];
@@ -40,6 +41,7 @@ class Appointment extends Model
         'date' => 'date',
         'time' => 'time',
         'des' => 'string',
+        'confirmed' => 'boolean',
         'user_id' => 'integer',
         'job_position_id' => 'integer'
     ];
