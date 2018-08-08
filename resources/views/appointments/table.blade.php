@@ -1,22 +1,26 @@
-<table class="table table-responsive" id="appointments-table">
+<table 
+    data-toggle="table"
+    data-pagination="true"
+    data-page-size="10"
+    >
     <thead>
         <tr>
-            <th>Datetime</th>
-        <th>Des</th>
-            <th colspan="3">Action</th>
+            <th>date</th>
+            <th>time</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
     @foreach($appointments as $appointment)
         <tr>
-            <td>{!! $appointment->datetime !!}</td>
-            <td>{!! $appointment->des !!}</td>
+            <td>{!! $appointment->date !!}</td>
+            <td>{!! $appointment->time !!}</td>
             <td>
                 {!! Form::open(['route' => ['appointments.destroy', $appointment->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
-                    <a href="{!! route('appointments.show', [$appointment->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                    <a href="{!! route('appointments.edit', [$appointment->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-                    {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                    <a href="{!! route('appointments.show', [$appointment->id]) !!}" class='btn btn-default btn-xs'>show</a>
+                    <a href="{!! route('appointments.edit', [$appointment->id]) !!}" class='btn btn-default btn-xs'>Edit</a>
+                    {!! Form::button('Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                 </div>
                 {!! Form::close() !!}
             </td>

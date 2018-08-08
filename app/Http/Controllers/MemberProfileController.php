@@ -213,4 +213,8 @@ class MemberProfileController extends AppBaseController
 
       return view('member_profiles.my_resume')->with('companies', $companies);
     }
+
+    public function my_appointments(){
+      return view('member_profiles.my_appointments');
+    }
 }

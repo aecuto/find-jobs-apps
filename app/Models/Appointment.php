@@ -24,8 +24,11 @@ class Appointment extends Model
 
 
     public $fillable = [
-        'datetime',
-        'des'
+        'date',
+        'time',
+        'des',
+        'user_id',
+        'job_position_id'
     ];
 
     /**
@@ -34,7 +37,11 @@ class Appointment extends Model
      * @var array
      */
     protected $casts = [
-        'des' => 'string'
+        'date' => 'date',
+        'time' => 'time',
+        'des' => 'string',
+        'user_id' => 'integer',
+        'job_position_id' => 'integer'
     ];
 
     /**
@@ -43,7 +50,10 @@ class Appointment extends Model
      * @var array
      */
     public static $rules = [
-        'datetime' => 'required'
+        'date' => 'required',
+        'time' => 'required',
+        'user_id' => 'required',
+        'job_position_id' => 'required',
     ];
 
     

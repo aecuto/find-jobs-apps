@@ -43,7 +43,7 @@ Route::resource('memberProfiles', 'MemberProfileController');
 Route::get('/job_stared', 'MemberProfileController@stared')->name('memberProfiles.stared');
 Route::get('/job_registered', 'MemberProfileController@registered')->name('memberProfiles.registered');
 Route::get('/my_resume', 'MemberProfileController@my_resume')->name('memberProfiles.my_resume');
-
+Route::get('/my_appointments', 'MemberProfileController@my_appointments')->name('memberProfiles.my_appointments');
 
 Route::resource('jobPositions', 'JobPositionController');
 //ACTION JOBs

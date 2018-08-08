@@ -1,6 +1,9 @@
-@extends('layouts.app')
+@section('active_menu')
+APPOINTMENTS
+@endsection
 
-@section('content')
+@extends(Auth::user() ? 'layouts.'.Auth::user()->roles->first()->name.'_app' : 'layouts.guest_app')
+@section(Auth::user() ? Auth::user()->roles->first()->name.'_content' : 'guest_content')
     <section class="content-header">
         <h1>
             Appointment

@@ -94,11 +94,16 @@ class companyController extends AppBaseController
     }
 
     public function show_registered(){
+
       $company_id = Auth::user()->company->id;
 
-      $sql = "(select id from users where id IN (SELECT user_id FROM `member_register` WHERE job_position_id IN (SELECT id FROM `job_positions` WHERE company_id=".$company_id.")))";
+      $sql = "select * 
+      from job_positions, member_register, member_profiles
+      where job_positions.id=member_register.job_position_id 
+      and member_register.user_id=member_profiles.user_id
+      and job_positions.company_id=".$company_id.";";
 
-      $workers_registered = DB::select("select * from member_profiles where user_id IN ".$sql.";");
+      $workers_registered = DB::select($sql);
 
       return view('companies.show_registered')->with('workers_registered', $workers_registered);
     }

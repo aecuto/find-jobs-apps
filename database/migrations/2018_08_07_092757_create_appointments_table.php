@@ -15,11 +15,15 @@ class CreateAppointmentsTable extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->increments('id');
-            $table->datetime('datetime');
-            $table->text('des');
+            $table->date('date');
+            $table->time('time');
+            $table->text('des')->nullable();
             $table->boolean('confirmed')->default(false);
             $table->timestamps();
             $table->softDeletes();
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('job_position_id')->unsigned();
         });
     }
 

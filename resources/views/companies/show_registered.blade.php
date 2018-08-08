@@ -15,14 +15,20 @@ SHOW WORKERS SELECTED MY JOB
   <thead>
     <tr>
       <th>Full Name</th>
-      <th>Interested Job</th>
+      <th>Job</th>
+      <th>Job Type</th>
+      <th>action</th>
     </tr>
   </thead>
   <tbody>
       @foreach($workers_registered as $worker)
       <tr>
         <td>{{ $worker->fullname ?: '-' }}</td>
-        <td>{{ $worker->interested_job ?: '-' }}</td>
+        <td>{{ $worker->jobname ?: '-' }}</td>
+        <td>{{ $worker->job ?: '-' }}</td>
+        <td>
+        <a href="{{ route('appointments.create', ["member_id=".$worker->user_id."&job_position_id=".$worker->job_position_id]) }}" class="btn btn-info"> นัดหมาย</a>
+        </td>
       </tr>
       @endforeach
   </tbody>
