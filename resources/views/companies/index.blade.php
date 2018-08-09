@@ -25,7 +25,11 @@ COMPANY DETAILS
               <h3 class="card-title display">ชื่อบริษัท: {{ $company->companyname }}</h3>
             </div>
             <div class="col-4 text-right">
-              <img src="https://www.jobnorththailand.com/images/company/logo/zNJMg25202.jpg" height="40" width="80" class="rounded-circle">
+                @if($company->image)
+                  <img src="data:image/jpg;charset=utf8;base64,{!! $company->image !!}"  width="80" style="hight: auto;" class="rounded-circle">
+                  @else
+                  <img src="{{url('/images/default_company.png')}}"  height="80" width="80"  class="rounded-circle">
+                @endif
             </div>
         </div>
       </div>

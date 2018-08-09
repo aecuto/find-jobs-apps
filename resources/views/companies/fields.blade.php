@@ -220,8 +220,9 @@
 
   <!-- Submit Field -->
   <div class="form-group col" style="margin-top: 30px;">
-      {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-      <a href="{!! route('companies.index') !!}" class="btn btn-default">Cancel</a>
+    {!! Form::file('image', null, ['class' => 'form-control']) !!}
+    {!! Form::submit('Save', ['class' => 'btn btn-primary', 'style' => 'margin-top: 5px;']) !!}
+    <a href="{!! route('companies.index') !!}" class="btn btn-default">Cancel</a>
   </div>
 
 </div>

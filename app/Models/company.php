@@ -58,7 +58,8 @@ class company extends Model
         'website',
         'fullname_contact',
         'position_contact',
-        'map_position'
+        'map_position',
+        'image'
     ];
 
     /**
@@ -80,7 +81,8 @@ class company extends Model
         'website' => 'string',
         'fullname_contact' => 'string',
         'position_contact' => 'string',
-        'map_position' => 'string'
+        'map_position' => 'string',
+        'image' => 'binary'
     ];
 
     /**
@@ -96,8 +98,6 @@ class company extends Model
         'address' => 'required',
         'country' => 'required',
         'phone' => 'required',
-        'fullname_contact' => 'required',
-        'position_contact' => 'required'
     ];
 
     

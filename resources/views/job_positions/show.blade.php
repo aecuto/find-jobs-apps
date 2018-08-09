@@ -41,7 +41,11 @@ Job
             <h3 class="card-title display">ชื่อบริษัท: {{ $jobPosition->company->companyname }}</h3>
           </div>
           <div class="col-4 text-right">
-            <img src="https://www.jobnorththailand.com/images/company/logo/zNJMg25202.jpg" height="40" width="80" class="rounded-circle">
+            @if($jobPosition->company->image)
+            <img src="data:image/jpg;charset=utf8;base64,{!! $jobPosition->company->image !!}" width="80" class="rounded-circle" style="hight: auto;">
+            @else
+            <img src="{{url('/images/default.png')}}"  height="80" width="80" class="rounded-circle">
+            @endif
           </div>
       </div>
     </div>

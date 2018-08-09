@@ -144,6 +144,15 @@ class companyController extends AppBaseController
 
         $company = $this->companyRepository->update($request->all(), $id);
 
+        if($request->file('image')){
+          $image_binary = base64_encode(file_get_contents($request->file('image')->path()));
+        }else{
+          $image_binary = null;
+        }
+
+        $company->image = $image_binary;
+        $company->save();
+
         Flash::success('Company updated successfully.');
 
         return redirect(route('companies.index'));

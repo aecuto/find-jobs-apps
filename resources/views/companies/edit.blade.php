@@ -10,7 +10,7 @@ Edit
 
   <h1 class="display">Edit</h1>
 
-  {!! Form::model($company, ['route' => ['companies.update', $company->id], 'method' => 'patch']) !!}
+  {!! Form::model($company, ['route' => ['companies.update', $company->id], 'method' => 'patch', 'files' => true]) !!}
 
       @include('companies.fields')
 

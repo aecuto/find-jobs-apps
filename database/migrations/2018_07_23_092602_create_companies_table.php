@@ -29,6 +29,7 @@ class CreatecompaniesTable extends Migration
             $table->string('fullname_contact')->nullable();
             $table->string('position_contact')->nullable();
             $table->string('map_position')->nullable();
+            $table->binary('image')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
