@@ -4,7 +4,7 @@ Job
 
 @extends(Auth::user() ? 'layouts.'.Auth::user()->roles->first()->name.'_app' : 'layouts.guest_app')
 @section(Auth::user() ? Auth::user()->roles->first()->name.'_content' : 'guest_content')
-<div class="card">
+<div class="card" style="margin-bottom: 10px">
     <div class="card-body">
         <h5><i class="fas fa-briefcase"></i> {!! $jobPosition->jobname !!}</h5>
         <h5><i class="far fa-building"></i> {!! $jobPosition->company->companyname !!}</h5>
@@ -15,20 +15,26 @@ Job
 
 @auth
   @if(Auth::user()->authorizeRoles(['member']))
-    {!! Form::open(['route' => ['jobPositions.register', $jobPosition->id], 'method' => 'post']) !!}
-        {!! Form::button(Auth::user()->member_register->find($jobPosition->id) ? 'สมัครงานแล้ว' : 'สมัครงาน', [
-          'type' => 'submit', 
-          'class' => 'btn btn-success btn-xs', 
-          'disabled' => Auth::user()->member_register->find($jobPosition->id) ? true : false ,
-          'onclick' => "return confirm('Are you sure?')"]) !!}
-    {!! Form::close() !!}
-    {!! Form::open(['route' => ['jobPositions.star', $jobPosition->id], 'method' => 'post']) !!}
-        {!! Form::button(Auth::user()->member_star->find($jobPosition->id) ? 'เก็บงานแล้ว' : 'เก็บงาน', [
-          'type' => 'submit', 
-          'class' => 'btn btn-info btn-xs', 
-          'disabled' => Auth::user()->member_star->find($jobPosition->id) ? true : false ,
-          'onclick' => "return confirm('Are you sure?')"]) !!}
-    {!! Form::close() !!}
+  <div class="row">
+    <div class="col text-right">
+      {!! Form::open(['route' => ['jobPositions.register', $jobPosition->id], 'method' => 'post']) !!}
+          {!! Form::button(Auth::user()->member_register->find($jobPosition->id) ? 'สมัครงานแล้ว' : 'สมัครงาน', [
+            'type' => 'submit', 
+            'class' => 'btn btn-success btn-xs', 
+            'disabled' => Auth::user()->member_register->find($jobPosition->id) ? true : false ,
+            'onclick' => "return confirm('Are you sure?')"]) !!}
+      {!! Form::close() !!}
+    </div>
+    <div class="col">
+      {!! Form::open(['route' => ['jobPositions.star', $jobPosition->id], 'method' => 'post']) !!}
+          {!! Form::button(Auth::user()->member_star->find($jobPosition->id) ? 'เก็บงานแล้ว' : 'เก็บงาน', [
+            'type' => 'submit', 
+            'class' => 'btn btn-info btn-xs', 
+            'disabled' => Auth::user()->member_star->find($jobPosition->id) ? true : false ,
+            'onclick' => "return confirm('Are you sure?')"]) !!}
+      {!! Form::close() !!}
+    </div>
+  </div>
   @endif
 @endauth
 

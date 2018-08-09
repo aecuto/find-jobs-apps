@@ -25,12 +25,8 @@ Select Package
             <div class="col-4 text-center" style="margin-bottom: 10px;">
               <div class="card">
                 <div class="card-body">
-                <div class="card-title">{{ $package->name }}</div>
+                <div class="card-title"><button type="button" class="btn btn-outline-primary btn-lg" disabled>{{ $package->name }}</button></div>
                   <p>{{ $package->description }}</p>
-                  <p>Info</p>
-                  <p>Info</p>
-                  <p>Info</p>
-                  <p>Info</p>
                   <a href="/manager_register?package={{ $package->name }}" class="btn btn-info text-white" role="button">Select</a>
                 </div>
               </div>
