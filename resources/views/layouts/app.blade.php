@@ -20,7 +20,9 @@
     @yield('title')
 
   </head>
-  <body>
+
+
+  <body style="background-color: #f2f2f2;">
 
     @yield('navbar')
 
@@ -28,3 +30,9 @@
 
   </body>
 </html>
+
+<style>
+  .bootstrap-table{
+    background-color: white !important;
+  }
+</style>

@@ -7,8 +7,13 @@ Job
 
   @include('adminlte-templates::common.errors')
 
-  {!! Form::model($jobPosition, ['route' => ['jobPositions.update', $jobPosition->id], 'method' => 'patch']) !!}
-      @include('job_positions.fields')
-  {!! Form::close() !!}
+  <div class="card">
+    <div class="card-body">
+        {!! Form::model($jobPosition, ['route' => ['jobPositions.update', $jobPosition->id], 'method' => 'patch']) !!}
+          @include('job_positions.fields')
+        {!! Form::close() !!}
+    </div>
+  </div>
+
 
 @endsection

@@ -1,13 +1,13 @@
 <div class="row">
 
   <!-- Jobname Field -->
-  <div class="form-group col">
+  <div class="form-group col-sm">
       {!! Form::label('jobname', 'Jobname:') !!}
       {!! Form::text('jobname', null, ['class' => 'form-control']) !!}
   </div>
 
   <!-- Companyname Field -->
-  <div class="form-group col">
+  <div class="form-group col-sm">
       {!! Form::label('companyname', 'Companyname:') !!}
       {!! Form::text('companyname', null, ['class' => 'form-control']) !!}
   </div>
@@ -17,7 +17,7 @@
 <div class="row">
   
   <!-- Job Field -->
-  <div class="form-group col">
+  <div class="form-group col-sm">
       {!! Form::label('job', 'Job:') !!}
       {!! Form::select('job', [
         "ไม่ระบุ" => "ไม่ระบุ",
@@ -58,7 +58,7 @@
   </div>
 
   <!-- Certificate Field -->
-  <div class="form-group col">
+  <div class="form-group col-sm">
       {!! Form::label('certificate', 'Certificate:') !!}
       {!! Form::select('certificate', [
           "ไม่ระบุ" => "ไม่ระบุ",
@@ -75,7 +75,7 @@
 <div class="row">
 
   <!-- Country Field -->
-  <div class="form-group col">
+  <div class="form-group col-sm">
       {!! Form::label('country', 'Country:') !!}
       {!! Form::select('country', [
               "ไม่ระบุ" => "ไม่ระบุ",
@@ -159,7 +159,7 @@
   </div>
 
   <!-- Salary Field -->
-  <div class="form-group col">
+  <div class="form-group col-sm">
       {!! Form::label('salary', 'Salary:') !!}
       {!! Form::select('salary', [
        "ไม่ระบุ" => "ไม่ระบุ",
@@ -181,7 +181,7 @@
 
 <div class="row">
     <!-- Experience Field -->
-    <div class="form-group col">
+    <div class="form-group col-sm">
         {!! Form::label('experience', 'Experience:') !!}
         {!! Form::select('experience', [
             "ไม่ระบุ" => "ไม่ระบุ",
@@ -203,7 +203,7 @@
         ], null, ['class' => 'form-control']) !!}
     </div>
   
-    <div class="form-group col">
+    <div class="form-group col-sm">
       {!! Form::submit('Serach', array('class' => 'btn btn-primary btn-block', 'style' => 'margin-top: 30px;')) !!}
     </div>
 </div>

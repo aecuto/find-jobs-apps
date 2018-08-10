@@ -6,9 +6,12 @@ Job
 @section(Auth::user() ? Auth::user()->roles->first()->name.'_content' : 'guest_content')
   @include('adminlte-templates::common.errors')
 
-  {!! Form::open(['route' => 'jobPositions.store']) !!}
+  <div class="card">
+    <div class="card-body">
+      {!! Form::open(['route' => 'jobPositions.store']) !!}
+        @include('job_positions.fields')
+      {!! Form::close() !!}
+    </div>
+  </div>
 
-      @include('job_positions.fields')
-
-  {!! Form::close() !!}
 @endsection

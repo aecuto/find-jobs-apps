@@ -7,7 +7,7 @@
 @endsection
 
 @section('navbar')
-<div class="container">
+
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom box-shadow">
     <h5 class="my-0 mr-md-auto font-weight-normal">
       <a class="p-2 text-dark" href="/">JOB TH</a>
@@ -38,8 +38,6 @@
         @endauth
     @endif
   </nav>
-
-</div>
 </div>
 @endsection
 
@@ -221,7 +219,7 @@
                     </li>
                   @endforeach
                   <li class="list-group-item">
-                      <a href="/search_job" class="btn btn-primary btn-block btn-lg active" role="button" aria-pressed="true">More...</a>
+                      <a href="/search_job" class="btn btn-primary btn-block btn-lg" role="button" aria-pressed="true">More...</a>
                   </li>
                 </ul>
             </div>
@@ -255,8 +253,8 @@
                         </li>
                       @endforeach
                       <li class="list-group-item">
-                          <a href="/governmentJobs/create" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">เพิ่ม</a>
-                          <a href="/governmentJobs" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">ดูทั้งหมด</a>
+                          <a href="/governmentJobs/create" class="btn btn-primary btn-lg" role="button" aria-pressed="true">เพิ่ม</a>
+                          <a href="/governmentJobs" class="btn btn-primary btn-lg" role="button" aria-pressed="true">ดูทั้งหมด</a>
                       </li>
                     </ul>
                 </div>
@@ -279,8 +277,8 @@
                         </li>
                       @endforeach
                       <li class="list-group-item">
-                        <a href="{!! route('announcements.create') !!}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">เพิ่ม</a>
-                        <a href="{!! route('announcements.index') !!}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">ดูทั้งหมด</a>
+                        <a href="{!! route('announcements.create') !!}" class="btn btn-primary btn-lg" role="button" aria-pressed="true">เพิ่ม</a>
+                        <a href="{!! route('announcements.index') !!}" class="btn btn-primary btn-lg" role="button" aria-pressed="true">ดูทั้งหมด</a>
                       </li>
                     </ul>
                 </div>

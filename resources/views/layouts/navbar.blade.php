@@ -1,30 +1,44 @@
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-  <h5 class="my-0 mr-md-auto font-weight-normal">
-    <a class="p-2 text-dark" href="/">JOB TH</a>
-  </h5>
-  <nav class="my-2 my-md-0 mr-md-3">
+<nav class="navbar navbar-expand-lg navbar-dark bg-info" style="margin-bottom: 15px">
+  <a class="navbar-brand" href="#">JOBs SCODE</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      @auth
+        @if(Auth::user()->authorizeRoles(['member']))
+          <li class="nav-item">
+              <a class="nav-link" href="/member">Member Profile</a>
+          </li>
+        @endif
+        @if(Auth::user()->authorizeRoles(['manager']))
+          <li class="nav-item">
+            <a class="nav-link" href="{!! route('appointments.index') !!}">นัดหมาย</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/manager">ตำแหน่งงานที่เพิ่มแล้ว</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{!! route('jobPositions.create') !!}">เพิ่มตำแหน่งงานว่าง</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{!! route('companies.show_resume') !!}">ใบสมัครงานที่เก็บไว้</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{!! route('companies.index') !!}">ข้อมูลบริษัท</a>
+          </li>
+        @endif
+      @endauth
+    </ul>
     @auth
-      @if(Auth::user()->authorizeRoles(['member']))
-        <a class="p-2 text-dark" href="/member">Member Profile</a>
-      @endif
-      @if(Auth::user()->authorizeRoles(['manager']))
-        <a class="p-2 text-dark" href="{!! route('appointments.index') !!}">นัดหมาย</a>
-        <a class="p-2 text-dark" href="/manager">ตำแหน่งงานที่เพิ่มแล้ว</a>
-        <a class="p-2 text-dark" href="{!! route('jobPositions.create') !!}">เพิ่มตำแหน่งงานว่าง</a>
-        <a class="p-2 text-dark" href="{!! route('companies.show_resume') !!}">ใบสมัครงานที่เก็บไว้</a>
-        <a class="p-2 text-dark" href="{!! route('companies.index') !!}">ข้อมูลบริษัท</a>
-      @endif
-    @else
-      <a class="btn btn-outline-primary" href="{{ route('login') }}">Login</a>
-      <a class="btn btn-outline-secondary" href="{{ route('register') }}">Register</a>
-    @endauth
-  </nav>
-  @if (Route::has('login'))
-    @auth
-      <a class="btn btn-outline-primary" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >Logout</a>
+      <a class="btn btn-outline-light" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >Logout</a>
       <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
           {{ csrf_field() }}
       </form>
+    @else
+      <a class="btn btn-outline-light" href="{{ route('login') }}">Login</a>
+      <a class="btn btn-outline-light" href="{{ route('register') }}">Register</a>
     @endauth
-  @endif
-</div>
+  </div>
+</nav>

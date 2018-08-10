@@ -10,11 +10,14 @@ Edit
 
   <h1 class="display">Edit</h1>
 
-  {!! Form::model($company, ['route' => ['companies.update', $company->id], 'method' => 'patch', 'files' => true]) !!}
+  <div class="card">
+      <div class="card-body">
+          {!! Form::model($company, ['route' => ['companies.update', $company->id], 'method' => 'patch', 'files' => true]) !!}
 
-      @include('companies.fields')
-
-  {!! Form::close() !!}
-
+          @include('companies.fields')
+    
+          {!! Form::close() !!}
+      </div>
+  </div>
 
 @endsection

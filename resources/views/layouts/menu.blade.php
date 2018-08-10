@@ -1,4 +1,4 @@
-<div class="col-4">
+<div class="col-sm-4">
     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a class="nav-link active" href="#" >@yield('active_menu')</a>
         <hr>

@@ -15,7 +15,7 @@
 
   <div class="row">
       @include('layouts.menu')
-      <div class="col-8">
+      <div class="col-sm-8">
             @yield('manager_content')
       </div>
   </div>

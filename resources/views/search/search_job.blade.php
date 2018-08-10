@@ -18,7 +18,7 @@ SEARCH JOBS
 
   <div class="row">
     @include('layouts.menu')
-    <div class="col-8">
+    <div class="col-sm-8">
 
         <div class="card">
             <div class="card-body">
@@ -87,4 +87,5 @@ span.title {
 .fixed-table-body {
   height: auto !important;
 }
+
 </style>

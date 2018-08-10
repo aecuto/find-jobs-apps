@@ -74,13 +74,13 @@
   <!-- Details Field -->
   <div class="form-group col">
       {!! Form::label('details', 'Details:') !!}
-      {!! Form::textarea('details', null, ['class' => 'form-control', 'rows' => '5']) !!}
+      {!! Form::textarea('details', null, ['class' => 'form-control', 'rows' => '2']) !!}
   </div>
 
 <!-- Address Field -->
 <div class="form-group col">
     {!! Form::label('address', 'Address:') !!}
-    {!! Form::textarea('address', null, ['class' => 'form-control', 'rows' => '5']) !!}
+    {!! Form::textarea('address', null, ['class' => 'form-control', 'rows' => '2']) !!}
 </div>
 </div>
 
@@ -178,28 +178,11 @@
 </div>
 
 
-
 <div class="row">
- <!-- Fax Field -->
+  <!-- Position Context Field -->
 <div class="form-group col">
-    {!! Form::label('fax', 'Fax:') !!}
-    {!! Form::text('fax', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Email Field -->
-<div class="form-group col">
-    {!! Form::label('email', 'Email:') !!}
-    {!! Form::email('email', null, ['class' => 'form-control']) !!}
-</div> 
-</div>
-
-
-
-<div class="row">
-  <!-- Website Field -->
-<div class="form-group col">
-    {!! Form::label('website', 'Website:') !!}
-    {!! Form::text('website', null, ['class' => 'form-control']) !!}
+    {!! Form::label('position_contact', 'Position Contact:') !!}
+    {!! Form::text('position_contact', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Fullname Contact Field -->
@@ -209,20 +192,34 @@
 </div>
 </div>
 
-
+<div class="row">
+    <!-- Fax Field -->
+   <div class="form-group col">
+       {!! Form::label('fax', 'Fax:') !!}
+       {!! Form::text('fax', null, ['class' => 'form-control']) !!}
+   </div>
+   
+   <!-- Email Field -->
+   <div class="form-group col">
+       {!! Form::label('email', 'Email:') !!}
+       {!! Form::email('email', null, ['class' => 'form-control']) !!}
+   </div> 
+   </div>
 
 <div class="row">
-  <!-- Position Context Field -->
+
   <div class="form-group col">
-      {!! Form::label('position_contact', 'Position Contact:') !!}
-      {!! Form::text('position_contact', null, ['class' => 'form-control']) !!}
+      {!! Form::label('map_embed', 'Map Embed:') !!}
+      {!! Form::textarea('map_embed', null, ['class' => 'form-control', 'rows' => '5']) !!}
   </div>
 
-  <!-- Submit Field -->
-  <div class="form-group col" style="margin-top: 30px;">
-    {!! Form::file('image', null, ['class' => 'form-control']) !!}
-    {!! Form::submit('Save', ['class' => 'btn btn-primary', 'style' => 'margin-top: 5px;']) !!}
-    <a href="{!! route('companies.index') !!}" class="btn btn-default">Cancel</a>
+  <div class="form-group col">
+      {!! Form::label('website', 'Website:') !!}
+      {!! Form::text('website', null, ['class' => 'form-control']) !!}
+
+      {!! Form::file('image', ['class' => 'form-control-file', 'style' => 'margin-top: 5px;']) !!}
+      {!! Form::submit('Save', ['class' => 'btn btn-primary', 'style' => 'margin-top: 5px;']) !!}
+      <a href="{!! route('companies.index') !!}" class="btn btn-default">Cancel</a>
   </div>
 
 </div>

@@ -8,10 +8,14 @@ Edit
 
   @include('adminlte-templates::common.errors')
 
-  {!! Form::model($memberProfile, ['route' => ['memberProfiles.update', $memberProfile->id], 'method' => 'patch','files' => true]) !!}
+  <div class="card">
+    <div class="card-body">
+      {!! Form::model($memberProfile, ['route' => ['memberProfiles.update', $memberProfile->id], 'method' => 'patch','files' => true]) !!}
 
-      @include('member_profiles.fields')
+          @include('member_profiles.fields')
 
-  {!! Form::close() !!}
+      {!! Form::close() !!}
+    </div>
+  </div>  
 
 @endsection
