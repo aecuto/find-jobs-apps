@@ -1,13 +1,13 @@
 <div class="row">
   <!-- Companyname Field -->
 <div class="form-group col">
-    {!! Form::label('companyname', 'Companyname:') !!}
+    {!! Form::label('companyname', 'ชื่อบริษัท:') !!}
     {!! Form::text('companyname', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Companytype Field -->
 <div class="form-group col">
-    {!! Form::label('companytype', 'Companytype:') !!}
+    {!! Form::label('companytype', 'ประเภทบริษัท:') !!}
     {!! Form::select('companytype', [
       "ประเภทธุรกิจ" => "ประเภทธุรกิจ",
       "โรงแรม/ที่พัก" => "โรงแรม/ที่พัก",
@@ -49,7 +49,7 @@
 
   <!-- Worker Count Field -->
   <div class="form-group col">
-      {!! Form::label('worker_count', 'Worker Count:') !!}
+      {!! Form::label('worker_count', 'จำนวนพนักงาน:') !!}
       {!! Form::select('worker_count', [
         "โปรดเลือก" => "โปรดเลือก",
         "1 - 5 คน" => "1 - 5 คน",
@@ -65,7 +65,7 @@
 
 <!-- Start Year Field -->
 <div class="form-group col">
-    {!! Form::label('start_year', 'Start Year:') !!}
+    {!! Form::label('start_year', 'ปีเริ่มก่อตั้ง:') !!}
     {!! Form::select('start_year', $year, null, ['class' => 'form-control']) !!}
 </div>
 </div>
@@ -73,13 +73,13 @@
 <div class="row">
   <!-- Details Field -->
   <div class="form-group col">
-      {!! Form::label('details', 'Details:') !!}
+      {!! Form::label('details', 'รายละเอียด:') !!}
       {!! Form::textarea('details', null, ['class' => 'form-control', 'rows' => '2']) !!}
   </div>
 
 <!-- Address Field -->
 <div class="form-group col">
-    {!! Form::label('address', 'Address:') !!}
+    {!! Form::label('address', 'ที่อยู่:') !!}
     {!! Form::textarea('address', null, ['class' => 'form-control', 'rows' => '2']) !!}
 </div>
 </div>
@@ -88,7 +88,7 @@
 <div class="row">
   <!-- Country Field -->
 <div class="form-group col">
-    {!! Form::label('country', 'Country:') !!}
+    {!! Form::label('country', 'จังหวัด:') !!}
     {!! Form::select('country', [
               "ไม่ระบุ" => "ไม่ระบุ",
               "กระบี่" => "กระบี่",
@@ -172,7 +172,7 @@
 
 <!-- Phone Field -->
 <div class="form-group col">
-    {!! Form::label('phone', 'Phone:') !!}
+    {!! Form::label('phone', 'มือถือ:') !!}
     {!! Form::text('phone', null, ['class' => 'form-control']) !!}
 </div>
 </div>
@@ -181,13 +181,13 @@
 <div class="row">
   <!-- Position Context Field -->
 <div class="form-group col">
-    {!! Form::label('position_contact', 'Position Contact:') !!}
+    {!! Form::label('position_contact', 'ตำแหน่ง ผู้ติดต่อ:') !!}
     {!! Form::text('position_contact', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Fullname Contact Field -->
 <div class="form-group col">
-    {!! Form::label('fullname_contact', 'Fullname Contact:') !!}
+    {!! Form::label('fullname_contact', 'ชื่อ-สกุล ผู้ติดต่อ:') !!}
     {!! Form::text('fullname_contact', null, ['class' => 'form-control']) !!}
 </div>
 </div>
@@ -195,13 +195,13 @@
 <div class="row">
     <!-- Fax Field -->
    <div class="form-group col">
-       {!! Form::label('fax', 'Fax:') !!}
+       {!! Form::label('fax', 'แฟลกซ์:') !!}
        {!! Form::text('fax', null, ['class' => 'form-control']) !!}
    </div>
    
    <!-- Email Field -->
    <div class="form-group col">
-       {!! Form::label('email', 'Email:') !!}
+       {!! Form::label('email', 'อีเมลล์:') !!}
        {!! Form::email('email', null, ['class' => 'form-control']) !!}
    </div> 
    </div>
@@ -214,12 +214,12 @@
   </div>
 
   <div class="form-group col">
-      {!! Form::label('website', 'Website:') !!}
+      {!! Form::label('website', 'เว็บไซต์:') !!}
       {!! Form::text('website', null, ['class' => 'form-control']) !!}
 
       {!! Form::file('image', ['class' => 'form-control-file', 'style' => 'margin-top: 5px;']) !!}
-      {!! Form::submit('Save', ['class' => 'btn btn-primary', 'style' => 'margin-top: 5px;']) !!}
-      <a href="{!! route('companies.index') !!}" class="btn btn-default">Cancel</a>
+      {!! Form::submit('บันทึก', ['class' => 'btn btn-primary', 'style' => 'margin-top: 5px;']) !!}
+      <a href="{!! route('companies.index') !!}" class="btn btn-default">ยกเลิก</a>
   </div>
 
 </div>

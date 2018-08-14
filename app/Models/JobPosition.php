@@ -74,11 +74,10 @@ class JobPosition extends Model
         'experience' => 'string',
     ];
 
-    /**
-     * Validation rules
-     *
-     * @var array
-     */
+    public static $messages = [
+      'required' => 'asdasdasdasdas is required.'
+    ];
+    
     public static $rules = [
         'jobname' => 'required',
         'job' => 'required',
@@ -86,6 +85,8 @@ class JobPosition extends Model
         'start_date' => 'required',
         'end_date' => 'required',
     ];
+
+    
 
     public static function search_option($request){
       $company_id = company::where('companyname',$request->companyname)->first() ?: null;

@@ -1,7 +1,4 @@
 
-@section('active_menu')
-GOVERNMENT JOBS
-@endsection
 
 @extends(Auth::user() ? 'layouts.'.Auth::user()->roles->first()->name.'_app' : 'layouts.guest_app')
 @section(Auth::user() ? Auth::user()->roles->first()->name.'_content' : 'guest_content')
@@ -10,7 +7,7 @@ GOVERNMENT JOBS
 
     <section class="content-header">
         <h1>
-            Government Jobs
+          ตำแหน่งงานราชการ รัฐวิสาหกิจ
         </h1>
     </section>
     <div class="content">
