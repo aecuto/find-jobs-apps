@@ -8,25 +8,25 @@
       <div class="col-6 col-md">
         <h5>Features</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="/search_job">Search Jobs</a></li>
-          <li><a class="text-muted" href="/search_worker">Search Workers</a></li>
-          <li><a class="text-muted" href="/governmentJobs">Government Jobs</a></li>
-          <li><a class="text-muted" href="/announcements">Announcements</a></li>
+          <li><a class="text-muted" href="/search_job" id="search_job">ค้นหาตำแหน่งงาน</a></li>
+          <li><a class="text-muted" href="/search_worker" id="search_worker">ค้นหาคนทำงาน</a></li>
+          <li><a class="text-muted" href="/governmentJobs" id="governmentJobs">ตำแหน่งงานราชการ รัฐวิสาหกิจ</a></li>
+          <li><a class="text-muted" href="/announcements" id="announcements">ข่าวประกาศ</a></li>
         </ul>
       </div>
       <div class="col-6 col-md">
         <h5>Resources</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="/login">Sign In</a></li>
-          <li><a class="text-muted" href="/register">Register</a></li>
+          <li><a class="text-muted" href="/login">เข้าสู่ระบบ</a></li>
+          <li><a class="text-muted" href="/register">สมัครสมาชิก</a></li>
         </ul>
       </div>
       <div class="col-6 col-md">
         <h5>About</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="/manager_package">Package</a></li>
-          <li><a class="text-muted" href="/paymentNotifications/create">Payment Notify</a></li>
-          <li><a class="text-muted" href="/contactuses/create">Contact Us</a></li>
+          <li><a class="text-muted" href="/manager_package">อัตราค่าสมาชิก</a></li>
+          <li><a class="text-muted" href="/paymentNotifications/create">แจ้งการชำระเงิน</a></li>
+          <li><a class="text-muted" href="/contactuses/create">ติดต่อเว็บไซต์</a></li>
         </ul>
       </div>
     </div>

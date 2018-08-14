@@ -11,9 +11,9 @@ REGISTERED
         data-page-size="10" >
   <thead>
     <tr>
-      <th>Job Name</th>
-      <th>Job Type</th>
-      <th>Company Name</th>
+      <th>ชื่องาน</th>
+      <th>ประเภทงาน</th>
+      <th>ชื่อบริษัท</th>
     </tr>
   </thead>
   <tbody>

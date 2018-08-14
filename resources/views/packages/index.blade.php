@@ -7,11 +7,11 @@ Package
     <section class="content-header">
       <div class="row">
         <div class="col">
-          <h1 class="text-left">Packages</h1>
+          <h1 class="text-left">อัตราค่าสมาชิก</h1>
         </div>
         <div class="col">
           <h1 class="text-right">
-            <a class="btn btn-primary" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('packages.create') !!}">Add New</a>
+            <a class="btn btn-primary" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('packages.create') !!}">เพิ่ม</a>
           </h1>
         </div>
       </div>

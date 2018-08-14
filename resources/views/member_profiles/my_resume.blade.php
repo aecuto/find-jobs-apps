@@ -11,8 +11,8 @@ COMPANY VEIWED'S RESUME
         data-page-size="10" >
   <thead>
     <tr>
-      <th>Company Name</th>
-      <th>Company Details</th>
+      <th>ชื่อบริษัท</th>
+      <th>รายละเอียด</th>
     </tr>
   </thead>
   <tbody>

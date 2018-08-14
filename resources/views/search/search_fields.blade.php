@@ -2,13 +2,13 @@
 
   <!-- Jobname Field -->
   <div class="form-group col-sm">
-      {!! Form::label('jobname', 'Jobname:') !!}
+      {!! Form::label('jobname', 'ชื่องาน:') !!}
       {!! Form::text('jobname', null, ['class' => 'form-control']) !!}
   </div>
 
   <!-- Companyname Field -->
   <div class="form-group col-sm">
-      {!! Form::label('companyname', 'Companyname:') !!}
+      {!! Form::label('companyname', 'ชื่อบริษัท:') !!}
       {!! Form::text('companyname', null, ['class' => 'form-control']) !!}
   </div>
 
@@ -18,7 +18,7 @@
   
   <!-- Job Field -->
   <div class="form-group col-sm">
-      {!! Form::label('job', 'Job:') !!}
+      {!! Form::label('job', 'ประเภทงาน:') !!}
       {!! Form::select('job', [
         "ไม่ระบุ" => "ไม่ระบุ",
         'การตลาด/การขาย' => 'การตลาด/การขาย',
@@ -59,7 +59,7 @@
 
   <!-- Certificate Field -->
   <div class="form-group col-sm">
-      {!! Form::label('certificate', 'Certificate:') !!}
+      {!! Form::label('certificate', 'วุฒิการศึกษา:') !!}
       {!! Form::select('certificate', [
           "ไม่ระบุ" => "ไม่ระบุ",
           "ปริญญาเอก" => "ปริญญาเอก",
@@ -76,7 +76,7 @@
 
   <!-- Country Field -->
   <div class="form-group col-sm">
-      {!! Form::label('country', 'Country:') !!}
+      {!! Form::label('country', 'จังหวัด:') !!}
       {!! Form::select('country', [
               "ไม่ระบุ" => "ไม่ระบุ",
               "กระบี่" => "กระบี่",
@@ -160,7 +160,7 @@
 
   <!-- Salary Field -->
   <div class="form-group col-sm">
-      {!! Form::label('salary', 'Salary:') !!}
+      {!! Form::label('salary', 'เงินเดือน:') !!}
       {!! Form::select('salary', [
        "ไม่ระบุ" => "ไม่ระบุ",
         "น้อยกว่า 5,000" => "น้อยกว่า 5,000",
@@ -182,7 +182,7 @@
 <div class="row">
     <!-- Experience Field -->
     <div class="form-group col-sm">
-        {!! Form::label('experience', 'Experience:') !!}
+        {!! Form::label('experience', 'ประสบการณ์:') !!}
         {!! Form::select('experience', [
             "ไม่ระบุ" => "ไม่ระบุ",
             "1 ปี" => "1 ปี",

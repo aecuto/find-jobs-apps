@@ -27,7 +27,7 @@ SEARCH JOBS
                 @include('search.search_fields')
               {{ Form::close() }}
             </div>
-          </div>
+        </div>
 
         <hr>
 
@@ -64,7 +64,7 @@ SEARCH JOBS
         @endforeach
         </tbody>
     </table>
-
+  
 
     </div>
   </div>

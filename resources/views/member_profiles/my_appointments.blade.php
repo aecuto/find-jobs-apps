@@ -11,11 +11,11 @@ MY APPOINTMENTS
         data-page-size="10" >
   <thead>
     <tr>
-      <th>Job</th>
-      <th>Job Type</th>
-      <th>Date</th>
-      <th>Time</th>
-      <th>Action</th>
+      <th>งาน</th>
+      <th>ประเภทงาน</th>
+      <th>วัน</th>
+      <th>เวลา</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>

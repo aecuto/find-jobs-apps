@@ -36,3 +36,17 @@
     background-color: white !important;
   }
 </style>
+
+<script>
+    $(function() {
+
+      localStorage.setItem('selectMenu', null);
+      
+      $('a').click(function(){
+
+        localStorage.setItem('selectMenu', $(this).attr('id'));
+          //alert( $(this).attr('id') );
+      });
+
+    });
+</script>

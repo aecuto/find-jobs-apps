@@ -10,31 +10,31 @@
 
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom box-shadow">
     <h5 class="my-0 mr-md-auto font-weight-normal">
-      <a class="p-2 text-dark" href="/">JOB TH</a>
+      <a class="p-2 text-dark" href="/">JOB SCODE</a>
     </h5>
     <nav class="my-2 my-md-0 mr-md-3">
 
     @if (Route::has('login'))
         @auth
             @if(Auth::user()->authorizeRoles(['admin']))
-              <a class="p-2 text-dark" href="{{ route('admin.home') }}">Admin Management</a>
+              <a class="p-2 text-dark" href="{{ route('admin.home') }}">เข้าสู่หน้าผู้ดูแลระบบ</a>
             @endif
 
             @if(Auth::user()->authorizeRoles(['manager']))
-              <a class="p-2 text-dark" href="{{ route('manager.home') }}">Job Management</a>
+              <a class="p-2 text-dark" href="{{ route('manager.home') }}">เข้าสู่หน้าผู้ประกอบการ</a>
             @endif
 
             @if(Auth::user()->authorizeRoles(['member']))
-              <a class="p-2 text-dark" href="{{ route('member.home') }}">Member Profile</a>
+              <a class="p-2 text-dark" href="{{ route('member.home') }}">ข้อมูลส่วนตัว</a>
             @endif
 
-            <a class="btn btn-outline-primary" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >Logout</a>
+            <a class="btn btn-outline-primary" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >ออกจากระบบ</a>
             <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
               {{ csrf_field() }}
           </form>
         @else
-            <a class="btn btn-outline-primary" href="{{ route('login') }}">Login</a>
-            <a class="btn btn-outline-secondary" href="{{ route('register') }}">Register</a>
+            <a class="btn btn-outline-primary" href="{{ route('login') }}">เข้าสู่ระบบ</a>
+            <a class="btn btn-outline-secondary" href="{{ route('register') }}">สมัครสมาชิก</a>
         @endauth
     @endif
   </nav>
@@ -97,7 +97,7 @@
         <div class="row">
           <div class="col">
             <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              <a href="/search_job"  class="remove-underline">
+              <a href="/search_job"  class="remove-underline" id="search_job">
                 <div class="features-icons-icon d-flex">
                     <i class="icon-magnifier m-auto text-primary"></i>
                 </div>
@@ -108,7 +108,7 @@
           </div>
           <div class="col">
             <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-              <a href="/search_worker"  class="remove-underline">
+              <a href="/search_worker"  class="remove-underline" id="search_worker">
                 <div class="features-icons-icon d-flex">
                     <i class="icon-people m-auto text-primary"></i>
                 </div>
@@ -219,7 +219,7 @@
                     </li>
                   @endforeach
                   <li class="list-group-item">
-                      <a href="/search_job" class="btn btn-primary btn-block btn-lg" role="button" aria-pressed="true">More...</a>
+                      <a href="/search_job" class="btn btn-primary btn-block btn-lg" role="button" aria-pressed="true">เพิ่มเติม...</a>
                   </li>
                 </ul>
             </div>
@@ -300,7 +300,7 @@
 
           <div class="row">
             <div class="col">
-              <a type="submit" role="button" class="btn btn-lg btn-primary" href="/register">Sign up!</a>
+              <a type="submit" role="button" class="btn btn-lg btn-primary" href="/register">สมัครสมาชิก!</a>
             </div>
           </div>
       </div>
@@ -308,4 +308,19 @@
 
     @include('layouts.footer')
 
+    <script>
+        $(function() {
+
+          localStorage.setItem('selectMenu', null);
+          
+          $('a').click(function(){
+
+            localStorage.setItem('selectMenu', $(this).attr('id'));
+              //alert( $(this).attr('id') );
+          });
+
+        });
+    </script>
+
 @endsection
+

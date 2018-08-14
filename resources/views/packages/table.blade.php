@@ -5,9 +5,9 @@
 >
     <thead>
         <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Action</th>
+          <th>ชื่อ</th>
+          <th>คำอธิบาย</th>
+          <th></th>
         </tr>
     </thead>
     <tbody>
@@ -19,10 +19,10 @@
                 {!! Form::open(['route' => ['packages.destroy', $package->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
                     <a href="{!! route('packages.show', [$package->id]) !!}" class='btn btn-primary btn-xs'>
-                      Show</a>
+                        <i class="fas fa-eye"></i></a>
                     <a href="{!! route('packages.edit', [$package->id]) !!}" class='btn btn-warning btn-xs'>
-                      Edit</a>
-                    {!! Form::button('Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        <i class="far fa-edit"></i></a>
+                    {!! Form::button('<i class="fas fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                 </div>
                 {!! Form::close() !!}
             </td>

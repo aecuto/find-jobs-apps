@@ -5,9 +5,9 @@
     >
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Details</th>
-            <th>Action</th>
+            <th>ชื่องาน</th>
+            <th>รายละเอียด</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -17,19 +17,21 @@
             <td>{!! $governmentJobs->details !!}</td>
             <td>
               <a href="{!! route('governmentJobs.show', [$governmentJobs->id]) !!}" class='btn btn-primary btn-xs' role="button">
-                Show
+                <i class="fas fa-eye"></i>
               </a>
               @auth
               @if(Auth::user()->hasRole(['admin']))
-                <a href="{!! route('governmentJobs.edit', [$governmentJobs->id]) !!}" class='btn btn-warning btn-xs'>
-                  Edit
-                </a>
-                {!! Form::open(['route' => ['governmentJobs.destroy', $governmentJobs->id], 'method' => 'delete']) !!}
-                    {!! Form::button('Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                
+                {!! Form::open(['route' => ['governmentJobs.destroy', $governmentJobs->id], 'method' => 'delete','style'=>"display: unset;"]) !!}
+                  <a href="{!! route('governmentJobs.edit', [$governmentJobs->id]) !!}" class='btn btn-warning btn-xs'>
+                    <i class="far fa-edit"></i>
+                  </a>
+                  {!! Form::button('<i class="fas fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                  <a href="{!! route('governmentJobs.confirm', [$governmentJobs->id]) !!}" class='btn btn-info btn-xs {{ $governmentJobs->status==0 ?: 'disabled' }}'>
+                    {!! $governmentJobs->status==0 ? '<i class="far fa-check-circle"></i>': '<i class="fas fa-check-circle"></i>' !!}
+                  </a>
                 {!! Form::close() !!}
-                <a href="{!! route('governmentJobs.confirm', [$governmentJobs->id]) !!}" class='btn btn-info btn-xs {{ $governmentJobs->status==0 ?: 'disabled' }}'>
-                  {{ $governmentJobs->status==0 ? 'Confirm': 'Confirmed' }}
-                </a>
+               
                 @endif
               @endauth
             </td>

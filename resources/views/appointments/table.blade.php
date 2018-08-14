@@ -5,10 +5,10 @@
     >
     <thead>
         <tr>
-            <th>Status</th>
-            <th>date</th>
-            <th>time</th>
-            <th>Action</th>
+            <th>สถานะ</th>
+            <th>วันที่</th>
+            <th>เวลา</th>
+            <th>เมนู</th>
         </tr>
     </thead>
     <tbody>

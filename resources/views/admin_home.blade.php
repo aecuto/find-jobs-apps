@@ -9,7 +9,7 @@
 
 @section('admin_content')
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-    <h1 class="h2">Dashboard</h1>
+    <h1 class="h2">แดชบอร์ด</h1>
   </div>
 
   <div class="row">
@@ -17,7 +17,7 @@
       <div class="card text-white bg-primary">
         <div class="card-body">
             <blockquote class="blockquote mb-10">
-                <p>Announcements</p>
+                <p>ข่าวประกาศ</p>
                 <h1 class="display-1">{{$announcement_count}}</h1>
             </blockquote>
         </div>
@@ -27,7 +27,7 @@
         <div class="card text-white bg-success">
           <div class="card-body">
               <blockquote class="blockquote mb-10">
-                  <p>Government Jobs</p>
+                  <p>งานราชการ รัฐวิสาหกิจ</p>
                   <h1 class="display-1">{{$government_jobs_count}}</h1>
               </blockquote>
           </div>
@@ -40,7 +40,7 @@
         <div class="card text-white bg-warning">
           <div class="card-body">
               <blockquote class="blockquote mb-10">
-                  <p>Payment Notification</p>
+                  <p>แจ้งการชำระเงิน</p>
               <h1 class="display-1">{{$payment_notification_count}}</h1>
               </blockquote>
           </div>
@@ -50,7 +50,7 @@
           <div class="card text-white bg-danger">
             <div class="card-body">
                 <blockquote class="blockquote mb-10">
-                    <p>Contacts</p>
+                    <p>ติดต่อเว็บไซต์</p>
                 <h1 class="display-1">{{ $contact_count }}</h1>
                 </blockquote>
             </div>

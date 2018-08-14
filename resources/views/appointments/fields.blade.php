@@ -1,18 +1,18 @@
 
 
 <div class="form-group col-sm-12 col-lg-12">
-  {!! Form::label('date', 'date:') !!}
+  {!! Form::label('date', 'วันที่:') !!}
   {!! Form::date('date', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group col-sm-12 col-lg-12">
-  {!! Form::label('time', 'time:') !!}
+  {!! Form::label('time', 'เวลา:') !!}
   {!! Form::time('time', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Des Field -->
 <div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('des', 'Des:') !!}
+    {!! Form::label('des', 'คำอธิบาย:') !!}
     {!! Form::textarea('des', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -21,8 +21,8 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('appointments.index') !!}" class="btn btn-default">Cancel</a>
+    {!! Form::submit('บันทึก', ['class' => 'btn btn-primary']) !!}
+    <a href="{!! route('appointments.index') !!}" class="btn btn-default">ยกเลิก</a>
 </div>
 
 <script>

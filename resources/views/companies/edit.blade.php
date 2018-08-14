@@ -8,16 +8,15 @@ Edit
 
 @include('adminlte-templates::common.errors')
 
-  <h1 class="display">Edit</h1>
+<div class="card">
+  <div class="card-body">
 
-  <div class="card">
-      <div class="card-body">
-          {!! Form::model($company, ['route' => ['companies.update', $company->id], 'method' => 'patch', 'files' => true]) !!}
-
-          @include('companies.fields')
+    <h1 class="display">Edit</h1>
+    {!! Form::model($company, ['route' => ['companies.update', $company->id], 'method' => 'patch', 'files' => true]) !!}
+    @include('companies.fields')
+    {!! Form::close() !!}
     
-          {!! Form::close() !!}
-      </div>
   </div>
+</div>
 
 @endsection

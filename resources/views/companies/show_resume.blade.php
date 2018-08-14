@@ -14,8 +14,8 @@ SHOW SELECTED WORKERS
         data-page-size="10" >
   <thead>
     <tr>
-      <th>Full Name</th>
-      <th>Interested Job</th>
+      <th>ชื่อ-สกุล</th>
+      <th>งานที่สนใจ</th>
     </tr>
   </thead>
   <tbody>

@@ -6,20 +6,20 @@
 
 @section('navbar')
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-  <a class="navbar-brand" href="#">Admin Management</a>
+  <a class="navbar-brand" href="#">ผู้ดูแลระบบ</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link" href="/">เข้าสู่หน้าหลัก</a>
       </li>
     </ul>
     @if (Route::has('login'))
       @auth
-        <a class="btn btn-outline-info my-2 my-sm-0" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >Logout</a>
+        <a class="btn btn-outline-light my-2 my-sm-0" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >ออกจากระบบ</a>
         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
             {{ csrf_field() }}
         </form>
@@ -40,42 +40,42 @@
             <li class="nav-item">
               <a class="nav-link active" href="/admin">
                 <i class="fas fa-home fa-lg"></i>
-                Dashboard <span class="sr-only">(current)</span>
+                แดชบอร์ด <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('announcements.index') }}">
                   <i class="fas fa-bullhorn fa-lg"></i>
-                  Announcements
+                  ข่าวประกาศ
                 </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ route('governmentJobs.index') }}">
                 <i class="fas fa-briefcase fa-lg"></i>                
-                Government Jobs
+                งานราชการ รัฐวิสาหกิจ
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ route('packages.index') }}">
                   <i class="fas fa-cube fa-lg"></i>                
-                  Package
+                  อัตราค่าสมาชิก
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('manager.show') }}">
                     <i class="fas fa-user-tie fa-lg"></i>                
-                    Managers
+                    ผู้ประกอบการ
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('memberProfiles.index') }}">
                     <i class="fas fa-users fa-lg"></i>                                  
-                    Members
+                    สมาชิก
                 </a>
               </li>
           </ul>
           <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>Saved reports</span>
+            <span>ข้อความจากผู้ใช้งาน</span>
             <a class="d-flex align-items-center text-muted" href="#">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
             </a>
@@ -84,13 +84,13 @@
             <li class="nav-item">
               <a class="nav-link" href="/paymentNotifications">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                Payment Notification
+                แจ้งการชำระเงิน
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/contactuses">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                Contact
+                ติดต่อเว็บไซต์
               </a>
             </li>
           </ul>

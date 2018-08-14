@@ -14,10 +14,10 @@ SHOW WORKERS SELECTED MY JOB
         data-page-size="10" >
   <thead>
     <tr>
-      <th>Full Name</th>
-      <th>Job</th>
-      <th>Job Type</th>
-      <th>action</th>
+      <th>ชื่อ-สกุล</th>
+      <th>ชื่องาน</th>
+      <th>ประเภทงาน</th>
+      <th>เมนู</th>
     </tr>
   </thead>
   <tbody>

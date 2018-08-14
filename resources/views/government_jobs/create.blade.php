@@ -5,6 +5,9 @@ GOVERNMENT JOBS
 
 @extends(Auth::user() ? 'layouts.'.Auth::user()->roles->first()->name.'_app' : 'layouts.guest_app')
 @section(Auth::user() ? Auth::user()->roles->first()->name.'_content' : 'guest_content')
+<div class="card">
+  <div class="card-body">
+
     <section class="content-header">
         <h1>
             Government Jobs
@@ -16,13 +19,17 @@ GOVERNMENT JOBS
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'governmentJobs.store']) !!}
+                  
+                        {!! Form::open(['route' => 'governmentJobs.store']) !!}
 
-                        @include('government_jobs.fields')
+                            @include('government_jobs.fields')
 
-                    {!! Form::close() !!}
+                        {!! Form::close() !!}
                 </div>
             </div>
         </div>
     </div>
+    
+  </div>
+</div>
 @endsection
