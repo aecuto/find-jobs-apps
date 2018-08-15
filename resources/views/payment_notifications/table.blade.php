@@ -5,14 +5,14 @@
     >
     <thead>
         <tr>
-            <th>Service Type</th>
-            <th>Companyname</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Bankname</th>
-            <th>Money</th>
-            <th>Details</th>
-            <th>Action</th>
+            <th>ประเภทบริการ</th>
+            <th>ชื่อบริษัท</th>
+            <th>ชื่อบริษัท</th>
+            <th>เบอร์โทรศัพท์</th>
+            <th>ธนาคารที่ชำระเงิน</th>
+            <th>จำนวนเงิน</th>
+            <th>รายละเอียดเพิ่มเติม</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>

@@ -9,24 +9,24 @@
       @auth
         @if(Auth::user()->authorizeRoles(['member']))
           <li class="nav-item">
-              <a class="nav-link" href="/member">ข้อมูลส่วนตัว</a>
+              <a class="nav-link" href="/member" id="member">ข้อมูลส่วนตัว</a>
           </li>
         @endif
         @if(Auth::user()->authorizeRoles(['manager']))
           <li class="nav-item">
-            <a class="nav-link" href="{!! route('appointments.index') !!}">นัดหมาย</a>
+            <a class="nav-link" href="{!! route('appointments.index') !!}" id="appointments-index">นัดหมาย</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/manager">ตำแหน่งงานที่เพิ่มแล้ว</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{!! route('jobPositions.create') !!}">เพิ่มตำแหน่งงานว่าง</a>
+            <a class="nav-link" href="{!! route('jobPositions.create') !!}" id="jobPositions-create">เพิ่มตำแหน่งงานว่าง</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{!! route('companies.show_resume') !!}">ใบสมัครงานที่เก็บไว้</a>
+            <a class="nav-link" href="{!! route('companies.show_resume') !!}" id="companies-show_resume">ใบสมัครงานที่เก็บไว้</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{!! route('companies.index') !!}">ข้อมูลบริษัท</a>
+            <a class="nav-link" href="{!! route('companies.index') !!}" id="companies-index">ข้อมูลบริษัท</a>
           </li>
         @endif
       @endauth

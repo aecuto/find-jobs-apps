@@ -6,19 +6,3 @@
         <a class="nav-link" href="/announcements" id="announcements">ข่าวประกาศ</a>
     </div>
 </div>
-
-<script>
-  $(function() {
-
-    $('#v-pills-tab').on('click', function (e) {
-    //save the latest tab; use cookies if you like 'em better:
-    localStorage.setItem('selectMenu', $(e.target).attr('id'));
-    });
-
-    //go to the latest tab, if it exists:
-    var selectMenu = localStorage.getItem('selectMenu');
-    if (selectMenu) {
-      $('#'+selectMenu).addClass('active');
-    }
-  });
-</script>

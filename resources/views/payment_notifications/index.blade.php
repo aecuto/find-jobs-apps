@@ -7,7 +7,7 @@ Payment Notifications
 @section(Auth::user() ? Auth::user()->roles->first()->name.'_content' : 'guest_content')
 
     <section class="content-header">
-        <h1 class="pull-left">Payment Notifications</h1>
+        <h1 class="pull-left">แจ้งการชำระเงิน</h1>
     </section>
     <div class="content">
         <div class="clearfix"></div>

@@ -5,15 +5,15 @@
     >
     <thead>
         <tr>
-        <th>Fullname</th>
-        <th>Gender</th>
-        <th>Address</th>
-        <th>Phone</th>
-        <th>Interested Job</th>
-        <th>Type Interested Job</th>
-        <th>Money Need</th>
-        <th>Work Time</th>
-        <th>Action</th>
+        <th>ชื่อ-สกุล</th>
+        <th>เพศ</th>
+        <th>ที่อยู่</th>
+        <th>มือถือ</th>
+        <th>งานที่สนใจ</th>
+        <th>คำค้นหา</th>
+        <th>เงินเดือนที่ต้องการ</th>
+        <th>ช่วงเวลาทำงาน</th>
+        <th></th>
         </tr>
     </thead>
     <tbody>
@@ -30,7 +30,7 @@
             <td>
                 {!! Form::open(['route' => ['memberProfiles.destroy', $memberProfile->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
-                    {!! Form::button('Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                    {!! Form::button('<i class="fas fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                 </div>
                 {!! Form::close() !!}
             </td>

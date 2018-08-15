@@ -8,9 +8,9 @@
     >
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Action</th>
+            <th>ชื่อ-สกุล</th>
+            <th>อีเมลล์</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -19,15 +19,14 @@
             <td>{!! $manager->name !!}</td>
             <td>{!! $manager->email !!}</td>
             <td>
-              <div class="row">
                 @auth
                 @if(Auth::user()->hasRole(['admin']))
                 {!! Form::open(['route' => ['manager.destroy', $manager->id], 'method' => 'delete']) !!}
-                    {!! Form::button('Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                    {!! Form::button('<i class="fas fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                 {!! Form::close() !!}
                 @endif
                 @endauth
-              </div>
+
             </td>
         </tr>
     @endforeach

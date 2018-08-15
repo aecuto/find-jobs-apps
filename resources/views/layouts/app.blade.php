@@ -39,14 +39,25 @@
 
 <script>
     $(function() {
-
-      localStorage.setItem('selectMenu', null);
       
       $('a').click(function(){
 
-        localStorage.setItem('selectMenu', $(this).attr('id'));
+        if($(this).attr('id')){
+          localStorage.setItem('selectMenu', $(this).attr('id'));
+        }
           //alert( $(this).attr('id') );
       });
+
+      $('#v-pills-tab').on('click', function (e) {
+        //save the latest tab; use cookies if you like 'em better:
+        localStorage.setItem('selectMenu', $(e.target).attr('id'));
+      });
+
+      //go to the latest tab, if it exists:
+      var selectMenu = localStorage.getItem('selectMenu');
+      if (selectMenu) {
+        $('#'+selectMenu).addClass('active');
+      }
 
     });
 </script>

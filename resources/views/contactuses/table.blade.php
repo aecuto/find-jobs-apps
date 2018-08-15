@@ -5,12 +5,12 @@
     >
     <thead>
         <tr>
-            <th>Contact Type</th>
-            <th>Contact Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Details</th>
-            <th>Action</th>
+            <th>ติดต่อเรื่อง</th>
+            <th>ชื่อ-สกุล</th>
+            <th>อีเมลล์</th>
+            <th>มือถือ</th>
+            <th>รายละเอียด</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>

@@ -1,7 +1,7 @@
 <div class="row">
   <!-- Contact Type Field -->
   <div class="form-group col">
-    {!! Form::label('contact_type', 'Contact Type:') !!}
+    {!! Form::label('contact_type', 'ติดต่อเรื่อง:') !!}
     {!! Form::select('contact_type', [
       '' => 'โปรดเลือกหัวข้อการติดต่อ', 
       'แจ้งปัญหาการใช้งาน' => 'แจ้งปัญหาการใช้งาน', 
@@ -13,7 +13,7 @@
 
   <!-- Contact Name Field -->
   <div class="form-group col">
-    {!! Form::label('contact_name', 'Contact Name:') !!}
+    {!! Form::label('contact_name', 'ชื่อ-สกุล:') !!}
     {!! Form::text('contact_name', null, ['class' => 'form-control']) !!}
   </div>
 </div>
@@ -21,13 +21,13 @@
 <div class="row">
   <!-- Email Field -->
   <div class="form-group col">
-    {!! Form::label('email', 'Email:') !!}
+    {!! Form::label('email', 'อีเมล์:') !!}
     {!! Form::email('email', null, ['class' => 'form-control']) !!}
   </div>
 
   <!-- Phone Field -->
   <div class="form-group col">
-    {!! Form::label('phone', 'Phone:') !!}
+    {!! Form::label('phone', 'มือถือ:') !!}
     {!! Form::text('phone', null, ['class' => 'form-control']) !!}
   </div>
 </div>
@@ -35,7 +35,7 @@
 <div class="row">
   <!-- Details Field -->
   <div class="form-group col">
-    {!! Form::label('details', 'Details:') !!}
+    {!! Form::label('details', 'รายละเอียด:') !!}
     {!! Form::textarea('details', null, ['class' => 'form-control', 'rows' => '3']) !!}
   </div>
 
