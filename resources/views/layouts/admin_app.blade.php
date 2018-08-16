@@ -34,7 +34,7 @@
 <div class="container-fluid">
 
     <div class="row">
-      <nav class="col-md-2 d-none d-md-block bg-light sidebar" style="height: 100%;">
+      <nav class="col-sm-2 bg-light" style="height: 100%;">
         <div class="sidebar-sticky">
           <ul class="nav flex-column">
             <li class="nav-item">

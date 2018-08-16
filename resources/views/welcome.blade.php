@@ -210,9 +210,9 @@
                             <i class="fas fa-briefcase"></i> {!! $job->jobname?: '-' !!}
                           </a>
                         </div>
-                        <div class="col-4 text-right">
+                        <div class="col-4 text-right text-truncate">
                             <span class="badge badge-primary">
-                              {!! $job->created_at !!}
+                              {{ $job->created_at }}
                             </span>
                         </div>
                       </div>
