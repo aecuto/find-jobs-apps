@@ -11,8 +11,10 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use Auth;
+use DB;
 
 use App\Models\company;
+use App\Models\JobPosition;
 
 class companyController extends AppBaseController
 {
@@ -141,6 +143,15 @@ class companyController extends AppBaseController
         }
 
         $company = $this->companyRepository->update($request->all(), $id);
+
+        if($request->file('image')){
+          $image_binary = base64_encode(file_get_contents($request->file('image')->path()));
+        }else{
+          $image_binary = null;
+        }
+
+        $company->image = $image_binary;
+        $company->save();
 
         Flash::success('Company updated successfully.');
 

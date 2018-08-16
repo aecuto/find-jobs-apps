@@ -1,24 +1,15 @@
 @extends('layouts.app')
 
+@section('active_menu')
+SEARCH WORKS
+@endsection
+
 @section('title')
 <title>Serach</title>
 @endsection
 
 @section('navbar')
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-  <h5 class="my-0 mr-md-auto font-weight-normal">Jobs TH</h5>
-  <nav class="my-2 my-md-0 mr-md-3">
-    <a class="p-2 text-dark" href="/">Home</a>
-  </nav>
-  @if (Route::has('login'))
-    @auth
-      <a class="btn btn-outline-primary" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >Logout</a>
-      <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-          {{ csrf_field() }}
-      </form>
-    @endauth
-  @endif
-</div>
+@include('layouts.navbar')
 @endsection
 
 @section('content')
@@ -26,13 +17,8 @@
   @include('flash::message')
 
   <div class="row">
-    <div class="col-4">
-        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a class="nav-link" href="/search_job" >SEARCH JOBS</a>
-            <a class="nav-link active" href="/search_worker">SEARCH WORKERS</a>
-        </div>
-    </div>
-    <div class="col-8">
+    @include('layouts.menu')
+    <div class="col-sm-8">
 
         <div class="card">
             <div class="card-body">
@@ -81,6 +67,8 @@
 
   
 </div>
+@include('layouts.footer')
+
 @endsection
 
 <style>

@@ -1,7 +1,7 @@
 <table class="table table-responsive" id="companies-table">
     <thead>
         <tr>
-            <th>Companyname</th>
+        <th>Companyname</th>
         <th>Companytype</th>
         <th>Details</th>
         <th>Start Year</th>

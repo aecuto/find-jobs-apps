@@ -26,13 +26,20 @@ class SearchController extends Controller
     public function search_job(Request $request)
     {
 
+      $current_date = date("Y/m/d");
+
       if($request->job != ''){
-        $jobs = JobPosition::where('job', $request->job)->orderBy('created_at', 'DESC')->get();
+        $jobs = JobPosition::search_option($request)->orderBy('created_at', 'DESC');
       }else{
-        $jobs = JobPosition::orderBy('created_at', 'DESC')->get();
+        $jobs = JobPosition::orderBy('created_at', 'DESC');
       }
 
-      return view('search.search_job')->with('jobResult', $jobs);
+      $res = $jobs
+      ->where('start_date', '<=', $current_date)
+      ->where('end_date', '>=', $current_date)
+      ->get();
+
+      return view('search.search_job')->with('jobResult', $res);
 
     }
 
@@ -40,7 +47,7 @@ class SearchController extends Controller
     {
 
       if($request->interested_job != ''){
-        $workers = MemberProfile::where('interested_job', $request->interested_job)->orderBy('created_at', 'DESC')->get();
+        $workers = MemberProfile::search_option($request)->orderBy('created_at', 'DESC')->get();
       }else{
         $workers = MemberProfile::orderBy('created_at', 'DESC')->get();
       }

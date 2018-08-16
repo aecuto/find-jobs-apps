@@ -21,6 +21,8 @@ class CreateJobPositionsTable extends Migration
             $table->string('country')->nullable();
             $table->string('salary')->nullable();
             $table->string('experience')->nullable();
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

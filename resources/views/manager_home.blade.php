@@ -1,7 +1,13 @@
 @extends('layouts.manager_app')
 
+@section('active_menu')
+JOB'S COMPANY
+@endsection
+
 @section('manager_content')
-  <h1>My Job</h1>
+<div class="card">
+  <div class="card-body">
+  <h1>ตำแหน่งงานของบริษัท</h1>
   <table 
   data-toggle="table"
   data-pagination="true"
@@ -9,14 +15,10 @@
   >
         <thead>
             <tr>
-            <th>Jobname</th>
-            <th>Companyname</th>
-            <th>Job</th>
-            <th>Certificate</th>
-            <th>Country</th>
-            <th>Salary</th>
-            <th>Experience</th>
-            <th>Map</th>
+            <th>ชื่องาน</th>
+            <th>ชื่อบริษัท</th>
+            <th>ประเภทงาน</th>
+            <th>เงินเดือน</th>
             <th></th>
             </tr>
         </thead>
@@ -26,17 +28,13 @@
                 <td>{!! $jobPosition->jobname ?: '-' !!}</td>
                 <td>{!! $jobPosition->company->companyname ?: '-' !!}</td>
                 <td>{!! $jobPosition->job ?: '-' !!}</td>
-                <td>{!! $jobPosition->certificate ?: '-' !!}</td>
-                <td>{!! $jobPosition->country ?: '-' !!}</td>
                 <td>{!! $jobPosition->salary ?: '-' !!}</td>
-                <td>{!! $jobPosition->experience ?: '-' !!}</td>
-                <td>{!! $jobPosition->map ?: '-' !!}</td>
                 <td>
                     {!! Form::open(['route' => ['jobPositions.destroy', $jobPosition->id], 'method' => 'delete', 'style' => 'text-align: right;']) !!}
                     <div class='btn-group'>
-                        <a href="{!! route('jobPositions.show', [$jobPosition->id]) !!}" class='btn btn-primary btn-xs'>Show</a>
-                        <a href="{!! route('jobPositions.edit', [$jobPosition->id]) !!}" class='btn btn-warning btn-xs'>Edit</a>
-                        {!! Form::button('Delete', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        <a href="{!! route('jobPositions.show', [$jobPosition->id]) !!}" class='btn btn-primary btn-xs'><i class="fas fa-eye"></i></a>
+                        <a href="{!! route('jobPositions.edit', [$jobPosition->id]) !!}" class='btn btn-warning btn-xs'><i class="far fa-edit"></i></a>
+                        {!! Form::button('<i class="fas fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}
                 </td>
@@ -44,4 +42,6 @@
         @endforeach
         </tbody>
   </table>
+  </div>
+</div>
 @endsection

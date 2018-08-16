@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Role;
+use App\Models\package;
 use App\Models\MemberProfile;
 use App\Models\company;
 use App\Http\Controllers\Controller;
@@ -40,7 +41,6 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
     }
 
     /**
@@ -80,6 +80,8 @@ class RegisterController extends Controller
         $user_profile->user_id = $user->id;
         $user_profile->save();
       }elseif($data['role']=='manager'){
+        $user->have_package()->attach(package::where('name', $data['package'])->first());
+
         $company = new company;
         $company->user_id = $user->id;
         $company->save();
@@ -88,4 +90,23 @@ class RegisterController extends Controller
 
       return $user;
     }
+
+    protected function showRegistrationForm(){
+      return view('auth.register');
+    }
+
+    protected function worker_register(){
+      return view('auth.worker_register');
+    }
+
+    protected function manager_register(){
+      return view('auth.manager_register');
+    }
+
+    protected function manager_package(){
+      $packages = package::all();
+      return view('auth.manager_package')
+      ->with('packages', $packages);
+    }
+
 }

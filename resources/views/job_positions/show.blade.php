@@ -1,7 +1,10 @@
-@extends('layouts.manager_app')
+@section('active_menu')
+Job
+@endsection
 
-@section('manager_content')
-<div class="card">
+@extends(Auth::user() ? 'layouts.'.Auth::user()->roles->first()->name.'_app' : 'layouts.guest_app')
+@section(Auth::user() ? Auth::user()->roles->first()->name.'_content' : 'guest_content')
+<div class="card" style="margin-bottom: 10px">
     <div class="card-body">
         <h5><i class="fas fa-briefcase"></i> {!! $jobPosition->jobname !!}</h5>
         <h5><i class="far fa-building"></i> {!! $jobPosition->company->companyname !!}</h5>
@@ -12,20 +15,26 @@
 
 @auth
   @if(Auth::user()->authorizeRoles(['member']))
-    {!! Form::open(['route' => ['jobPositions.register', $jobPosition->id], 'method' => 'post']) !!}
-        {!! Form::button(Auth::user()->member_register->find($jobPosition->id) ? 'สมัครงานแล้ว' : 'สมัครงาน', [
-          'type' => 'submit', 
-          'class' => 'btn btn-success btn-xs', 
-          'disabled' => Auth::user()->member_register->find($jobPosition->id) ? true : false ,
-          'onclick' => "return confirm('Are you sure?')"]) !!}
-    {!! Form::close() !!}
-    {!! Form::open(['route' => ['jobPositions.star', $jobPosition->id], 'method' => 'post']) !!}
-        {!! Form::button(Auth::user()->member_star->find($jobPosition->id) ? 'เก็บงานแล้ว' : 'เก็บงาน', [
-          'type' => 'submit', 
-          'class' => 'btn btn-info btn-xs', 
-          'disabled' => Auth::user()->member_star->find($jobPosition->id) ? true : false ,
-          'onclick' => "return confirm('Are you sure?')"]) !!}
-    {!! Form::close() !!}
+  <div class="row">
+    <div class="col text-right">
+      {!! Form::open(['route' => ['jobPositions.register', $jobPosition->id], 'method' => 'post']) !!}
+          {!! Form::button(Auth::user()->member_register->find($jobPosition->id) ? 'สมัครงานแล้ว' : 'สมัครงาน', [
+            'type' => 'submit', 
+            'class' => 'btn btn-success btn-xs', 
+            'disabled' => Auth::user()->member_register->find($jobPosition->id) ? true : false ,
+            'onclick' => "return confirm('Are you sure?')"]) !!}
+      {!! Form::close() !!}
+    </div>
+    <div class="col">
+      {!! Form::open(['route' => ['jobPositions.star', $jobPosition->id], 'method' => 'post']) !!}
+          {!! Form::button(Auth::user()->member_star->find($jobPosition->id) ? 'เก็บงานแล้ว' : 'เก็บงาน', [
+            'type' => 'submit', 
+            'class' => 'btn btn-info btn-xs', 
+            'disabled' => Auth::user()->member_star->find($jobPosition->id) ? true : false ,
+            'onclick' => "return confirm('Are you sure?')"]) !!}
+      {!! Form::close() !!}
+    </div>
+  </div>
   @endif
 @endauth
 
@@ -38,7 +47,11 @@
             <h3 class="card-title display">ชื่อบริษัท: {{ $jobPosition->company->companyname }}</h3>
           </div>
           <div class="col-4 text-right">
-            <img src="https://www.jobnorththailand.com/images/company/logo/zNJMg25202.jpg" height="40" width="80" class="rounded-circle">
+            @if($jobPosition->company->image)
+            <img src="data:image/jpg;charset=utf8;base64,{!! $jobPosition->company->image !!}" width="80" class="rounded-circle" style="hight: auto;">
+            @else
+            <img src="{{url('/images/default.png')}}"  height="80" width="80" class="rounded-circle">
+            @endif
           </div>
       </div>
     </div>
@@ -84,7 +97,34 @@
           </tbody>
         </table>
         <hr>
+
+        <h3><i class="fas fa-map-marked-alt"></i> Google Map</h3>
+        <div class="col iframe-container">
+            {!! $jobPosition->company->map_embed !!}
+        </div>
+
     </div>
   </div>
 
 @endsection
+
+<style>
+    .iframe-container{
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
+    }
+    .iframe-container > *{
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+    }
+</style>
+    

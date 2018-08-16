@@ -1,26 +1,19 @@
-@extends('layouts.member_app')
+@extends('layouts.admin_app')
 
-@section('member_content')
-    <section class="content-header">
-        <h1 class="pull-left">Member Profiles</h1>
-        <h1 class="pull-right">
-           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('memberProfiles.create') !!}">Add New</a>
+@section('active_munu')
+@endsection
+
+@section('admin_content')
+    <div class="row">
+        <h1 class="col-sm text-left">ข้อมูลสมาชิก</h1>
+        <h1 class="col-sm text-right">
+           <a class="btn btn-primary text-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('memberProfiles.create') !!}">เพิ่ม</a>
         </h1>
-    </section>
-    <div class="content">
-        <div class="clearfix"></div>
-
-        @include('flash::message')
-
-        <div class="clearfix"></div>
-        <div class="box box-primary">
-            <div class="box-body">
-                    @include('member_profiles.table')
-            </div>
-        </div>
-        <div class="text-center">
-        
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+          @include('member_profiles.table')
+      </div>
     </div>
 @endsection
 

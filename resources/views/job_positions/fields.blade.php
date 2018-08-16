@@ -1,13 +1,13 @@
 <div class="row">
 <!-- Jobname Field -->
 <div class="form-group col">
-    {!! Form::label('jobname', 'Jobname:') !!}
+    {!! Form::label('jobname', 'ชื่องาน:') !!}
     {!! Form::text('jobname', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Job Field -->
 <div class="form-group col">
-    {!! Form::label('job', 'Job:') !!}
+    {!! Form::label('job', 'ประเภทงาน:') !!}
     {!! Form::select('job', [
       'การตลาด/การขาย' => 'การตลาด/การขาย',
       'บริการลูกค้า/ประชาสัมพันธ์' => 'บริการลูกค้า/ประชาสัมพันธ์',
@@ -51,7 +51,7 @@
   
 <!-- Certificate Field -->
 <div class="form-group col">
-    {!! Form::label('certificate', 'Certificate:') !!}
+    {!! Form::label('certificate', 'วุฒิการศึกษา:') !!}
     {!! Form::select('certificate', [
         "ไม่ระบุ" => "ไม่ระบุ",
         "ปริญญาเอก" => "ปริญญาเอก",
@@ -66,7 +66,7 @@
 
 <!-- Country Field -->
 <div class="form-group col">
-    {!! Form::label('country', 'Country:') !!}
+    {!! Form::label('country', 'จังหวัด:') !!}
     {!! Form::select('country', [
               "ไม่ระบุ" => "ไม่ระบุ",
               "กระบี่" => "กระบี่",
@@ -153,7 +153,7 @@
 <div class="row">
   <!-- Salary Field -->
 <div class="form-group col">
-    {!! Form::label('salary', 'Salary:') !!}
+    {!! Form::label('salary', 'เงินเดือน:') !!}
     {!! Form::select('salary', [
        "ไม่ระบุ" => "ไม่ระบุ",
         "น้อยกว่า 5,000" => "น้อยกว่า 5,000",
@@ -172,7 +172,7 @@
 
 <!-- Experience Field -->
 <div class="form-group col">
-    {!! Form::label('experience', 'Experience:') !!}
+    {!! Form::label('experience', 'ประสบการณ์:') !!}
     {!! Form::select('experience', [
       "ไม่ระบุ" => "ไม่ระบุ",
         "1 ปี" => "1 ปี",
@@ -194,13 +194,24 @@
 </div>
 </div>
 
+<div class="row">
 
+    <div class="form-group col">
+        {!! Form::label('start_date', 'วันที่เริ่มประกาศ:') !!}
+        {!! Form::date('start_date', null, ['class' => 'form-control']) !!}
+    </div>
+
+    <div class="form-group col">
+        {!! Form::label('end_date', 'สิ้นสุดการรับสมัครงาน:') !!}
+        {!! Form::date('end_date', null, ['class' => 'form-control']) !!}
+    </div>
+
+</div>  
 
 <div class="row">
   <!-- Submit Field -->
 <div class="form-group col text-right">
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('jobPositions.index') !!}" class="btn btn-default">Cancel</a>
 </div>
 
 </div>

@@ -15,6 +15,8 @@ use Auth;
 use DB;
 
 use App\Models\MemberProfile;
+use App\Models\Appointment;
+use App\User;
 
 class MemberProfileController extends AppBaseController
 {
@@ -37,8 +39,8 @@ class MemberProfileController extends AppBaseController
     public function index(Request $request)
     {
 
-      if(!$request->user()->hasRole(['member'])){
-        return view('welcome');
+      if(!$request->user()->authorizeRoles(['admin'])){
+        return redirect('/');
       }
 
       $this->memberProfileRepository->pushCriteria(new RequestCriteria($request));
@@ -55,8 +57,8 @@ class MemberProfileController extends AppBaseController
      */
     public function create(Request $request)
     {
-      if(!$request->user()->hasRole(['member'])){
-        return view('welcome');
+      if(!$request->user()->authorizeRoles(['admin'])){
+        return back();
       }
 
         return view('member_profiles.create');
@@ -74,6 +76,7 @@ class MemberProfileController extends AppBaseController
         $input = $request->all();
 
         $memberProfile = $this->memberProfileRepository->create($input);
+
 
         Flash::success('Member Profile saved successfully.');
 
@@ -100,11 +103,11 @@ class MemberProfileController extends AppBaseController
 
       $user_id = Auth::user()->id;
       $member = MemberProfile::where("user_id", $user_id)->where("id", $id)->first();
-      if($member){
+      if($member || Auth::user()->hasRole(['manager'])){
         return view('member_profiles.show')->with('memberProfile', $memberProfile);
       }
 
-      return redirect('/');
+      return back();
     }
 
     /**
@@ -116,10 +119,6 @@ class MemberProfileController extends AppBaseController
      */
     public function edit($id,Request $request)
     {
-      if(!$request->user()->hasRole(['member'])){
-        return view('welcome');
-      }
-      
         $memberProfile = $this->memberProfileRepository->findWithoutFail($id);
 
         if (empty($memberProfile)) {
@@ -134,7 +133,7 @@ class MemberProfileController extends AppBaseController
         return view('member_profiles.edit')->with('memberProfile', $memberProfile);
       }
 
-      return redirect('/');
+      return back();
     }
 
     /**
@@ -155,6 +154,15 @@ class MemberProfileController extends AppBaseController
             return redirect(route('member.home'));
         }
         $memberProfile = $this->memberProfileRepository->update($request->all(), $id);
+
+        if($request->file('image')){
+          $image_binary = base64_encode(file_get_contents($request->file('image')->path()));
+        }else{
+          $image_binary = null;
+        }
+
+        $memberProfile->image = $image_binary;
+        $memberProfile->save();
 
         Flash::success('Member Profile updated successfully.');
 
@@ -178,11 +186,15 @@ class MemberProfileController extends AppBaseController
             return redirect(route('member.home'));
         }
 
-        $this->memberProfileRepository->delete($id);
+        $user_id = MemberProfile::where('id', $id)->first()->user_id;
+
+        User::where('id',$user_id)->delete();
+
+        //$this->memberProfileRepository->delete($id);
 
         Flash::success('Member Profile deleted successfully.');
 
-        return redirect(route('member.home'));
+        return back();
     }
 
     public function stared(){
@@ -201,5 +213,15 @@ class MemberProfileController extends AppBaseController
       $companies = DB::select($sql);
 
       return view('member_profiles.my_resume')->with('companies', $companies);
+    }
+
+    public function my_appointments(){
+      $user_id = Auth::user()->id;
+      $sql = 'select job_positions.jobname, job_positions.job, appointments.id,appointments.date,appointments.time, appointments.confirmed FROM appointments, job_positions 
+      where job_positions.id=appointments.job_position_id
+      and user_id='.$user_id;
+      $appointments = DB::select($sql);
+      
+      return view('member_profiles.my_appointments')->with('appointments',$appointments);
     }
 }

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Auth;
+use DB;
 
+use App\User;
 use App\Models\JobPosition;
 use App\Models\MemberProfile;
 use App\Models\company;
@@ -31,7 +33,7 @@ class ManagerController extends Controller
     {
 
       if(!$request->user()->hasRole(['manager'])){
-        return view('welcome');
+        return view('welcome')->with('message','คุณไม่สามารถทำรายการนี้ได้');
       }
 
       $company_id = company::where('user_id', Auth::user()->id)->first()->id;
@@ -39,6 +41,18 @@ class ManagerController extends Controller
 
       return view('manager_home')->with('jobPositions', $jobs);
       
+    }
+
+    public function show_managers(){
+      $managers = DB::select("select * from users where id IN (select id from role_user where role_id=(select id from roles where name='manager'))");
+      
+      return view('admin.show_managers')->with('managers', $managers);
+    }
+
+    public function destroy($id){
+      User::where('id',$id)->delete();
+
+      return back();
     }
 
     public function save_resume($id){

@@ -20,7 +20,9 @@
     @yield('title')
 
   </head>
-  <body>
+
+
+  <body style="background-color: #f2f2f2;">
 
     @yield('navbar')
 
@@ -28,3 +30,34 @@
 
   </body>
 </html>
+
+<style>
+  .bootstrap-table{
+    background-color: white !important;
+  }
+</style>
+
+<script>
+    $(function() {
+      
+      $('a').click(function(){
+
+        if($(this).attr('id')){
+          localStorage.setItem('selectMenu', $(this).attr('id'));
+        }
+          //alert( $(this).attr('id') );
+      });
+
+      $('#v-pills-tab').on('click', function (e) {
+        //save the latest tab; use cookies if you like 'em better:
+        localStorage.setItem('selectMenu', $(e.target).attr('id'));
+      });
+
+      //go to the latest tab, if it exists:
+      var selectMenu = localStorage.getItem('selectMenu');
+      if (selectMenu) {
+        $('#'+selectMenu).addClass('active');
+      }
+
+    });
+</script>

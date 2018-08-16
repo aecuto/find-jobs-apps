@@ -1,6 +1,6 @@
-@extends('layouts.member_app')
+@extends(Auth::user()->hasRole(['member'])? 'layouts.member_app': 'layouts.admin_app')
 
-@section('member_content')
+@section(Auth::user()->hasRole(['member']) ? 'member_content': 'admin_content')
     <section class="content-header">
         <h1>
             Member Profile

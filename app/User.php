@@ -5,6 +5,7 @@ namespace App;
 use App\Models\MemberProfile;
 use App\Models\JobPosition;
 use App\Models\company;
+use App\Models\package;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -56,6 +57,11 @@ class User extends Authenticatable
       return $this->belongsToMany(MemberProfile::class, 'manager_member_profile');
     }
 
+    public function have_package()
+    {
+      return $this->belongsToMany(package::class, 'manager_package');
+    }
+
     public function company()
     {
       return $this->hasOne(company::class);
@@ -87,4 +93,5 @@ class User extends Authenticatable
     {
       return null !== $this->roles()->where('name', $role)->first();
     }
+
 }

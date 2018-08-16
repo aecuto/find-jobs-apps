@@ -1,24 +1,15 @@
 @extends('layouts.app')
 
+@section('active_menu')
+SEARCH JOBS
+@endsection
+
 @section('title')
 <title>Serach</title>
 @endsection
 
 @section('navbar')
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-  <h5 class="my-0 mr-md-auto font-weight-normal">Jobs TH</h5>
-  <nav class="my-2 my-md-0 mr-md-3">
-    <a class="p-2 text-dark" href="/">Home</a>
-  </nav>
-  @if (Route::has('login'))
-    @auth
-      <a class="btn btn-outline-primary" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >Logout</a>
-      <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-          {{ csrf_field() }}
-      </form>
-    @endauth
-  @endif
-</div>
+@include('layouts.navbar')
 @endsection
 
 @section('content')
@@ -26,13 +17,8 @@
   @include('flash::message')
 
   <div class="row">
-    <div class="col-4">
-      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-          <a class="nav-link active" href="/search_job" >SEARCH JOBS</a>
-          <a class="nav-link" href="/search_worker">SEARCH WORKERS</a>
-      </div>
-    </div>
-    <div class="col-8">
+    @include('layouts.menu')
+    <div class="col-sm-8">
 
         <div class="card">
             <div class="card-body">
@@ -41,7 +27,7 @@
                 @include('search.search_fields')
               {{ Form::close() }}
             </div>
-          </div>
+        </div>
 
         <hr>
 
@@ -57,6 +43,7 @@
             <th>ชื่องาน</th>
             <th>ชื่อบริษัท</th>
             <th>จังหวัด เงินเดือน</th>
+            <th>เวลสประกาศ</th>
             </tr>
         </thead>
         <tbody>
@@ -69,18 +56,23 @@
 
           </h5></td>
           <td><h5><i class="far fa-building"></i> {!! $job->company->companyname?: '-' !!}</h5></td>
-          <td><h7>จังหวัด: {!! $job->country?: '-' !!} เงินเดือน: {!! $job->salary?: '-' !!}</h7></td>
+          <td><h6>จังหวัด: {!! $job->country?: '-' !!} เงินเดือน: {!! $job->salary?: '-' !!}</h6></td>
+          <td>
+            <h6><i class="fas fa-clock"></i> {!! date('d-m-Y', strtotime($job->start_date))?: '-' !!} - {!! date('d-m-Y', strtotime($job->end_date))?: '-' !!}</h6> 
+          </td>  
         </tr>
         @endforeach
         </tbody>
     </table>
-
+  
 
     </div>
   </div>
 
   
 </div>
+
+@include('layouts.footer')
 @endsection
 
 <style>
@@ -95,4 +87,5 @@ span.title {
 .fixed-table-body {
   height: auto !important;
 }
+
 </style>

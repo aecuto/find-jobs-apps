@@ -53,7 +53,9 @@ class JobPosition extends Model
         'country',
         'salary',
         'experience',
-        'company_id'
+        'start_date',
+        'end_date',
+        'company_id',
     ];
 
     /**
@@ -67,19 +69,40 @@ class JobPosition extends Model
         'certificate' => 'string',
         'country' => 'string',
         'salary' => 'string',
+        'start_date' => 'date',
+        'end_date' => 'date',
         'experience' => 'string',
     ];
 
-    /**
-     * Validation rules
-     *
-     * @var array
-     */
+    public static $messages = [
+      'required' => 'asdasdasdasdas is required.'
+    ];
+    
     public static $rules = [
         'jobname' => 'required',
         'job' => 'required',
         'country' => 'required',
+        'start_date' => 'required',
+        'end_date' => 'required',
     ];
 
+    
+
+    public static function search_option($request){
+      $company_id = company::where('companyname',$request->companyname)->first() ?: null;
+      if($company_id){
+        $company_id = $company_id->id;
+      }
+
+      $res = JobPosition::where('jobname', $request->jobname)
+      ->orWhere('company_id',$company_id)
+      ->orWhere('job',$request->job)
+      ->orWhere('certificate',$request->certificate)
+      ->orWhere('country',$request->country)
+      ->orWhere('salary',$request->salary)
+      ->orWhere('experience',$request->experience);
+
+      return $res;
+    }
 
 }

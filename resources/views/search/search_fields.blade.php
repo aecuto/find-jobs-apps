@@ -1,14 +1,14 @@
 <div class="row">
 
   <!-- Jobname Field -->
-  <div class="form-group col">
-      {!! Form::label('jobname', 'Jobname:') !!}
+  <div class="form-group col-sm">
+      {!! Form::label('jobname', 'ชื่องาน:') !!}
       {!! Form::text('jobname', null, ['class' => 'form-control']) !!}
   </div>
 
   <!-- Companyname Field -->
-  <div class="form-group col">
-      {!! Form::label('companyname', 'Companyname:') !!}
+  <div class="form-group col-sm">
+      {!! Form::label('companyname', 'ชื่อบริษัท:') !!}
       {!! Form::text('companyname', null, ['class' => 'form-control']) !!}
   </div>
 
@@ -17,9 +17,10 @@
 <div class="row">
   
   <!-- Job Field -->
-  <div class="form-group col">
-      {!! Form::label('job', 'Job:') !!}
+  <div class="form-group col-sm">
+      {!! Form::label('job', 'ประเภทงาน:') !!}
       {!! Form::select('job', [
+        "ไม่ระบุ" => "ไม่ระบุ",
         'การตลาด/การขาย' => 'การตลาด/การขาย',
         'บริการลูกค้า/ประชาสัมพันธ์' => 'บริการลูกค้า/ประชาสัมพันธ์',
         'เลขานุการ/ธุรการ/ประสานงาน' => 'เลขานุการ/ธุรการ/ประสานงาน',
@@ -57,8 +58,8 @@
   </div>
 
   <!-- Certificate Field -->
-  <div class="form-group col">
-      {!! Form::label('certificate', 'Certificate:') !!}
+  <div class="form-group col-sm">
+      {!! Form::label('certificate', 'วุฒิการศึกษา:') !!}
       {!! Form::select('certificate', [
           "ไม่ระบุ" => "ไม่ระบุ",
           "ปริญญาเอก" => "ปริญญาเอก",
@@ -74,8 +75,8 @@
 <div class="row">
 
   <!-- Country Field -->
-  <div class="form-group col">
-      {!! Form::label('country', 'Country:') !!}
+  <div class="form-group col-sm">
+      {!! Form::label('country', 'จังหวัด:') !!}
       {!! Form::select('country', [
               "ไม่ระบุ" => "ไม่ระบุ",
               "กระบี่" => "กระบี่",
@@ -158,8 +159,8 @@
   </div>
 
   <!-- Salary Field -->
-  <div class="form-group col">
-      {!! Form::label('salary', 'Salary:') !!}
+  <div class="form-group col-sm">
+      {!! Form::label('salary', 'เงินเดือน:') !!}
       {!! Form::select('salary', [
        "ไม่ระบุ" => "ไม่ระบุ",
         "น้อยกว่า 5,000" => "น้อยกว่า 5,000",
@@ -180,8 +181,8 @@
 
 <div class="row">
     <!-- Experience Field -->
-    <div class="form-group col">
-        {!! Form::label('experience', 'Experience:') !!}
+    <div class="form-group col-sm">
+        {!! Form::label('experience', 'ประสบการณ์:') !!}
         {!! Form::select('experience', [
             "ไม่ระบุ" => "ไม่ระบุ",
             "1 ปี" => "1 ปี",
@@ -202,7 +203,7 @@
         ], null, ['class' => 'form-control']) !!}
     </div>
   
-    <div class="form-group col">
+    <div class="form-group col-sm">
       {!! Form::submit('Serach', array('class' => 'btn btn-primary btn-block', 'style' => 'margin-top: 30px;')) !!}
     </div>
 </div>
@@ -220,6 +221,12 @@ function getParameterByName( name ){
   }
 }
 
+$("input#jobname").attr('value', getParameterByName('jobname'));
+$("input#companyname").attr('value', getParameterByName('companyname'));
 $("select#job option[value='" + getParameterByName('job') + "']").attr('selected', true);
+$("select#certificate option[value='" + getParameterByName('certificate') + "']").attr('selected', true);
+$("select#country option[value='" + getParameterByName('country') + "']").attr('selected', true);
+$("select#salary option[value='" + getParameterByName('salary') + "']").attr('selected', true);
+$("select#experience option[value='" + getParameterByName('experience') + "']").attr('selected', true);
 
 </script>

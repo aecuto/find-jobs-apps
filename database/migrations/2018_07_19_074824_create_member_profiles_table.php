@@ -21,7 +21,7 @@ class CreateMemberProfilesTable extends Migration
             $table->string('nationality')->nullable();
             $table->string('religion')->nullable();
             $table->date('birthdate')->nullable();
-            $table->date('country')->nullable();
+            $table->string('country')->nullable();
             $table->integer('height')->nullable();
             $table->integer('weight')->nullable();
             $table->string('military_status')->nullable();
@@ -33,6 +33,7 @@ class CreateMemberProfilesTable extends Migration
             $table->string('experience')->nullable();
             $table->string('salary')->nullable();
             $table->string('work_time')->nullable();
+            $table->binary('image')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

@@ -64,6 +64,7 @@ class MemberProfile extends Model
         'country',
         'certificate',
         'experience',
+        'image',
         'work_time'
     ];
 
@@ -90,6 +91,7 @@ class MemberProfile extends Model
         'country' => 'string',
         'certificate' => 'string',
         'experience' => 'string',
+        'image' => 'binary',
         'work_time' => 'string'
     ];
 
@@ -101,8 +103,20 @@ class MemberProfile extends Model
     public static $rules = [
       'fullname' => 'required',
       'interested_job' => 'required',
-      'phone' => 'required',
+      'phone' => 'required|numeric|min:10',
+      'image'  => 'max:64',
     ];
+
+    public static function search_option($request){
+
+      $res = MemberProfile::where('interested_job', $request->interested_job)
+      ->orWhere('certificate', $request->certificate)
+      ->orWhere('country', $request->country)
+      ->orWhere('salary', $request->salary)
+      ->orWhere('experience', $request->experience);
+
+      return $res;
+    }
 
     
 }

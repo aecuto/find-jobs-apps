@@ -1,5 +1,9 @@
 @extends('layouts.manager_app')
 
+@section('active_menu')
+COMPANY DETAILS
+@endsection
+
 @section('manager_content')
     <div class="row">
       <div class="col-6">
@@ -14,7 +18,6 @@
 
     <hr>
 
-
     <div class="card">
       <div class="card-header">
         <div class="row">
@@ -22,7 +25,11 @@
               <h3 class="card-title display">ชื่อบริษัท: {{ $company->companyname }}</h3>
             </div>
             <div class="col-4 text-right">
-              <img src="https://www.jobnorththailand.com/images/company/logo/zNJMg25202.jpg" height="40" width="80" class="rounded-circle">
+                @if($company->image)
+                  <img src="data:image/jpg;charset=utf8;base64,{!! $company->image !!}"  width="80" style="hight: auto;" class="rounded-circle">
+                  @else
+                  <img src="{{url('/images/default_company.png')}}"  height="80" width="80"  class="rounded-circle">
+                @endif
             </div>
         </div>
       </div>
@@ -67,10 +74,37 @@
               </tr>
             </tbody>
           </table>
+
           <hr>
+
+          <h3><i class="fas fa-map-marked-alt"></i> Google Map</h3>
+          <div class="col iframe-container">
+              {!! $company->map_embed !!}
+          </div>
+
       </div>
     </div>
 
 
 @endsection
 
+
+<style>
+.iframe-container{
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
+}
+.iframe-container > *{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+</style>

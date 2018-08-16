@@ -1,13 +1,21 @@
-@extends('layouts.member_app')
+@section('active_menu')
+Edit
+@endsection
 
-@section('member_content')
+@extends(Auth::user()->hasRole(['member'])? 'layouts.member_app': 'layouts.admin_app')
+
+@section(Auth::user()->hasRole(['member']) ? 'member_content': 'admin_content')
 
   @include('adminlte-templates::common.errors')
 
-  {!! Form::model($memberProfile, ['route' => ['memberProfiles.update', $memberProfile->id], 'method' => 'patch']) !!}
+  <div class="card">
+    <div class="card-body">
+      {!! Form::model($memberProfile, ['route' => ['memberProfiles.update', $memberProfile->id], 'method' => 'patch','files' => true]) !!}
 
-      @include('member_profiles.fields')
+          @include('member_profiles.fields')
 
-  {!! Form::close() !!}
+      {!! Form::close() !!}
+    </div>
+  </div>  
 
 @endsection

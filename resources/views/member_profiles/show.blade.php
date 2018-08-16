@@ -1,5 +1,9 @@
 @extends('layouts.member_app')
 
+@section('active_menu')
+RESUME
+@endsection
+
 @section('member_content')
 
   <div class="card bg-pimary">
@@ -8,9 +12,9 @@
       @include('member_profiles.show_fields')
       <hr>
 
-      <a href="{!! route('member.home') !!}" class="btn btn-primary">Back</a>
       @auth
         @if(Auth::user()->authorizeRoles(['manager']))
+        <div class="col text-center">
           {!! Form::open(['route' => ['manager.save_resume', $memberProfile->id], 'method' => 'post']) !!}
               {!! Form::button(Auth::user()->have_resume->find($memberProfile->id) ? 'เก็บใบสมัครงานแล้ว' : 'เก็บใบสมัครงาน', [
                 'type' => 'submit', 
@@ -18,6 +22,7 @@
                 'disabled' => Auth::user()->have_resume->find($memberProfile->id) ? true : false ,
                 'onclick' => "return confirm('Are you sure?')"]) !!}
           {!! Form::close() !!}
+        </div>
         @endif
       @endauth
 
