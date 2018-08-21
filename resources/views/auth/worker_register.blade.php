@@ -18,13 +18,19 @@ Worker Register
 
   <div class="row">
       @include('layouts.menu')
-      <div class="col-8">
+      <div class="col-sm-10">
+        <div class="card">
+          <div class="card-body">
+
           {!! Form::open(['url' => '/register', 'method' => 'post']) !!}
 
             {{ Form::hidden('role', 'member') }}
             @include('auth.fields')
 
           {!! Form::close() !!}
+                      
+          </div>
+        </div>
       </div>
   </div>
 

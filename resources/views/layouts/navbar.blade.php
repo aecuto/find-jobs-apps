@@ -17,7 +17,7 @@
             <a class="nav-link" href="{!! route('appointments.index') !!}" id="appointments-index">นัดหมาย</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/manager">ตำแหน่งงานที่เพิ่มแล้ว</a>
+            <a class="nav-link" href="/manager" id="manager">ตำแหน่งงานที่เพิ่มแล้ว</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{!! route('jobPositions.create') !!}" id="jobPositions-create">เพิ่มตำแหน่งงานว่าง</a>

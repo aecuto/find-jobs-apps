@@ -181,7 +181,7 @@
                   @foreach($recent_company as $company)
                     <li class="list-group-item">
                       <div class="row">
-                        <div class="col-6"><a href="#">{{ $company->companyname }}</a></div>
+                        <div class="col-6"><a href="{!! route('companies.show', [$company->id]) !!}">{{ $company->companyname }}</a></div>
                         <div class="col-6 text-right">
                             <span class="badge badge-success"><i class="fas fa-map-marker-alt"></i> {{ $company->country ?: '-' }}</span>
                         </div>
