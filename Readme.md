@@ -1,3 +1,7 @@
+# Demo
+
+
+
 # ผู้ใช้ทั่วไป 
 
 ### COMPLETED 
@@ -55,6 +59,4 @@
 * สามารถแก้ไขรายละเอียดเกี่ยวกับข้อมูลทาง SEO ได้ เช่น title, description และ keyword ได้ 
 
 
-## Database
-http://103.86.48.150/phpmyadmin/
 
