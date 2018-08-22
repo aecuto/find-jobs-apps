@@ -12,6 +12,7 @@
           <li><a class="text-muted" href="/search_worker" id="search_worker">ค้นหาคนทำงาน</a></li>
           <li><a class="text-muted" href="/governmentJobs" id="governmentJobs">ตำแหน่งงานราชการ รัฐวิสาหกิจ</a></li>
           <li><a class="text-muted" href="/announcements" id="announcements">ข่าวประกาศ</a></li>
+          <li><a class="text-muted" href="/forum" >เว็บบอร์ด</a></li>
         </ul>
       </div>
       <div class="col-6 col-md">

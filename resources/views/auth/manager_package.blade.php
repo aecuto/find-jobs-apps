@@ -18,7 +18,7 @@ Select Package
 
   <div class="row">
       @include('layouts.menu')
-      <div class="col-8">
+      <div class="col-sm-10">
         <div class="row">
 
           @foreach($packages as $package)

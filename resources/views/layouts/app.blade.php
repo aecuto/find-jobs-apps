@@ -19,6 +19,8 @@
 
     @yield('title')
 
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.jobnorththailand.com/images/company/logo/zNJMg25202.jpg" />
+
   </head>
 
 

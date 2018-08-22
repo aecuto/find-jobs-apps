@@ -3,7 +3,10 @@ Contact Us
 @endsection
 
 @extends(Auth::user() ? 'layouts.'.Auth::user()->roles->first()->name.'_app' : 'layouts.guest_app')
-@section(Auth::user() ? Auth::user()->roles->first()->name.'_content' : 'guest_content')
+@section(Auth::user() ? Auth::user()->roles->first()->name.'_content' : 'guest_content').
+<div class="card">
+  <div class="card-body">
+
     <section class="content-header">
         <h1>
             ฟอร์มการติดต่อ ออนไลน์
@@ -19,4 +22,8 @@ Contact Us
         {!! Form::close() !!}
 
     </div>
+
+  </div>
+</div>
+
 @endsection
