@@ -29,17 +29,18 @@ class SearchController extends Controller
       $current_date = date("Y/m/d");
 
       if($request->job != ''){
-        $jobs = JobPosition::search_option($request)->orderBy('created_at', 'DESC');
+        $jobs = JobPosition::search_option($request)->orderBy('created_at', 'DESC')
+        ->where('start_date', '<=', $current_date)
+        ->where('end_date', '>=', $current_date)
+        ->get();
       }else{
-        $jobs = JobPosition::orderBy('created_at', 'DESC');
+        $jobs = JobPosition::orderBy('created_at', 'DESC')
+        ->where('start_date', '<=', $current_date)
+        ->where('end_date', '>=', $current_date)
+        ->get();
       }
 
-      $res = $jobs
-      ->where('start_date', '<=', $current_date)
-      ->where('end_date', '>=', $current_date)
-      ->get();
-
-      return view('search.search_job')->with('jobResult', $res);
+      return view('search.search_job')->with('jobResult', $jobs);
 
     }
 
