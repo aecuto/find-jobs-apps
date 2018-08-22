@@ -52,6 +52,13 @@ class DatabaseSeeder extends Seeder
         ]);
       }
 
+      DB::table('advertisings')->insert([
+        'name' => "พื้นที่โฆษณา 1",
+        'show_name' => true,
+        'details' => "ขนาด: ปรับอัตโนมัติ \nราคา 10,000 บาท/เดือน",
+        'image_address' => "http://blog.fitzcarraldoeditions.com/wp-content/uploads/2015/07/grey.jpg"
+      ]);
+
     
   }
 }

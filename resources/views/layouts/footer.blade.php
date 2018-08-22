@@ -28,6 +28,7 @@
           <li><a class="text-muted" href="/manager_package">อัตราค่าสมาชิก</a></li>
           <li><a class="text-muted" href="/paymentNotifications/create">แจ้งการชำระเงิน</a></li>
           <li><a class="text-muted" href="/contactuses/create">ติดต่อเว็บไซต์</a></li>
+          <li><a class="text-muted" href="/advertisings">พื้นที่โฆษณา</a></li>
         </ul>
       </div>
     </div>

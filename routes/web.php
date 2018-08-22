@@ -74,3 +74,5 @@ Route::resource('images', 'ImageController');
 Route::resource('appointments', 'AppointmentController');
 Route::get('/show_registered', 'AppointmentController@show_registered')->name('appointments.show_registered');
 Route::get('/appointment_confirm/{id}', 'AppointmentController@appointment_confirm')->name('appointments.appointment_confirm');
+
+Route::resource('advertisings', 'AdvertisingController');

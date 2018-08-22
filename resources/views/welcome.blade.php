@@ -2,7 +2,7 @@
 
 @section('title')
 <title>Home</title>
-<link href="{{ asset('css/welcome.css', true) }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('css/welcome.css', null) }}" rel="stylesheet" type="text/css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
 @endsection
 
@@ -303,6 +303,18 @@
               <a type="submit" role="button" class="btn btn-lg btn-primary" href="/register">สมัครสมาชิก!</a>
             </div>
           </div>
+      </div>
+    </section>
+
+    <section class="showcase text-center">
+      <div class="card">
+        <div class="card-body">
+            @if(isSet($ad1))
+              {{ $ad1->name }}
+            @endif
+
+            <img src="http://blog.fitzcarraldoeditions.com/wp-content/uploads/2015/07/grey.jpg" height="100px" width="100%">
+        </div>
       </div>
     </section>
 

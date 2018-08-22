@@ -8,6 +8,7 @@ use App\Models\company;
 use App\Models\JobPosition;
 use App\Models\government_jobs;
 use App\Models\announcements;
+use App\Models\advertising;
 
 class WelcomeController extends Controller
 {
@@ -31,12 +32,15 @@ class WelcomeController extends Controller
       $recent_company = company::orderBy("created_at",'DESC')->limit(10)->get();
       $recent_government_jobs = government_jobs::where('status',1)->orderBy('created_at','DESC')->limit(10)->get();
       $recent_announcements = announcements::where('status',1)->orderBy('created_at','DESC')->limit(10)->get();
+      $ad1 = advertising::where("id",1)->first();
 
       return view('welcome')
       ->with('recent_announcements',$recent_announcements)
       ->with('recent_government_jobs',$recent_government_jobs)
       ->with('recent_job',$recent_job)
-      ->with('recent_company',$recent_company);
+      ->with('recent_company',$recent_company)
+      ->with('ad1',$ad1);
+
 
     }
 
