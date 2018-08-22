@@ -14,7 +14,7 @@ class JobPositions extends Seeder
     {
       $faker = Faker\Factory::create();
       $job_type = array("คอมพิวเตอร์", "บัญชี/การเงิน", "จัดซื้อ/คลังสินค้า/logistic");
-    	foreach (range(1,30) as $index) {
+    	foreach (range(1,11) as $index) {
         $job = new JobPosition();
         $job->jobname =  $faker->jobTitle;
         $job->job =  $job_type[$index%3];
