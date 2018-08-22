@@ -56,7 +56,7 @@ SEARCH JOBS
 
           </h5></td>
           <td><h5><i class="far fa-building"></i> {!! $job->company->companyname?: '-' !!}</h5></td>
-          <td><h6>จังหวัด: {!! $job->country?: '-' !!} เงินเดือน: {!! $job->salary?: '-' !!}</h6></td>
+          <td><h6><strong>จังหวัด:</strong> {!! $job->country?: '-' !!} <strong>เงินเดือน:</strong> {!! $job->salary?: '-' !!}</h6></td>
           <td>
             <h6><i class="fas fa-clock"></i> {!! date('d-m-Y', strtotime($job->start_date))?: '-' !!} - {!! date('d-m-Y', strtotime($job->end_date))?: '-' !!}</h6> 
           </td>  

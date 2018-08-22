@@ -38,39 +38,39 @@ COMPANY DETAILS
             <tbody>
               <tr>
                 <td><strong>ประเภทธุรกิจ</strong></td>
-                <td>{{ $company->companytype }}</td>
+                <td>{{ $company->companytype ?: "-" }}</td>
               </tr>
               <tr>
                 <td><strong>ปีที่ก่อตั้ง</strong></td>
-                <td>{{ $company->start_year }}</td>
+                <td>{{ $company->start_year ?: "-" }}</td>
               </tr>
               <tr>
                 <td><strong>จำนวนพนักงาน</strong></td>
-                <td>{{ $company->worker_count }}</td>
+                <td>{{ $company->worker_count ?: "-" }}</td>
               </tr>
               <tr>
                 <td><strong>ลักษณะธุรกิจ</strong></td>
-                <td>{{ $company->details }}</td>
+                <td>{{ $company->details ?: "-" }}</td>
               </tr>
               <tr>
                 <td><strong>ที่อยู่</strong></td>
-                <td>{{ $company->address }}</td>
+                <td>{{ $company->address ?: "-" }}</td>
               </tr>
               <tr>
                 <td><strong>อีเมล์</strong></td>
-                <td>{{ $company->email }}</td>
+                <td>{{ $company->email ?: "-" }}</td>
               </tr>
               <tr>
                 <td><strong>เบอร์โทรศัพท์</strong></td>
-                <td>{{ $company->phone }}</td>
+                <td>{{ $company->phone ?: "-" }}</td>
               </tr>
               <tr>
                 <td><strong>ติดต่อคุณ</strong></td>
-                <td>{{ $company->fullname_contact }}</td>
+                <td>{{ $company->fullname_contact ?: "-" }}</td>
               </tr>
               <tr>
                 <td><strong>ตำแหน่ง</strong></td>
-                <td>{{ $company->position_contact }}</td>
+                <td>{{ $company->position_contact ?: "-" }}</td>
               </tr>
             </tbody>
           </table>
@@ -78,9 +78,15 @@ COMPANY DETAILS
           <hr>
 
           <h3><i class="fas fa-map-marked-alt"></i> Google Map</h3>
-          <div class="col iframe-container">
+          @if(isSet($company->map_embed ))
+            <div class="col iframe-container">
               {!! $company->map_embed !!}
-          </div>
+            </div>
+          @else
+            <div class="col">
+              <p>ไม่มี Google Map</p>
+            </div>
+          @endif
 
       </div>
     </div>
