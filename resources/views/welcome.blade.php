@@ -2,7 +2,7 @@
 
 @section('title')
 <title>Home</title>
-<link href="{{ asset('css/welcome.css', true) }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('css/welcome.css', null) }}" rel="stylesheet" type="text/css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
 @endsection
 
