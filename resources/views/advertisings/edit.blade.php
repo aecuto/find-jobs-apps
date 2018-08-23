@@ -5,18 +5,12 @@
             Advertising
         </h1>
    </section>
-   <div class="content">
-       @include('adminlte-templates::common.errors')
-       <div class="box box-primary">
-           <div class="box-body">
-               <div class="row">
-                   {!! Form::model($advertising, ['route' => ['advertisings.update', $advertising->id], 'method' => 'patch']) !!}
+  @include('adminlte-templates::common.errors')
+  <div class="row">
+      {!! Form::model($advertising, ['route' => ['advertisings.update', $advertising->id], 'method' => 'patch']) !!}
 
-                        @include('advertisings.fields')
+          @include('advertisings.fields')
 
-                   {!! Form::close() !!}
-               </div>
-           </div>
-       </div>
-   </div>
+      {!! Form::close() !!}
+  </div>
 @endsection

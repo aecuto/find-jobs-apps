@@ -6,7 +6,7 @@
 
 <!-- Show Name Field -->
 <div class="form-group  col-sm">
-    {!! Form::label('show_name', 'Show Name:') !!}
+    {!! Form::label('show_name', 'Show Title:') !!}
     <label class="radio-inline">
         {!! Form::radio('show_name', true, null) !!} Show
     </label>
@@ -15,6 +15,12 @@
         {!! Form::radio('show_name', false, null) !!} Hide
     </label>
 
+</div>
+
+<!-- Details Field -->
+<div class="form-group col-sm">
+    {!! Form::label('image_address', 'Image URL:') !!}
+    {!! Form::textarea('image_address', null, ['class' => 'form-control', 'rows' => '2']) !!}
 </div>
 
 <!-- Details Field -->
