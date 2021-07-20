@@ -1,5 +1,3 @@
-# Demo
-https://job-scode.herokuapp.com/
 
 
 # ผู้ใช้ทั่วไป 
